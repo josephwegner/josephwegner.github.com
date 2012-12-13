@@ -19,17 +19,18 @@
 	});
 
 function parseRepos(data) {
-	a = data;
-	for(var i=0,max=data.data.length; i<max && i<10; i++) {
-		var repo = data.data[i];
+	$(document).ready(function() {
+		for(var i=0,max=data.data.length; i<max && i<10; i++) {
+			var repo = data.data[i];
 
-		var repoLi = $("<li>");
-		var repoA = $("<a>").attr('href', repo.html_url).text(repo.full_name);
+			var repoLi = $("<li>");
+			var repoA = $("<a>").attr('href', repo.html_url).text(repo.full_name);
 
-		$(repoLi).append(repoA);
+			$(repoLi).append(repoA);
 
-		$("ul#repos").append(repoLi);
-	}
+			$("ul#repos").append(repoLi);
+		}
+	});
 
 }
 </script>
