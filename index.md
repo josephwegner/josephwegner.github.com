@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Tester
+title: Joe Wegner's Github
 header: josephwegner.github.com
 subheader: Joe's Github Page
 ---
