@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="/javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Tester</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>josephwegner.github.com</h1>
+          <h2>Joe's Github Page</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/josephwegner" id="view-on-github" class="button"><span>View Joe on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+	       
+         <h2>Awesome Repositories</h2>
+         <ul id="repoNav">
+            
+            <li goto="#node-session">node-session</li>
+            
+            <li goto="#node-multipost">node-multipost</li>
+            
+            <li goto="#fileDrop">fileDrop</li>
+            
+            <li goto="#node-ass">node-ass</li>
+            
+         </ul>
+         
+         <h3 id="node-session"><a href="https://github.com/josephwegner/node-session">node-session</a></h3>
+         <p>I&#8217;m a pretty big believer that less is more when it comes to web servers - that&#8217;s why I started using Node.js in the first place! So, while there&#8217;s plenty of great Node.js web servers out there, I would (almost) always recommend starting from scratch, and adding features as you need them. That&#8217;s why I built node-session - it&#8217;s a great tool for the barebones Node.js web server, which will allow you to store user sessions. And the code is simple, to boot!</p>
+
+<pre><code>var session = require(&#39;./node-session.js&#39;);
+
+//Start your http server however you like. Imagine the code below is inside of your server loop
+
+var yourSession = session.start(response, request); //response and request are the res/req variables passed from http.createServer()
+
+yourSession.testValue = &quot;A session variable&quot; //Create a session variable called testValue</code></pre>
+
+<p>That&#8217;s it! And at just 3KB for the entire repository, node-session is the perfect no-bloat solution for your Node.js web server!</p>
+         <hr>
+         
+         <h3 id="node-multipost"><a href="https://github.com/josephwegner/Multipost">node-multipost</a></h3>
+         <p>Node-multipost is an easy-to-use Node.js interface for sending multipart/form requests. Multipart/form requests require a pretty wacky format, which is very hard to read and even harder to generate via code. Node-multipost takes all the difficulty out of multipart requests.</p>
+
+<pre><code>var multipost = require(&quot;multipost&quot;);
+
+var postFields = [
+        {
+            name: &quot;field1&quot;, //Required
+            value: &quot;thisisfield1&quot; //Required
+        },
+        {
+            name: &quot;field2&quot;,
+            value: &quot;thisisfield2&quot;
+        }
+    ];
+
+var req = new multipost(&quot;http://www.wegnerdesign.com/testFiles.php&quot;, postFields);
+
+req.post(function(res) {
+    console.log(res.data); 
+});</code></pre>
+         <hr>
+         
+         <h3 id="fileDrop"><a href="https://github.com/josephwegner/fileDrop">fileDrop</a></h3>
+         <p>Have you ever used FTP before? How&#8217;d you do it? Filezilla? Your browser? Some other crappy FTP client? Doesn&#8217;t matter - one way or another, I would bet money that the experience sucked. <strong>No one likes FTP.</strong></p>
+
+<p><img src='/images/repos/filedrop.png' alt='fileDrop' /></p>
+
+<p>fileDrop was built to ease the pain for businesses that require an easy method to move files back and forth. First and foremost, fileDrop&#8217;s interface <strong>just makes sense</strong>. On top of that we&#8217;ve got quick uploads and downloads, secure transfers, easy management, intelligent notifications, popup previews, and tons of configurations for all you overbearing sys admins. Don&#8217;t make your clients deal with your crappy FTP system - give fileDrop a try.</p>
+         <hr>
+         
+         <h3 id="node-ass"><a href="https://github.com/josephwegner/node-ass">node-ass</a></h3>
+         <p><em>Advanced Style Sheets for Node.js.</em></p>
+
+<p>LESS and SASS have been all the craze recently in web design, but the problem is that they&#8217;re fat. Sure, relatively, they&#8217;re not that bad - but certainly they slow down your load times. Node-ass is a solution for node.js based web servers that allows the server to do the parsing of the advanced style sheets, rather than the user. At just 3KB for the entire git repo, node-ass is perfect for your node.js project! Check out the super simple syntax below.</p>
+
+<pre><code>/* These are your CSS rules */
+
+rule all-box-shadow {
+	-moz-box-shadow: %1 %2 %3 %4;
+	-webkit-box-shadow: %1 %2 %3 %3;
+	box-shadow: %1 %2 %3 %4;
+}
+
+/*  And then your regular CSS layout */
+
+#shadowed_box {
+	all-box-shadow: 5px 5px 5px #eee;
+}</code></pre>
+         <hr>
+         
+       </section>
+
+        <footer>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="http://twitter.com/jasonlong">Jason Long</a> and customized by Me.
+        </footer>
+
+      
+         <div class="clearfix"></div>
+      </div>
+      <div class="sidebar">
+        <div class="well">
+         <script type="text/javascript">
+	$(document).ready(function() {
+		var eventsAPI = "https://api.github.com/users/josephwegner/repos?sort=updated";
+
+		if(window.location.host !== "josephwegner.github.com") {
+			eventsAPI = "http://localhost:4000/testData/repos.json";
+		}
+
+		$.ajax({
+			type: "GET",
+			url: eventsAPI,
+			contentType: "application/json",
+			success: function(msg) {
+				var data = JSON.parse(msg);
+
+				for(var i=0,max=data.length; i<max && i<10; i++) {
+					var repo = data[i];
+
+					var repoLi = $("<li>");
+					var repoA = $("<a>").attr('href', repo.html_url).text(repo.full_name);
+
+					$(repoLi).append(repoA);
+
+					$("ul#repos").append(repoLi);
+				}
+
+			}
+		})
+	});
+</script>
+<div id="repoList">
+	<h3 class='header'>Recent Repos</h3>
+	<ul id="repos">
+
+	</ul>
+	<a class="viewmore" href="https://github.com/josephwegner">View All</a>
+</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

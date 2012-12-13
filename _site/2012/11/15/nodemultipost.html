@@ -1,0 +1,20 @@
+<p>Node-multipost is an easy-to-use Node.js interface for sending multipart/form requests. Multipart/form requests require a pretty wacky format, which is very hard to read and even harder to generate via code. Node-multipost takes all the difficulty out of multipart requests.</p>
+
+<pre><code>var multipost = require(&quot;multipost&quot;);
+
+var postFields = [
+        {
+            name: &quot;field1&quot;, //Required
+            value: &quot;thisisfield1&quot; //Required
+        },
+        {
+            name: &quot;field2&quot;,
+            value: &quot;thisisfield2&quot;
+        }
+    ];
+
+var req = new multipost(&quot;http://www.wegnerdesign.com/testFiles.php&quot;, postFields);
+
+req.post(function(res) {
+    console.log(res.data); 
+});</code></pre>

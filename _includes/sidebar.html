@@ -1,0 +1,37 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+		var eventsAPI = "https://api.github.com/users/josephwegner/repos?sort=updated";
+
+		if(window.location.host !== "josephwegner.github.com") {
+			eventsAPI = "http://localhost:4000/testData/repos.json";
+		}
+
+		$.ajax({
+			type: "GET",
+			url: eventsAPI,
+			contentType: "application/json",
+			success: function(msg) {
+				var data = JSON.parse(msg);
+
+				for(var i=0,max=data.length; i<max && i<10; i++) {
+					var repo = data[i];
+
+					var repoLi = $("<li>");
+					var repoA = $("<a>").attr('href', repo.html_url).text(repo.full_name);
+
+					$(repoLi).append(repoA);
+
+					$("ul#repos").append(repoLi);
+				}
+
+			}
+		})
+	});
+</script>
+<div id="repoList">
+	<h3 class='header'>Recent Repos</h3>
+	<ul id="repos">
+
+	</ul>
+	<a class="viewmore" href="https://github.com/josephwegner">View All</a>
+</div>
