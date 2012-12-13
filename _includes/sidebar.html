@@ -8,7 +8,7 @@
 				url: eventsAPI,
 				contentType: "application/json",
 				success: function(msg) {
-					var data = JSON.parse(msg);
+					var data = {data: JSON.parse(msg)};
 
 					parseRepos(data);
 
@@ -20,8 +20,8 @@
 
 function parseRepos(data) {
 
-	for(var i=0,max=data.length; i<max && i<10; i++) {
-		var repo = data[i];
+	for(var i=0,max=data.data.length; i<max && i<10; i++) {
+		var repo = data.data[i];
 
 		var repoLi = $("<li>");
 		var repoA = $("<a>").attr('href', repo.html_url).text(repo.full_name);
