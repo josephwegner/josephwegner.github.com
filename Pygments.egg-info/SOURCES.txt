@@ -1,0 +1,6 @@
+Pygments.egg-info/PKG-INFO
+Pygments.egg-info/SOURCES.txt
+Pygments.egg-info/dependency_links.txt
+Pygments.egg-info/entry_points.txt
+Pygments.egg-info/not-zip-safe
+Pygments.egg-info/top_level.txt
