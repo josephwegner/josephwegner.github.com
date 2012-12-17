@@ -99,8 +99,9 @@ header h2 {
   max-width: 100%;
 }
 
-#downloads {
+#external {
   margin-bottom: 40px;
+  display: inline;
 }
 
 a.button {
@@ -163,7 +164,13 @@ a.button span {
   background: transparent url(../images/octocat-icon.png) 12px 50% no-repeat;
 }
 #view-on-github {
-  margin-right: 0;
+  margin-right: 15px;
+}
+#check-out-blog span {
+  background: transparent url(../images/b_index.png) 12px 50% no-repeat;
+}
+#check-out-blog {
+  margin-right: ;
 }
 
 code {
@@ -346,7 +353,7 @@ footer a:hover {
     padding-top: 10px;
     padding-bottom: 10px;
   }
-  #downloads {
+  #external {
     margin-bottom: 25px;
   }
   #download-zip, #download-tar-gz {
@@ -437,4 +444,27 @@ ul#repoNav li {
   color: #222;
   font-size: 14px;
   overflow: scroll;
+}
+
+.social {
+  height: 32px;
+  width: 32px;
+  display: inline-block;
+  margin: 15px 5px 0 5px;
+}
+
+.social.twitter {
+  background-image: url("../images/social/twitter-variation.png");
+}
+
+.social.google {
+  background-image: url("../images/social/gplus-variation2.png");
+}
+
+.social.tumblr {
+  background-image: url("../images/social/tumblr-variation.png");
+}
+
+.social.linkedin {
+  background-image: url("../images/social/linkedin-variation.png");
 }

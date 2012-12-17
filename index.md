@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Joe Wegner's Github
-header: josephwegner.github.com
-subheader: Joe's Github Page
+title: WegnerDesign
+header: Welcome to WegnerDesign
+subheader: by Joe Wegner
 ---
