@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WegnerDesign</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/blog.css" />
+	<link rel="stylesheet" type="text/css" href="/fonts/stylesheet.css" />
+  	<link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" />
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-19623283-1']);
+	  _gaq.push(['_setDomainName', 'wegnerdesign.com']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+</script>
+<meta property="og:type" content="website" />
+<meta property="og:title" content="WegnerDesign Blog Index" />
+<meta property="og:image" content="/images/logo_black.png" />
+<meta property="og:url" content="http://www.wegnerdesign.com/blog" />
+<meta property="og:description" content="The index for the Wegner Design Blog" />
+<meta property="og:site_name" content="WegnerDesign" />
+</head>
+<body>
+	<div id="metaColumn">
+		<div id="logo">
+			<img src="/images/logo.png" />
+		</div>
+		<div id="footercontrols">
+			<div id="rss"><a href="/feed"><img src="/images/rss.png" /></a></div></div>
+		</div>
+	</div>
+	<div id="listWrap">
+		<ul id="list">
+			{% for post in site.posts %}
+			<li><a href="{{ post.url }}"><span class="title">{{ post.title }}</span><span class="date">{{ post.title }}</span></a></li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div id="footer"></div>
+</body>
+</html>

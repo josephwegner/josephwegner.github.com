@@ -1,0 +1,164 @@
+html, body {
+	width: 100%;
+	margin: 0;
+	font-family: "PTSansRegular";
+}
+
+h2 {
+	font-family: "PTSansCaptionBold";
+}
+
+body > div {
+	display: inline-block;
+}
+
+span.date {
+	color: #9C9C9C;
+	font-size: 14px;
+}
+
+h2 span.date {
+	padding-left: 20px;
+}
+
+div#metaColumn {
+	width: 25%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+}
+
+#logo {
+	max-width: 248px;
+	width: 75%;
+	margin: auto;
+}
+
+#logo img {
+	width: 100%;
+}
+
+div#post, div#listWrap {
+	position: absolute;
+	left: 25%;
+	top: 0;
+	width: 74%;
+}
+
+div#post #body {
+	width: 75%;
+	font-size: 18px;
+	line-height: 1.5em;
+}
+
+div#post a {
+	color: #575757;
+	text-decoration: underline;
+}
+
+div#footercontrols {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 25%;
+}
+
+div#footercontrols > div {
+	height: 30px;
+	width: 30px;
+	display: inline-block;
+	background-color: black;
+	cursor: pointer;
+}
+
+div#footercontrols > div:hover {
+	background-color: #383838;
+}
+
+div#footercontrols  img {
+	position: relative;
+	left: 3px;
+	top: 3px;
+}
+
+div#footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 4px;
+	background-color: black
+}
+
+ul#list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul#list li {
+	font-family: "PTSansCaptionBold";
+	font-size: 18px;
+	border-left: 1px solid #BABABA;
+	border-bottom: 1px solid #BABABA;
+	cursor: pointer;
+}
+
+ul#list li a {
+	text-decoration: none;
+	display: block;
+	padding: 3% 0 3% 5%;
+	height: 100%;
+	width: 100%;
+}
+
+ul#list li a span.title {
+	color: black;
+}
+
+ul#list li a span {
+	display: block;
+}
+
+ul#list li:last-child {
+	border-bottom: none;
+}
+
+ul#list li:hover {
+	border-left: 5px solid black;
+	background-color: #F9F9F9;
+}
+
+ul#list li:hover span {
+	position: relative;
+	left: -4px;
+}
+
+
+.highlight {
+  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal;
+  color: #222;
+  font-size: 14px;
+  overflow: scroll;
+}
+
+
+
+code {
+  background-color: #f2f2f2;
+  border: solid 1px #ddd;
+  padding: 0 3px;
+}
+
+pre {
+  padding: 20px;
+  background: #606060;
+  color: #f2f2f2;
+  text-shadow: none;
+  overflow: auto;
+}
+pre code {
+  color: #f2f2f2;
+  background-color: #606060;
+  border: none;
+  padding: 0;
+}
