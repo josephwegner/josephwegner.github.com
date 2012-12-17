@@ -151,14 +151,14 @@ code {
 
 pre {
   padding: 20px;
-  background: #606060;
+  background: #303030;
   color: #f2f2f2;
   text-shadow: none;
   overflow: auto;
 }
 pre code {
   color: #f2f2f2;
-  background-color: #606060;
+  background-color: #303030;
   border: none;
   padding: 0;
 }
