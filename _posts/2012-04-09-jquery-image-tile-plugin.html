@@ -19,7 +19,7 @@ tags:
 - plugins
 - Websites
 ---
-As we've learned in the past, when I get bored I like to build fun little <a title="How To: Build a Tooltip Plugin in Jquery" href="http://wegnerdesign.com/blog/how-to-build-a-tooltip-plugin-in-jquery/">jQuery plugins</a>.  I don't know why I do this - I don't have any immediate need, but I suppose I just think it's fun and possibly useful to other people.  Anyways, I was in a similar situation today, and decided to build another image animation plugin.  It doesn't serve any true functionality, aside from being a pretty cool design that would look good on many websites.  Get an in-depth view on the details of how it works, and how you can extend it after the break.
+As we've learned in the past, when I get bored I like to build fun little <a title="How To: Build a Tooltip Plugin in Jquery" href="http://wegnerdesign.com/blog/how-to-build-a-tooltip-plugin-in-jquery/">jQuery plugins</a>.  I don't know why I do this - I don't have any immediate need, but I suppose I just think it's fun and possibly useful to other people.  Anyways, I was in a similar situation today, and decided to build another image animation plugin.  It doesn't serve any true functionality, aside from being a pretty cool design that would look good on many websites.  Get an in-depth view on the details of how it works, and how you can extend it after the break.
 
 &nbsp;
 
@@ -27,7 +27,7 @@ As we've learned in the past, when I get bored I like to build fun little <a tit
 
 <!--more-->
 <a href="http://wegnerdesign.com/wp-content/uploads/fadeTilesDemo.png"><img class="aligncenter size-full wp-image-256" title="Fade Tiles Demo" src="http://wegnerdesign.com/wp-content/uploads/fadeTilesDemo.png" alt="" width="500" height="287" /></a>
-At the very base usage, all you need is jQuery and an image.  The plugin is smart enough to figure out the size and position of the image you're working with, and it automatically defaults to make a 10x10 grid over your image.  To get it running at the very base level, your code should look like this.
+At the very base usage, all you need is jQuery and an image.  The plugin is smart enough to figure out the size and position of the image you're working with, and it automatically defaults to make a 10x10 grid over your image.  To get it running at the very base level, your code should look like this.
 
 &nbsp;
 <pre class="prettyprint code">&lt;html&gt;
@@ -44,15 +44,15 @@ At the very base usage, all you need is jQuery and an image.  The plugin is sma
     &lt;img src="image.jpg" id="image" /&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
-That will put a 10x10 grid of white tiles over your image, and randomly fade them in and out.  It's a pretty cool effect, and just the simple base like that should work in most cases.  However, I've built in some options so that you can override the defaults.  The options are:
+That will put a 10x10 grid of white tiles over your image, and randomly fade them in and out.  It's a pretty cool effect, and just the simple base like that should work in most cases.  However, I've built in some options so that you can override the defaults.  The options are:
 <ul>
-	<li>rows -&gt; Integer, the number of rows in the grid.  Defaults to 10</li>
-	<li>columns -&gt; Integer, the number of columns in the grid.  Defaults to 10</li>
-	<li>animateTime -&gt; Integer or String, the time for the fade effect to finish on each tile.  This accepts a millisecond value, or a jQuery timing string such as "slow".  Defaults to 800</li>
-	<li>newTilesTime -&gt; Integer, how often new tiles will be chosen to fade, in milliseconds.  Defaults to 400</li>
-	<li>tilesAtATime -&gt; Integer, the number of tiles to fade at the same time.  Defaults to 5</li>
-	<li>backgroundColor -&gt; String, the color of the tiles.  Accepts any valid CSS value, such as "white" or "#C1C1C1".  Defaults to "white"</li>
-	<li>className -&gt; String, the class name to give the &lt;div&gt; that will be created over the image.  Defaults to jquery_tile_div</li>
+	<li>rows -&gt; Integer, the number of rows in the grid.  Defaults to 10</li>
+	<li>columns -&gt; Integer, the number of columns in the grid.  Defaults to 10</li>
+	<li>animateTime -&gt; Integer or String, the time for the fade effect to finish on each tile.  This accepts a millisecond value, or a jQuery timing string such as "slow".  Defaults to 800</li>
+	<li>newTilesTime -&gt; Integer, how often new tiles will be chosen to fade, in milliseconds.  Defaults to 400</li>
+	<li>tilesAtATime -&gt; Integer, the number of tiles to fade at the same time.  Defaults to 5</li>
+	<li>backgroundColor -&gt; String, the color of the tiles.  Accepts any valid CSS value, such as "white" or "#C1C1C1".  Defaults to "white"</li>
+	<li>className -&gt; String, the class name to give the &lt;div&gt; that will be created over the image.  Defaults to jquery_tile_div</li>
 	<li>maxOpacity -&gt; Integer, the maximum opacity you want applied to any tile</li>
 </ul>
 And to load in those options, you simply modify your javascript to look like this:
@@ -68,7 +68,7 @@ And to load in those options, you simply modify your javascript to look like thi
     className: "dontOverrideTiles",
     maxOpacity: 0.4</pre>
 <pre class="prettyprint code">});</pre>
-And that's it!  The source is hosted <a title="Jquery Tile Image Github Page" href="https://github.com/josephwegner/jQuery-Image-Tile">on Github</a>, so feel free to grab it from there, make any changes, or simply look at it and find all the awful parts of my code.  If you have any issues or ideas, feel free to leave them in the comments or on the Github issue tracker.
+And that's it!  The source is hosted <a title="Jquery Tile Image Github Page" href="https://github.com/josephwegner/jQuery-Image-Tile">on Github</a>, so feel free to grab it from there, make any changes, or simply look at it and find all the awful parts of my code.  If you have any issues or ideas, feel free to leave them in the comments or on the Github issue tracker.
 
 &nbsp;
 
