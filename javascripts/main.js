@@ -1,4 +1,4 @@
-$(window).ready(function() {
+$(window).load(function() {
 
 	var parallaxWrap = $("<div>").addClass("parallax-wrap").css({
 		position: "absolute",
