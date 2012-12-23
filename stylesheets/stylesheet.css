@@ -194,4 +194,13 @@ div#loadOverlay {
   background-color: black;
   z-index: 1500;
   position: absolute;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 100px;
+}
+
+div#loadOverlay span {
+  display: none;
 }

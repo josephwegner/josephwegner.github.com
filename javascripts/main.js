@@ -13,7 +13,13 @@ $(document).ready(function() {
 		} else {
 			$(ele).addClass("a1");
 		}
+
+		if(!$("#loadOverlay span").is(":visible")) {
+			$("#loadOverlay span").fadeIn(1000);
+		}
+
 	}, 500)
+
 });
 
 $(window).load(function() {
@@ -21,7 +27,8 @@ $(window).load(function() {
 	clearInterval(loadInterval);
 	$("#scrollArrow").attr('class', '');
 	$("body").removeClass("loading");
-	$("#loadOverlay").fadeOut(2000);
+	$("#loadOverlay span").fadeOut(500);
+	$("#loadOverlay").stop(true).fadeOut(2000);
 
 	var parallaxSpeed = .4;
 
