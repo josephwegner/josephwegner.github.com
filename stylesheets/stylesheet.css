@@ -1,6 +1,12 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: andika, serif;
+  line-height: 1.4;
+}
+
+body.loading {
+  overflow: hidden;
 }
 
 div#content {
@@ -8,7 +14,7 @@ div#content {
 }
 
 div#content > div > * {
-  line-height: 1;
+  line-height: 1.4;
 }
 
 #content {
@@ -86,31 +92,106 @@ pre code {
   padding: 0;
 }
 
-.social {
+#social {
   padding: 3% 6% 3% 6%;
   background-color: black;
   text-align: center;
 }
 
-.social a {
+#social a {
   height: 32px;
   width: 32px;
   display: inline-block;
   margin: 15px 5px 0 5px;
 }
 
-.social .twitter {
+#social .twitter {
   background-image: url("../images/social/twitter-variation.png");
 }
 
-.social .google {
+#social .google {
   background-image: url("../images/social/gplus-variation2.png");
 }
 
-.social .tumblr {
+#social .tumblr {
   background-image: url("../images/social/tumblr-variation.png");
 }
 
-.social .linkedin {
+#social .linkedin {
   background-image: url("../images/social/linkedin-variation.png");
+}
+
+#scrollArrow {
+  position: absolute;
+  height: 64px;
+  width: 64px;
+  left: 50%;
+  margin-left: -32px;
+  bottom: 100px;
+  z-index: 2000;
+  background-image: url("../images/arrow.png");
+  cursor: pointer;
+  -webkit-transition: -webkit-transform .5s;
+}
+
+.a1 {
+  -webkit-transform: rotate(90deg);
+}
+
+.a2 {
+  -webkit-transform: rotate(180deg);
+}
+
+.a3 {
+  -webkit-transform: rotate(270deg);
+}
+
+#scrollArrow:hover {
+  background-image: url("../images/arrow_hover.png");
+}
+
+#hello {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  z-index: 1000;
+  color: white;
+  opacity: .8;
+}
+
+div#nav {
+  position: fixed;
+  left: 5%;
+  top: 35%;
+  z-index: 1000;
+  display: none;
+}
+
+div#nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+div#nav ul li a {
+  color: rgba(255, 255, 255, .3);
+  opacity: .8;
+  font-family: serif;
+  font-size: 25px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .1);
+  text-decoration: none;
+  -webkit-transition: color .5s;
+}
+
+div#nav ul li a:hover {
+  color: black;
+}
+
+div#loadOverlay {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  z-index: 1500;
+  position: absolute;
 }
