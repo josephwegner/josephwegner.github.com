@@ -206,7 +206,7 @@ div#nav ul li a:hover {
 div#loadOverlay {
   height: 100%;
   width: 100%;
-  background-color: black;
+  background-color: #1B1B1B;
   z-index: 1500;
   position: absolute;
   color: white;
