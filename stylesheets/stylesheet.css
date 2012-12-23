@@ -131,19 +131,31 @@ pre code {
   z-index: 2000;
   background-image: url("../images/arrow.png");
   cursor: pointer;
+  transition: transform .5s;
   -webkit-transition: -webkit-transform .5s;
+  -moz-transition: -moz-transform .5s;
+  -o-transition: -o-transform .5s;
 }
 
 .a1 {
+  transform: rotate(90deg);
   -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
 }
 
 .a2 {
+  transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
 }
 
 .a3 {
+  transform: rotate(270deg);
   -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
 }
 
 #scrollArrow:hover {
@@ -181,7 +193,10 @@ div#nav ul li a {
   font-weight: bold;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, .1);
   text-decoration: none;
+  transition: color .5s;
   -webkit-transition: color .5s;
+  -mox-transition: color .5s;
+  -o-transition: color .5s;
 }
 
 div#nav ul li a:hover {
