@@ -1,34 +1,6 @@
-var loadInterval;
 
-$(document).ready(function() {
-	loadInterval = setInterval(function() {
-		var ele = $("#scrollArrow");
-
-		if($(ele).hasClass("a3")) {
-			$(ele).removeClass("a3");
-		} else if($(ele).hasClass("a2")) {
-			$(ele).removeClass("a2").addClass("a3");
-		} else if($(ele).hasClass("a1")) {
-			$(ele).removeClass("a1").addClass("a2");
-		} else {
-			$(ele).addClass("a1");
-		}
-
-		if(!$("#loadOverlay span").is(":visible")) {
-			$("#loadOverlay span").fadeIn(1000);
-		}
-
-	}, 500)
-
-});
 
 $(window).load(function() {
-
-	clearInterval(loadInterval);
-	$("#scrollArrow").attr('class', '');
-	$("body").removeClass("loading");
-	$("#loadOverlay span").fadeOut(500);
-	$("#loadOverlay").stop(true).fadeOut(2000);
 
 	var parallaxSpeed = .4;
 
