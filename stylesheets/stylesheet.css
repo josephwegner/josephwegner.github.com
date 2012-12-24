@@ -169,13 +169,8 @@ pre code {
 
 div#nav {
   position: fixed;
-  /*left: 5%;
+  left: 5%;
   top: 35%;
-  */
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
   z-index: 1000;
   display: none;
 }
@@ -184,19 +179,13 @@ div#nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  padding: .5% 1% .5% 1%;
-}
-
-div#nav ul li {
-  display: inline-block;
-  width: 14%;
-  text-align: center;
 }
 
 div#nav ul li a {
-  color: rgba(255, 255, 255, 1);
+  color: rgba(255, 255, 255, .3);
   opacity: .8;
-  font-size: 20px;
+  font-family: serif;
+  font-size: 25px;
   font-weight: bold;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, .1);
   text-decoration: none;
@@ -207,6 +196,6 @@ div#nav ul li a {
 }
 
 div#nav ul li a:hover, div#nav ul li a.selected {
-  color: #A0A0A0;
+  color: black;
 }
 
