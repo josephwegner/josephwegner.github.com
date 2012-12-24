@@ -195,7 +195,7 @@ div#nav ul li a {
   -o-transition: color .5s;
 }
 
-div#nav ul li a:hover {
+div#nav ul li a:hover, div#nav ul li a.selected {
   color: black;
 }
 
