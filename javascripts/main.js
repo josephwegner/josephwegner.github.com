@@ -1,7 +1,6 @@
 
-
 $(window).load(function() {
-
+	console.log("hit");
 	var parallaxSpeed = .4;
 
 	var parallaxWrap = $("<div>").addClass("parallax-wrap").css({

@@ -5,10 +5,6 @@ body {
   line-height: 1.4;
 }
 
-body.loading {
-  overflow: hidden;
-}
-
 div#content {
   line-height: 0;
 }
