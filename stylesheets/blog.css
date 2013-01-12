@@ -51,6 +51,10 @@ div#post #body {
 	line-height: 1.5em;
 }
 
+div#body img {
+	width: 100%;
+}
+
 div#post a {
 	color: #575757;
 	text-decoration: underline;

@@ -34,7 +34,7 @@
     </div>
   </div>
   <div id="post">
-    <h2>{{ title }}<span class="date">{{ date }}</span></h2>
+    <h2>{{ page.title }}<span class="date">{{ page.date | date_to_long_string }}</span></h2>
     <div id="body">{{ content }}</div>
     <div id="disqus_thread" style="width: 75%; margin-top: 50px;"></div>
     <script type="text/javascript">
