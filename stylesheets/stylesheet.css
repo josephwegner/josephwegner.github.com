@@ -7,6 +7,9 @@ body {
 
 div#content {
   line-height: 0;
+  width: 100%;
+  margin: auto;
+  box-shadow: 0 0 5px #C5C5C5;
 }
 
 div#content > div > * {
@@ -17,6 +20,10 @@ div#content > div > * {
   position: relative;
 }
 
+#content img.stretch {
+  width: 100%;
+}
+
 .float {
   float: left;
 }
@@ -25,22 +32,33 @@ div#content > div > * {
   clear: both;
 }
 
-.parallax {
-  margin: 0;
-  padding: 0;
-  position: relative;
-  width: 100%;
-}
-
 .textcontent {
   background-color: white;
   padding: 3% 0 3% 0;
 }
 
-.textcontent .half {
+.code-module {
+  background-color: white;
+  padding: 3% 0 0 0;
+}
+
+.textcontent .half, .code-module .half {
   width: 44%;
   margin: auto;
   text-align: center;
+}
+
+.halfimage .mainImage, .halfimage .mainText {
+  width: 50%;
+  float: left;
+}
+
+.halfimage .mainText p, .code-module .mainText p {
+  padding: 10px;
+}
+
+.halfimage .mainText h2, .code-module .mainText h2 {
+  padding-left: 10px;
 }
 
 .textcontent pre, .textcontent code {
@@ -50,22 +68,6 @@ div#content > div > * {
 .padsides5 {
   padding-left: 5%;
   padding-right: 5%;
-}
-
-.parallax.halfimage {
-  background-color: white;
-}
-
-.parallax.halfimage img.mainImage{
-  width: 50%;
-  float: left;
-}
-
-.parallax.halfimage .mainText {
-  padding: 3%;
-  background-color: white;
-  width: 44%;
-  float: left;
 }
 
 code {
@@ -98,7 +100,7 @@ pre code {
   height: 32px;
   width: 32px;
   display: inline-block;
-  margin: 15px 5px 0 5px;
+  margin: 0 5px 0 5px;
 }
 
 #social .twitter {
@@ -167,35 +169,27 @@ pre code {
   opacity: .8;
 }
 
-div#nav {
-  position: fixed;
-  left: 5%;
-  top: 35%;
-  z-index: 1000;
-  display: none;
+/* Ace Overrides */
+
+.editor.ace_editor { 
+  position: relative;
+  height: 500px;
+  width: 100%;
+  box-shadow: inset 0 0 10px #9a9a9a;
+  -mox-box-shadow: inset 0 0 10px #9a9a9a;
+  -o-box-shadow: inset 0 0 10px #9a9a9a;
+  -webkit-box-shadow: inset 0 0 10px #9a9a9a;
+  padding: 10px 0 10px 0;
+  top: 20px;
+  margin-bottom: 20px;
 }
 
-div#nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.editor.ace_editor .ace_gutter {
+  padding-top: 10px;
+  position: absolute;
+  top: 0px;
 }
 
-div#nav ul li a {
-  color: rgba(255, 255, 255, .3);
-  opacity: .8;
-  font-family: serif;
-  font-size: 25px;
-  font-weight: bold;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, .1);
-  text-decoration: none;
-  transition: color .5s;
-  -webkit-transition: color .5s;
-  -mox-transition: color .5s;
-  -o-transition: color .5s;
+.editor.ace_editor .ace_gutter .ace_gutter_active_line {
+  margin-top: 10px;
 }
-
-div#nav ul li a:hover, div#nav ul li a.selected {
-  color: black;
-}
-

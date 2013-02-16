@@ -1,123 +1,57 @@
-var navItems = [];
+$(window).ready(function() {
+    var editors = {};
 
-$(window).load(function() {
+    var typeIn = [];
 
-	var parallaxSpeed = .4;
+    $(".editor").each(function() {
+    	var id = $(this).attr('id');
+    	var mode = $(this).attr('lang');
+    	var text = $(this).text();
 
-	var parallaxWrap = $("<div>").addClass("parallax-wrap").css({
-		position: "absolute",
-		top: 0,
-		left: 0,
-		width: "100%"
-	});
+    	editors[id] = ace.edit(id);
+    	editors[id].setTheme("ace/theme/chrome");
+    	editors[id].getSession().setMode("ace/mode/"+mode);
 
+    	var that = this;
+    	setTimeout(function() {
+    		$(that).height($(that).find(".ace_gutter-cell").last().position().top + 100);
+    		editors[id].setValue("");
+    	}, 10);
 
+    	typeIn.push({
+    		ele: $(this),
+    		text: text,
+    		editor: editors[id]
+    	});
 
-	$("#nav ul li a").each(function() {
-		var ele = $($(this).attr('href'));
+    });
 
-		if(ele) {
-			navItems.push({
-				ele: ele,
-				nav: this
-			});
-		}
-	})
+    $(window).scroll(function(e) {
+    	var bottom = $(window).scrollTop() + $(window).height();
 
-	selectedNav = 0
-	$(navItems[0].nav).addClass("selected");
-
-	if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-		$("body").append(parallaxWrap);
-
-		$(".parallax").each(function() {
-			var curTop = $(this).offset().top;
-
-			$(this).css({
-				top: curTop,
-				position: "absolute"
-			});
-
-			if($(this).attr('offset')) {
-
-				var offset = $(this).attr('offset');
-				if(offset.indexOf("%") > -1) {
-					var perc = parseFloat(offset);
-					offset = ($(document).height() * (perc / 100));
-				}
-
-				$(this).css('top', "+="+offset);
-			}
-
-			$(parallaxWrap).append(this);
-
-		});
-
-		$(window).scroll(function() {
-			var top = $(window).scrollTop() * parallaxSpeed;
-
-			$("#content").css('top', top);
-
-			if($("#nav").is(":visible") && $(window).scrollTop() <= 10) {
-				$("#nav").stop(true).fadeOut(500);
-			} else if(!$("#nav").is(":visible") && $(window).scrollTop() > 10) {
-				$("#nav").stop(true).fadeIn(500);
-			}
-
-			checkNavItems();
-
-		});
-	}
-	$("#nav a").click(function(e) {
-		e.preventDefault();
-
-		var target = $($(this).attr('href'));
-
-		var newTop
-
-		if($(target).hasClass("parallax")) {
-			newTop = $(target).offset().top
-		} else {
-			var cur = $(window).scrollTop();
-			var dest = $(target).offset().top;
-
-			var change = (dest - cur) * (1 - parallaxSpeed);
-
-			newTop = dest + change;
-		}
-
-		$('html, body').animate({
-			scrollTop: newTop
-		}, 2000, function() { checkNavItems(true); })
-	});
-
-	$("#scrollArrow").click(function() { $("#goAbout").click(); })
-
+    	for(var i=0,max=typeIn.length; i<max; i++) {
+    		if(bottom > $(typeIn[i].ele).offset().top + 100) {
+    			typeInEditor(typeIn.splice(i, 1)[0]);
+    			i--;
+    			max--;
+    		}
+    	}
+    });
 });
 
-var beforeScroll = 0;
-var selectedNav = 0;
+function typeInEditor(obj) {
+	var len = obj.text.length;
+	var time = 2000 / len;
+	time = time > 200 ? 200 : time;
+	console.log(time, len);
 
-function checkNavItems() {
-
-	var scroll = $(window).scrollTop();
-
-	var dir = scroll > beforeScroll ? "down" : "up";
-	beforeScroll = scroll;
-
-	if(dir === "down" && selectedNav < navItems.length - 1) {
-
-		if(scroll + 1>= $(navItems[selectedNav + 1].ele).offset().top) {
-			console.log("switch!");
-			selectedNav++;
-			$("#nav .selected").removeClass("selected");
-			$(navItems[selectedNav].nav).addClass("selected");
+	var type = setInterval(function() {
+		if(obj.text.length <= 0) {
+			clearInterval(type);
+		} else {
+			obj.editor.setValue(obj.editor.getValue()+obj.text.charAt(0));
+			obj.text = obj.text.substr(1);
+			obj.editor.gotoLine(0);
 		}
-	} else if(dir === "up" && selectedNav > 0) {
-		if(scroll - 1 <= $(navItems[selectedNav - 1].ele).offset().top) {
-			selectedNav--;
-			$("#nav .selected").removeClass("selected");
-			$(navItems[selectedNav].nav).addClass("selected");
-		}
-	}
+	}, time)
 }
