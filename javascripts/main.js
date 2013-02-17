@@ -46,6 +46,12 @@ $(window).ready(function() {
     	}
     });
 
+    $("#scrollArrow").click(function() {
+    	$("html, body").animate({
+    		scrollTop: $("#aboutme").offset().top
+    	}, 1000);
+    })
+
 });
 
 function typeInEditor(obj) {

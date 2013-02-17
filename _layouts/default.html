@@ -31,6 +31,11 @@
   </head>
 
   <body>
+    <div id="scrollArrow"></div>
+    <div id="hello">
+      <h1>Welcome to WegnerDesign</h1>
+      <h2>by Joe Wegner</h2>
+    </div>
     <div id="content">
       <img src="/images/hands.jpg" class="stretch" />
       <div class="textcontent" id="aboutme" offset="2%">
@@ -44,13 +49,9 @@
         <div class="clear"></div>
       </div>
       <div id="blogContent">
+        <h2><a href="/blog">Blog</a></h2>
         <ul>
-          <!--<li class="green">An Experiment In Mobile Controllers</li>
-          <li class="blue">Angular.js Directive Tutorial: On-Attribute Bootstrap Confirm Button</li>
-          <li class="red">Hello, World!  The Start of a Startup</li>
-          <li class="orange">Turntable Auto Updating Emoji List</li>
-          <li class="purple">Programming For The Everyman</li>-->
-          {% for post in site.posts %}
+          {% for post in site.posts limit:5 %}
             <li class="blogpost"><a href="{{ post.url }}">{{ post.title }}</a></li>
           {% endfor %}
           <li class="clear" style="float: none; height: 0; width: 0; padding: 0;"></li>
@@ -99,9 +100,9 @@ req.post(function(res) {
       </div>
       <img src="/images/dg.jpg"  class="stretch" />
       <div class="halfimage" id="filedrop" offset="38%">
-        <img src="/images/repos/filedrop.png" class="mainImage" />
         <div class="mainText">
           <h2>fileDrop</h2>
+          <img src="/images/repos/filedrop.png" class="mainImage" />
           <p>Have you ever used FTP before? How'd you do it? Filezilla? Your browser? Some other crappy FTP client? Doesn't matter - one way or another, I would bet money that the experience sucked. **No one likes FTP.**</p>
           <p>fileDrop was built to ease the pain for businesses that require an easy method to move files back and forth. First and foremost, fileDrop's interface **just makes sense**. On top of that we've got quick uploads and downloads, secure transfers, easy management, intelligent notifications, popup previews, and tons of configurations for all you overbearing sys admins. Don't make your clients deal with your crappy FTP system - give fileDrop a try.</p>
         </div>

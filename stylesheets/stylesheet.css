@@ -54,24 +54,27 @@ div#content > div > * {
   background-image: url("../images/dots.png");
   box-shadow: inset 0 0 10px black;
   position: relative;
+  text-align: center;
 }
 
 .halfimage .mainImage {
   width: 50%;
-  float: left;
   box-shadow: 0 0 10px black;
 }
 
 
  .halfimage .mainText {
-  width: 50%;
   background-color: white;
-  position: absolute;
-  left: 50%;
-  right: 0;
-  top: 51px;
-  bottom: 51px;
   box-shadow: 0 0 10px black;
+}
+
+.halfimage .mainText h2 {
+  margin-top: 0;
+}
+
+.halfimage .mainText p {
+  width: 50%;
+  margin: auto;
 }
 
 .halfimage .mainText p, .code-module .mainText p {
@@ -198,6 +201,18 @@ pre code {
   box-shadow: inset 0 0 10px black;
 }
 
+#blogContent h2 {
+  text-align: center;
+  margin: 0;
+  padding: 20px 0 20px 0;
+  font-size: 30px;
+}
+
+#blogContent h2 a {
+  text-decoration: none;
+  color: black;
+}
+
 #blogContent ul {
   list-style-type: none;
   margin: 0;
@@ -207,7 +222,7 @@ pre code {
 }
 
 #blogContent ul li {
-  float: left;
+  display: inline-block;
   height: 90px;
   width: 150px;
   background-color: grey;
@@ -221,6 +236,7 @@ pre code {
   -moz-transition: background-color .5s;
   -o-transition: background-color .5s;
   box-shadow:  0 0 5px black;
+  vertical-align: top;
 }
 
 #blogContent ul li a {
