@@ -1,4 +1,12 @@
 $(window).ready(function() {
+
+	var colors = ["blue", "red", "green", "orange", "purple"]
+
+    $(".blogpost").each(function() {
+    	var color = colors[Math.floor(Math.random() * colors.length)];
+    	$(this).addClass(color);
+    });
+    
     var editors = {};
 
     var typeIn = [];
@@ -37,6 +45,7 @@ $(window).ready(function() {
     		}
     	}
     });
+
 });
 
 function typeInEditor(obj) {

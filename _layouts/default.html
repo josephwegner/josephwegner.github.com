@@ -6,7 +6,7 @@
     <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="javascripts/jquery.min.js"></script>
     <script src="javascripts/main.js"></script>
     <script src="http://use.edgefonts.net/andika.js"></script>
     <script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
@@ -45,11 +45,15 @@
       </div>
       <div id="blogContent">
         <ul>
-          <li>An Experiment In Mobile Controllers</li>
-          <li>Angular.js Directive Tutorial: On-Attribute Bootstrap Confirm Button</li>
-          <li>Hello, World!  The Start of a Startup</li>
-          <li>Turntable Auto Updating Emoji List</li>
-          <li>Programming For The Everyman</li>
+          <!--<li class="green">An Experiment In Mobile Controllers</li>
+          <li class="blue">Angular.js Directive Tutorial: On-Attribute Bootstrap Confirm Button</li>
+          <li class="red">Hello, World!  The Start of a Startup</li>
+          <li class="orange">Turntable Auto Updating Emoji List</li>
+          <li class="purple">Programming For The Everyman</li>-->
+          {% for post in site.posts %}
+            <li class="blogpost"><a href="{{ post.url }}">{{ post.title }}</a></li>
+          {% endfor %}
+          <li class="clear" style="float: none; height: 0; width: 0; padding: 0;"></li>
         </ul>
       </div>
       <img src="/images/node.jpg" class="stretch" />
