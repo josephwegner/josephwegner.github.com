@@ -166,3 +166,37 @@ pre code {
   border: none;
   padding: 0;
 }
+
+#socialColumn {
+	position: fixed;
+	left: 82%;
+	top: 60px;
+	z-index: 10;
+}
+
+#socialColumn a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.tweet {
+	display: block;
+	height: 48px;
+	width: 48px;
+	background-image: url("../images/twitter.png");
+	background-size: 48px 48px;
+	cursor: pointer;
+	-webkit-transition: background-size .2s, height .2s, width .2s, top .2s, left .2s;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+.tweet:hover {
+	background-size: 60px 60px;
+	height: 60px;
+	width: 60px;
+	top: -6px;
+	left: -6px;
+}

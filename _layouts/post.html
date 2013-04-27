@@ -17,13 +17,26 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
   </script>
+  <script type="text/javascript">
+    function go() {
+      var tweetLink = document.getElementsByClassName("tweet")[0].getElementsByTagName("a")[0];
+
+      var url = encodeURIComponent("http://www.wegnerdesign.com{{ page.url }}");
+      var name = encodeURIComponent("{{ page.title }} via #WegnerDesign")
+
+      tweetLink.href = "https://twitter.com/intent/tweet?url="+url+"&text="+name;
+    }
+  </script>
   <meta property="og:type" content="article" />
   <meta property="og:title" content="{{ title }}" />
   <meta property="og:url" content="{{ url }}" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="WegnerDesign" />
 </head>
-<body>
+<body onload="go();">
+  <div id="socialColumn">
+    <div class='tweet'><a target="_blank" href="#"></a></div>
+  </div>
   <div id="metaColumn">
     <div id="logo">
       <img src="/images/logo.png" />
