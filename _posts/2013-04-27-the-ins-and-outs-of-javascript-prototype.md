@@ -1,12 +1,12 @@
 --- 
-published: false
+published: true
 title: "Ins and Outs of Javascript Prototype"
 type: post
 layout: post
 meta: 
   _edit_last: "1"
   dsq_thread_id: "insoutsjavascriptprototype"
-status: draft
+status: publish
 tags: []
 
 ---
