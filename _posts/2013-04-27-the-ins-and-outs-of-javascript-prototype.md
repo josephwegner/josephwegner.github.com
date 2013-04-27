@@ -44,7 +44,7 @@ Dog.prototype.speakName = function() {
 	alert("bark! " + name + "! bark!");
 }
 
-var Cody = new Dog("Cody");
+var cody = new Dog("Cody");
 cody.bark(); //alerts "bark!"
 cody.speakName(); //alerts "bark! Cody! bark!"
 {% endhighlight %}
@@ -68,7 +68,7 @@ cody.bark(); //alerts "bark!"
 };
 {% endhighlight %}
 
-You're right.  That would work just as well as the example above, but it's pretty short sighted.  The way the above works is that everytime you create a new Dog, it runs the constructor function and instantiates new functions on the desired keys.  Not only is this inefficient processing-wise and memory-wise, it severely limits your inheritance and abstraction abilities.
+You're right.  That would work just as well as the example above, but it's pretty short sighted.  The way the above works is that everytime you create a new Dog, it runs the constructor function and instantiates new functions on the desired keys.  Not only is this inefficient processing-wise and memory-wise, it also severely limits your inheritance and abstraction abilities.
 
 Consider a different example - let's say you are writing a game about working at a zoo - naturally you're going to have some `Animal` objects.  One of the most interesting things about going to the zoo is the noises each animal makes, so we defintely want to have a `speak` function on `Animal`.  Now, what noise does an animal make?  Certainly it should change depending on if it's a monkey or a polar bear.
 
@@ -122,19 +122,21 @@ If we had instead set all of the functions in the `Animal` constructor, we would
 
 ## Advanced - Object Interfaces
 
-The patterns above defintely get us within the bounds of saying that javascript is object oriented.  However, it's not yet quite as powerful as other more tradition OOP languages.  One of the things I really like about OOP programming is being able to manage abstractions via [Object Interfaces](http://www.cs.utah.edu/~germain/PPS/Topics/interfaces.html).  Object Interfaces let you define an abstract class that requires child classes to have certain functions.  In the above example, we might require that every Animal be able to move.  However, every animal moves/walks in a different way, so there isn't a generic way to do that on the parent class.
+The patterns above defintely get us within the bounds of saying that javascript is object oriented.  However, it's not yet quite as powerful as other more traditional OOP languages.  One of the things I really like about OOP programming is being able to manage abstractions via [Object Interfaces](http://www.cs.utah.edu/~germain/PPS/Topics/interfaces.html).  Object Interfaces let you define an abstract class that requires child classes to have certain functions.  In the above example, we might require that every Animal be able to move.  However, every animal moves/walks in a different way, so there isn't a generic way to do that on the parent class.
 
 I've been using a pattern recently to mock standard Object Interfacing.  Of course, the code isn't quite as clean as a language that supports interfacing out of the box, but it gets the job done.
 
 {% highlight javascript %}
 var Animal = function() {};
 
+//The child class will call super immediately upon construction
 Animal.prototype.super = function(name) {
 	this.name = name;
 
 	//Verify that necessary functions exists
 	var necessaryFunctions = ["move"]
 
+	//Loops through the necessary functions to see if they exist
 	for(var i=0,max=necessaryFunctions.length; i<max; i++) {
 		if(typeof(this[necessaryFunctions[i]]) !== "function") {
 			throw new Error("Animals must have a function called " + necessaryFunctions[i]);
