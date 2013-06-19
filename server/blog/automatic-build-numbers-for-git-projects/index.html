@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Automatic Build Numbers for Git Projects | WegnerDesign</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/blog.css" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" />
+  <link rel="stylesheet" type="text/css" href="/fonts/stylesheet.css" />
+  <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-19623283-1']);
+      _gaq.push(['_setDomainName', 'wegnerdesign.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+  </script>
+  <script type="text/javascript">
+    function go() {
+      var tweetLink = document.getElementsByClassName("tweet")[0].getElementsByTagName("a")[0];
+
+      var url = encodeURIComponent("http://www.wegnerdesign.com/blog/automatic-build-numbers-for-git-projects");
+      var name = encodeURIComponent("Automatic Build Numbers for Git Projects via #WegnerDesign")
+
+      tweetLink.href = "https://twitter.com/intent/tweet?url="+url+"&text="+name;
+    }
+  </script>
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="WegnerDesign" />
+</head>
+<body onload="go();">
+  <div id="socialColumn">
+    <div class='tweet'><a target="_blank" href="#"></a></div>
+  </div>
+  <div id="metaColumn">
+    <div id="logo">
+      <img src="/images/logo.png" />
+    </div>
+    <div id="footercontrols">
+      <div id="index"><a href="/blog"><img src="/images/index.png" /></a></div><!--
+     --><div id="rss"><a href="/feed.xml"><img src="/images/rss.png" /></a></div></div>
+    </div>
+  </div>
+  <div id="post">
+    <h2><span class='title'>Automatic Build Numbers for Git Projects</span><span class="date">22 March 2011</span></h2>
+    <div id="body">I was given an issue report the other day about no build numbers in <a title="File Drop" href="http://wegnerdesign.com/file-drop/">file drop</a>.  I originally thought that I would have to manually include this build number in a PHP footer file, my commit messages, and again remember it in my response to bug reports.  Simply put, I'm not that great at remembering numbers, so I decided to script the process.
+
+<!--more-->
+
+<strong>Format</strong>
+
+My first step was to figure out how to format my build numbers.  It's a common trend to include a major version and a minor version in your build numbers, but that doesn't portray enough information when I'm doing mutiple commits per day.  You can choose whatever format you like, but I finally decided on a format that would display the version, the date, and the number of revision for that day.  Specifically, the format was this
+<div class="code">major.minor.date.revision</div>
+So a build number for fileDrop today would have looked like
+<pre>0.1.0322.1</pre>
+<strong>Increment the Revision Number</strong>
+
+The first trouble I see is getting that revision number to increment with each commit, and reset to one at the beginning of the day.  The first script that I write will handle this problem.  I'm placing these files in the ./.git directory (You may need to enable 'View Hidden Files') of my project.
+<pre class="prettyprint">INCR_FILE="./.git/incr.git"
+#This should be the path to your increment file.  This should work for most configurations.
+NUM=$(cat $INCR_FILE)
+#This will grab the current revision number from our file incr.git&nbsp;
+
+if [ -z $(find -mtime -1 -path $INCR_FILE) ]; then
+#The find command above checks if our revision num file
+#has been modified in the past day
+
+echo 1 &gt; $INCR_FILE
+else
+echo $(($NUM + 1)) &gt; $INCR_FILE
+fi
+
+</pre>
+Create a file called incr.sh in your ./.git directory with the above code, and create a second file called incr.git .  Put a single character "1" into incr.git.  You can test the script with the following command
+<pre class="prettyprint">sh init.sh | cat init.git</pre>
+<strong>Format the Date</strong>
+
+The next task is going to be getting the date into a usable format.  By default the date command will output the date in UDT format.  Lucky for us, the date command has an optional argument for a custom output format.  Here are some useful codes for the date command
+
+&nbsp;
+
+&nbsp;
+<blockquote>%d - day of month
+
+%H - hour  (01-24)
+
+%I - hour (01-12)
+
+%j - day of year(001 - 366)
+
+%m - month
+
+%u - day of week(1 - 7)
+
+%U - week of year(00-53)
+
+%y - year (01-99)</blockquote>
+I need to get the two digit month and the two digit day of the month, so my code will look like this
+<pre class="prettyprint">date +"%m%d"</pre>
+<strong>Get the Full Build Number</strong>
+
+This seems like it should be pretty easy.  Hard code in your major and minor version, and put an echo at the end of your script, right?  Right.  Unless you ever need to access your build number without incrementing it.  This is actually a very probable situation - I'm going to need to update my footer file with that build number, and I don't want to create a whole new revision number just for that.  To stop our script from always incrementing we will throw in an optional parameter.  I'll also add a parameter for our major.minor build number, so we don't have to edit the script with every new version.
+<pre class="prettyprint">INCR_FILE="./.git/incr.git"
+#$1 is our first parameter.  We'll use this as our major.minor build number
+#$2 is our second parameter.  The script will test if this equals "increment"
+if [ "$2" = "increment" ]; then
+NUM=$(cat $PATH)&nbsp;
+
+if [ -z $(find -mtime -1 -name $INCR_FILE) ]; then
+echo 1 &gt; $INCR_FILE
+else
+echo $(($NUM + 1)) &gt; $INCR_FILE
+fi
+
+echo $1.$(date +"%m%d").$(cat $INCR_FILE)
+
+</pre>
+There we go!  Now if you type
+<div class="code">sh incr.sh 0.1</div>
+You should get your build number.  If you use the increment flag
+<div class="code">sh incr.sh 0.1 increment</div>
+You should get an incremented build number.
+
+<strong>Tie it All Together</strong>
+
+&nbsp;
+
+Your script is finished now.  The last step is to figure out how to use your new script to update your PHP files and your modify your git commits.  To make things easier, I've added an alias in my .bashrc file that looks like this - I added the sudo because my .git directories are locked
+<pre class="prettyprint">alias gitRevision='sudo sh .git/incr.sh'</pre>
+Now from your code directory you can run commands like these to update your build numbers
+<pre class="prettyprint">gitRevision 0.1 increment &gt; revision.txt
+git commit -a -m "My Commit Message $(gitRevision 0.1)"</pre>
+</div>
+    <div id="disqus_thread" style="width: 75%; margin-top: 50px;"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'wegnerdesign'; // required: replace example with your forum shortname
+        var disqus_identifier = '';
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+  <div id="footer"></div>
+</body>
+</html>

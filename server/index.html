@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <script src="javascripts/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <script src="http://use.edgefonts.net/andika.js"></script>
+    <script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-19623283-1']);
+  _gaq.push(['_setDomainName', 'wegnerdesign.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>WegnerDesign</title>
+  </head>
+
+  <body>
+    <div id="scrollArrow"></div>
+    <div id="hello">
+      <h1>Welcome to WegnerDesign</h1>
+      <h2>by Joe Wegner</h2>
+    </div>
+    <div id="content">
+      <img src="/images/hands.jpg" class="stretch" />
+      <div class="textcontent" id="aboutme" offset="2%">
+        <div id="logo" class="half">
+          <img src="/images/logo.png" />
+        </div>
+        <div id="about" class="half pleasecenter">
+          <h1>Joe Wegner</h1>
+          <p>Web Guy.  Node.js Guru.  Database Architect.  Javascript Lover.  Frontend Designer.  Backend Developer.  Efficiency Builder.  Magic Maker.  Photo Blogger.  Startup Founder.  Really Cool.</p>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div id="blogContent">
+        <h2><a href="/blog">Blog</a></h2>
+        <ul>
+          
+            <li class="blogpost"><a href="/blog/draft-detecting-detecting-javascript-memory-leaks">Detecting Javascript Memory Leaks</a></li>
+          
+            <li class="blogpost"><a href="/blog/the-ins-and-outs-of-javascript-prototype">Ins and Outs of Javascript Prototype</a></li>
+          
+            <li class="blogpost"><a href="/blog/an-experiment-in-mobile-controllers">An Experiment In Mobile Controllers</a></li>
+          
+            <li class="blogpost"><a href="/blog/angular-js-directive-tutorial-on-attribute-bootstrap-confirm-button">Angular.js Directive Tutorial: On-Attribute Bootstrap Confirm Button</a></li>
+          
+            <li class="blogpost"><a href="/blog/hello-world-the-start-of-a-startup">Hello, World!  The Start of a Startup</a></li>
+          
+          <li class="clear" style="float: none; height: 0; width: 0; padding: 0;"></li>
+        </ul>
+      </div>
+      <img src="/images/node.jpg" class="stretch" />
+      <div class="code-module" id="node-session">
+        <div class="half">
+          <h2>node-session</h2>
+          <p>I'm a pretty big believer that less is more when it comes to web servers - that's why I started using Node.js in the first place! So, while there's plenty of great Node.js web servers out there, I would (almost) always recommend starting from scratch, and adding features as you need them. That's why I built node-session - it's a great tool for the barebones Node.js web server, which will allow you to store user sessions. And the code is simple, to boot!</p>
+        </div>
+        <div id="node-session-editor" class="editor" lang="javascript">var session = require('./node-session.js');
+
+//Start your http server however you like. Imagine the code below is inside of your server loop
+
+var yourSession = session.start(response, request); //response and request are the res/req variables passed from http.createServer()
+
+yourSession.testValue = "A session variable" //Create a session variable called testValue</div>
+        <div class="clear"></div>
+      </div>
+      <img src="/images/nerd.jpg" class="stretch" />
+      <div class="code-module" id="node-multipost" >
+        <div class="half">
+          <h2>node-multipost</h2>
+          <p>Node-multipost is an easy-to-use Node.js interface for sending multipart/form requests. Multipart/form requests require a pretty wacky format, which is very hard to read and even harder to generate via code. Node-multipost takes all the difficulty out of multipart requests.</p>
+        </div>
+        <div id="node-multipost-editor" class="editor" lang="javascript">var multipost = require("multipost");
+
+var postFields = [
+        {
+            name: "field1", //Required
+            value: "thisisfield1" //Required
+        },
+        {
+            name: "field2",
+            value: "thisisfield2"
+        }
+    ];
+
+var req = new multipost("http://www.wegnerdesign.com/testFiles.php", postFields);
+
+req.post(function(res) {
+    console.log(res.data); 
+});</div>
+        <div class="clear"></div>
+      </div>
+      <img src="/images/dg.jpg"  class="stretch" />
+      <div class="halfimage" id="filedrop" offset="38%">
+        <div class="mainText">
+          <h2>fileDrop</h2>
+          <img src="/images/repos/filedrop.png" class="mainImage" />
+          <p>Have you ever used FTP before? How'd you do it? Filezilla? Your browser? Some other crappy FTP client? Doesn't matter - one way or another, I would bet money that the experience sucked. **No one likes FTP.**</p>
+          <p>fileDrop was built to ease the pain for businesses that require an easy method to move files back and forth. First and foremost, fileDrop's interface **just makes sense**. On top of that we've got quick uploads and downloads, secure transfers, easy management, intelligent notifications, popup previews, and tons of configurations for all you overbearing sys admins. Don't make your clients deal with your crappy FTP system - give fileDrop a try.</p>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <img src="/images/sitting.jpg"  class="stretch" />
+      <div class="code-module" id="node-ass">
+        <div class="half">
+          <h2>node-ass</h2>
+          <p>Advanced Style Sheets for Node.js. LESS and SASS have been all the craze recently in web design, but the problem is that they're fat. Sure, relatively, they're not that bad - but certainly they slow down your load times. Node-ass is a solution for node.js based web servers that allows the server to do the parsing of the advanced style sheets, rather than the user. At just 3KB for the entire git repo, node-ass is perfect for your node.js project! Check out the super simple syntax below.</p>
+        </div>
+        <div id="node-ass-editor" class="editor" lang="css">/* These are your CSS rules */
+
+rule all-box-shadow {
+  -moz-box-shadow: %1 %2 %3 %4;
+  -webkit-box-shadow: %1 %2 %3 %3;
+  box-shadow: %1 %2 %3 %4;
+}
+
+/*  And then your regular CSS layout */
+
+#shadowed_box {
+  all-box-shadow: 5px 5px 5px #eee;
+}</div>
+        <div class="clear"></div>
+      </div>
+      <div id="social">
+        <a href="https://www.twitter.com/Joe_Wegner" class="twitter"></a>
+        <a href="https://plus.google.com/u/1/113276225930245000776" class="google"></a>
+        <a href="http://10pt.co" class="tumblr"></a>
+        <a href="http://www.linkedin.com/in/joewegner" class="linkedin"></a>
+      </div>
+    </div>
+  </body>
+</html>

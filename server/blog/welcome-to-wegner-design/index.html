@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Wegner Design | WegnerDesign</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/blog.css" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" />
+  <link rel="stylesheet" type="text/css" href="/fonts/stylesheet.css" />
+  <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-19623283-1']);
+      _gaq.push(['_setDomainName', 'wegnerdesign.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+  </script>
+  <script type="text/javascript">
+    function go() {
+      var tweetLink = document.getElementsByClassName("tweet")[0].getElementsByTagName("a")[0];
+
+      var url = encodeURIComponent("http://www.wegnerdesign.com/blog/welcome-to-wegner-design");
+      var name = encodeURIComponent("Welcome to Wegner Design via #WegnerDesign")
+
+      tweetLink.href = "https://twitter.com/intent/tweet?url="+url+"&text="+name;
+    }
+  </script>
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="WegnerDesign" />
+</head>
+<body onload="go();">
+  <div id="socialColumn">
+    <div class='tweet'><a target="_blank" href="#"></a></div>
+  </div>
+  <div id="metaColumn">
+    <div id="logo">
+      <img src="/images/logo.png" />
+    </div>
+    <div id="footercontrols">
+      <div id="index"><a href="/blog"><img src="/images/index.png" /></a></div><!--
+     --><div id="rss"><a href="/feed.xml"><img src="/images/rss.png" /></a></div></div>
+    </div>
+  </div>
+  <div id="post">
+    <h2><span class='title'>Welcome to Wegner Design</span><span class="date">21 March 2011</span></h2>
+    <div id="body">Welcome to Wegner Design.  Let me first introduce myself - my name is Joe Wegner.  I work for a commercial printing company doing IT.  Sounds pretty bland, I know, but in reality I think my job title fits better as "Lead of the Dream Team".  Essentially I spend all day thinking up ways to utilize technology to push the boundaries of the commercial printing industry.  It's an incredibly fun job to have, and there's a lot of freedom for me to learn new technologies and pursue "pet projects" in the name of self-edification.
+
+The ability to dive into these cool new projects and concepts is a wonderful opportunity for me, but in the grand scheme of things it often feels like a waste.  Many of the project I work on here never see the light of day - certainly not anywhere outside of this print shop.  This is where Wegner Design comes in.  My goal  with WD is to pass on the tools I create, the concepts I learn, and whatever stupid crap I obsess about throughout the day to the general programming public.
+
+<!--more-->
+
+So with that said, I present my first project to you: fileDrop.  One of the biggest points of client-to-business interaction in the printing industry involves moving files back and forth between the customer and the digital prep department.  Most low-budget/low-tech shops go for a simple FTP server, or a single file upload form hidden on their website.  Well, FTP sucks for the average user, and single file drops are inconvenient, so I started the search for a better - and cheaper - solution.  My search came up again and again with the same type of program - static lists of files with confusing buttons, ugly interfaces, and they're usually just plain slow.  This was my motivation for fileDrop - to provide a solution for client-to-business file sharing that <em>made sense.</em> Drop the useless features, drop the hideous tables, and focus on the needs of the average user.
+
+FileDrop is currently in its alpha stages.  I'm constantly adding features, fixing bugs, and taking input in hopes to build a product that fills the massive void in file uploading solutions.  I've got a <a href="http://www.wegnerdesign.com/fileDrop">live demo</a> up and running if you want to test it out.  It may be helpful for you to first take a look at the <a title="File Drop" href="http://wegnerdesign.com/file-drop/">fileDrop About Page.</a> I greatly appreciate any bug reports or feature requests.  I'm in the process of building both integrated into this site - but for now bug reports can go to my <a href="https://github.com/josephwegner/fileDrop">github page</a> and feature requests can be emailed to <a href="mailto:joe@wegnerdesign.com">joe@wegnerdesign.com</a>.  Thanks!
+</div>
+    <div id="disqus_thread" style="width: 75%; margin-top: 50px;"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'wegnerdesign'; // required: replace example with your forum shortname
+        var disqus_identifier = '';
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+  <div id="footer"></div>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Update: Benchmarking PhantomJS Against cURL | WegnerDesign</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/blog.css" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" />
+  <link rel="stylesheet" type="text/css" href="/fonts/stylesheet.css" />
+  <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-19623283-1']);
+      _gaq.push(['_setDomainName', 'wegnerdesign.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+  </script>
+  <script type="text/javascript">
+    function go() {
+      var tweetLink = document.getElementsByClassName("tweet")[0].getElementsByTagName("a")[0];
+
+      var url = encodeURIComponent("http://www.wegnerdesign.com/blog/update-benchmarking-phantomjs-against-curl");
+      var name = encodeURIComponent("Update: Benchmarking PhantomJS Against cURL via #WegnerDesign")
+
+      tweetLink.href = "https://twitter.com/intent/tweet?url="+url+"&text="+name;
+    }
+  </script>
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="WegnerDesign" />
+</head>
+<body onload="go();">
+  <div id="socialColumn">
+    <div class='tweet'><a target="_blank" href="#"></a></div>
+  </div>
+  <div id="metaColumn">
+    <div id="logo">
+      <img src="/images/logo.png" />
+    </div>
+    <div id="footercontrols">
+      <div id="index"><a href="/blog"><img src="/images/index.png" /></a></div><!--
+     --><div id="rss"><a href="/feed.xml"><img src="/images/rss.png" /></a></div></div>
+    </div>
+  </div>
+  <div id="post">
+    <h2><span class='title'>Update: Benchmarking PhantomJS Against cURL</span><span class="date">13 July 2012</span></h2>
+    <div id="body">Yesterday I wrote a <a title="Benchmarking PhantomJS Against cURL" href="http://www.wegnerdesign.com/blog/benchmarking-phantomjs-against-curl/">post</a> detailing some benchmarking results I got while comparing <a title="cURL" href="http://curl.haxx.se/">cURL</a> to<a title="PhantomJS" href="http://phantomjs.org/"> PhantomJS</a>.  The results were pretty good, considering the amount of extra processing that needs to be done, but were not quite good enough for me to use in production.  <a title="Ariya" href="http://ariya.ofilabs.com/">Ariya</a>, who is apparently the developer of PhantomJS, left me a note in the comments telling me that the results might be a little skewed because PhantomJS was loading images as well as javascript.  He was correct - loading images is actually a pretty crucial part of my specific use case, but I realize now that those results were misleading because I didn't describe that scope in the post.
+
+So I've redone all the tests with the --load-images=no flag (<a title="Benchmark PhantomJS" href="https://gist.github.com/3087830">new gist</a>), and have gotten drastically different results.  My original intention was to just update the previous post with the new values, but they are so incredibly different that I think they deserve an entirely different post (and an update to the old one better describing the scope of the test).  The new results are below:
+
+<!--more-->
+<h2>Gawker 10 Request Benchmark</h2>
+<table border="1" cellpadding="2">
+<tbody>
+<tr>
+<th>Trial #</th>
+<th>PhantomJS Load Time (ms)</th>
+<th>cURL Load Time (ms)</th>
+</tr>
+<tr>
+<td>1</td>
+<td>41446</td>
+<td>2881</td>
+</tr>
+<tr>
+<td>2</td>
+<td>67852</td>
+<td>38782</td>
+</tr>
+<tr>
+<td>3</td>
+<td>26975</td>
+<td>2977</td>
+</tr>
+<tr>
+<td>Average</td>
+<td>22879.333</td>
+<td>36537</td>
+</tr>
+</tbody>
+</table>
+<strong>On Average, every PhantomJS request took <em>0.626</em> times as long as a regular cURL request!</strong>
+<h2>WegnerDesign 10 Request Benchmark</h2>
+<table border="1" cellpadding="2">
+<tbody>
+<tr>
+<th>Trial #</th>
+<th>PhantomJS Load Time (ms)</th>
+<th>cURL Load Time (ms)</th>
+</tr>
+<tr>
+<td>1</td>
+<td>15760</td>
+<td>9061</td>
+</tr>
+<tr>
+<td>2</td>
+<td>15063</td>
+<td>13812</td>
+</tr>
+<tr>
+<td>3</td>
+<td>16703</td>
+<td>9939</td>
+</tr>
+<tr>
+<td>Average</td>
+<td>15842</td>
+<td>10937.333</td>
+</tr>
+</tbody>
+</table>
+<strong>On Average, every PhantomJS request took <em>1.448</em> times longer than a regular cURL request</strong>
+<h2>Google 10 Request Benchmark</h2>
+<table border="1" cellpadding="2">
+<tbody>
+<tr>
+<th>Trial #</th>
+<th>PhantomJS Load Time (ms)</th>
+<th>cURL Load Time (ms)</th>
+</tr>
+<tr>
+<td>1</td>
+<td>6948</td>
+<td>2072</td>
+</tr>
+<tr>
+<td>2</td>
+<td>5092</td>
+<td>2044</td>
+</tr>
+<tr>
+<td>3</td>
+<td>5108</td>
+<td>2078</td>
+</tr>
+<tr>
+<td>Average</td>
+<td>5716</td>
+<td>2064.666</td>
+</tr>
+</tbody>
+</table>
+<strong>On Average, every PhantomJS request took <em>2.768</em> times longer than a regular cURL request</strong>
+
+As you can see, these results are incredible.  All of the PhantomJS averages dropped by at least half, and the first request - the one with all content loaded via AJAX - actually was <strong>faster than cURL</strong>.  Now that doesn't really make one bit of sense to me, and is probably a result of only having 3 trials, but regardless it proves that <em>PhantomJS is really freaking fast</em>.  If you're doing web scraping (and don't need images), I can't think of a single good reason why you wouldn't jump on the PhantomJS wagon.
+
+One thing that I'm still confused about, though - and Arial, if you're reading this I'd love to hear from you in the comments - is that the tests (WegnerDesign, Google) that don't load any content via javascript still load significantly slower compared to the largely AJAX based Gawker test.  Logically it would make sense that low-javascript pages would perform better than high-javascript pages, but I haven't seen proof of that in either this set of tests or the previous.
+</div>
+    <div id="disqus_thread" style="width: 75%; margin-top: 50px;"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'wegnerdesign'; // required: replace example with your forum shortname
+        var disqus_identifier = '';
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+  <div id="footer"></div>
+</body>
+</html>

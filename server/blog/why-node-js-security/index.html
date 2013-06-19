@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Why Node.JS? Security | WegnerDesign</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/blog.css" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" />
+  <link rel="stylesheet" type="text/css" href="/fonts/stylesheet.css" />
+  <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-19623283-1']);
+      _gaq.push(['_setDomainName', 'wegnerdesign.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+  </script>
+  <script type="text/javascript">
+    function go() {
+      var tweetLink = document.getElementsByClassName("tweet")[0].getElementsByTagName("a")[0];
+
+      var url = encodeURIComponent("http://www.wegnerdesign.com/blog/why-node-js-security");
+      var name = encodeURIComponent("Why Node.JS? Security via #WegnerDesign")
+
+      tweetLink.href = "https://twitter.com/intent/tweet?url="+url+"&text="+name;
+    }
+  </script>
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="WegnerDesign" />
+</head>
+<body onload="go();">
+  <div id="socialColumn">
+    <div class='tweet'><a target="_blank" href="#"></a></div>
+  </div>
+  <div id="metaColumn">
+    <div id="logo">
+      <img src="/images/logo.png" />
+    </div>
+    <div id="footercontrols">
+      <div id="index"><a href="/blog"><img src="/images/index.png" /></a></div><!--
+     --><div id="rss"><a href="/feed.xml"><img src="/images/rss.png" /></a></div></div>
+    </div>
+  </div>
+  <div id="post">
+    <h2><span class='title'>Why Node.JS? Security</span><span class="date">11 May 2011</span></h2>
+    <div id="body">Welcome to part two of the <strong><a title="Why Node.JS? Series" href="http://wegnerdesign.com/tag/whynodejs/">Why Node.JS?</a> </strong>series.  If you recall from my last post, I'm currently in the middle of porting <a title="File Drop" href="http://wegnerdesign.com/file-drop/">fileDrop</a> from PHP to Node.JS.  This is a three part series, consisting of my three main reasons for porting: <strong><a title="Node.JS Speed" href="http://wegnerdesign.com/blog/why-node-js-speed/">Speed</a></strong>, <strong>Security</strong>, and <strong>Portability</strong>.  This week I will be talking about the amazing security options that come with Node.JS.  Here's the crazy part, though - even though security is one of my biggest reasons for porting to Node.JS, <em>it isn't actually a feature of Node.JS.</em> Read exactly how this works after the break.
+
+<!--more-->
+<pre>Before we get started here, I just want to let you in on a little secret.  
+Unless otherwise stated, all of the code that I post here can be found in 
+the <a title="Node Branch for fileDrop" href="https://github.com/josephwegner/fileDrop/tree/node">node branch for fileDrop</a>.</pre>
+&nbsp;
+
+So, how exactly does it work that one of the three biggest reasons I love Node.JS isn't actually a feature of Node.JS?  Well, the cool thing about Node.JS as a web server platform is that it takes everything a step back.  The majority of web developers settle in on top of their favorite web server - IIS, Apache, etc. - and simply trust that it is keeping them secure.  Sure, there are tons of ways to configure your web server to only allow users to access the things you want them to access.  Even with those configurations, though, web servers a lot of the time are big black boxes - you don't know how they work, you just assume they work.
+
+This isn't the case at all with Node.JS.  Node.JS - and don't let this scare you away - doesn't come prepackaged with any web server capabilities at all.  Node.JS is a platform on which it is extremely easy to build your own web server (seriously..  the <a title="Node.JS homepage" href="https://github.com/josephwegner/fileDrop/tree/node">introduction program for Node.JS</a> is a web server).  Because you have to build the web server from the ground up, there is no assumed sense of security.  Your web server is only as secure as you make it.
+
+Taking that knowledge, you can be as open or as closed as you like - wherever you find your balance between usable and secure.  Personally, I lean on the side of making things more secure.  I say this, because even after years and years of development, web servers like Apache and IIS still have flaws - inevitably someone is always going to be able to break in.  One of the most common flaws, if you look back in historical bug reports, has to do with attackers being able to view files they shouldn't be able to.  On many occasions, hackers are able to run programs in the root of your server - not your web server, <em><strong>your server</strong></em>.  Knowing this, I've built the web server for fileDrop to be very granular about what kind of pages are allowed to be served to the user.  To do this, I had two requirements for my web server:
+<ol>
+	<li>Any pages that the user wants to be served MUST be registered in the code.  There is no catch-all.  There is no browsing.  I, the developer, must explicitly tell you what you can access.</li>
+	<li>Resources (images, js, css) can be served without being registered, but only if that file type is registered, and only if the resource exists in a folder defined for that single filetype.</li>
+</ol>
+Having these requirements makes my server just flexible enough that I'm not going to go absolutely nuts trying to hard code a function for every single .png on my page, but secure enough that no one will be able to get at any files that I don't want them seeing.
+
+So, the first step to building this web server is making functions to register all of my pages, and pass all of my resources.  For resources, I don't necessarily care what resource they are requesting - just that it is a defined filetype, and that it is in the correct folder.  Knowing this, the resource function is going to check the filetype, and then return the folder the file should be in.  For actual content pages (or ajax pages) each one needs to be registered before the server does anything, so that function should return an actual file based on what they ask for.  Here's how I built these functions (note: the server part comes later):
+<pre class="prettyprint lang-js">function getResource(urlParts) {
+    var ext = path.extname(urlParts.pathname);
+    var folder = null;
+
+    //We are going to manually set the resource folder based on the file extension
+    //This will allow us some crazy amount of security, but still relatively easy
+    //process of adding resources.  They just need to be in the correct file.
+    //The main hope is that this will block any directory traversal attacks.
+    switch(ext) {
+    case ".js":
+        folder = __dirname + "/resources/js";
+        break;
+
+    case ".css":
+        folder = __dirname + "/resources/css";
+        break;
+
+    case ".png":
+        folder = __dirname + "/resources/images";
+        break;
+
+    default:
+        return false;
+
+    }
+
+    if(path.existsSync(folder + urlParts.pathname)) {//Check if file exists
+        return folder + urlParts.pathname;
+    } else {
+        return false;
+    }
+
+}
+//Now we are manually registering every single content - or ajax -
+//page that the user may request.  This way, if it's not  a resource
+//and it's not a registered page, they won't get anything.  No matter
+//what they do, if it's not here, they are served a standard 404 page.
+function buildActionArray() {     
+    var actions = [];          
+
+    //Format     
+
+    //actions['page'] = function     
+
+    actions['/login'] = frontend.login;     
+
+    actions['/install'] = install.makeDB;     
+
+    actions['/ajaxLogin'] = backend.login;     
+
+    actions['/ajaxRegister'] = backend.register;          
+
+    return actions; 
+}</pre>
+So, as you can see, the getResource() function takes the request file (urlParts) and checks what the filetype is. If it is a valid filetype, it returns a string version of the folder that the file will be in. The buildActionArray() function builds an object array that links the basename of the file to an object. You can't see it from this limited code (view more on github), but each of those objects is actually a function that will respond with the correct file. Now I've got my structure for checking if the requested file is valid - all I need now is some server code to serve it.
+<pre class="prettyprint lang-js">var http = require('http');
+
+require('./tools/require.js');
+
+/****GLOBALS*****/
+var ACTIONS = buildActionArray();
+SQL_CLIENT = null;
+/****************/
+
+server = http.createServer(function(req, res) {
+
+    var data = "";
+
+    req.on("data", function(chunk) {
+        data += chunk;
+    });
+
+    req.on("end", function() {
+        var json = query.parse(data);
+
+        passRequest({
+            req: req,
+            res: res,
+            post: json
+        });
+    });
+
+});
+server.listen(1234);
+console.log("Server Listening");
+
+function passRequest(conn) {
+    var urlParts= url.parse(conn.req.url);
+
+    if(ACTIONS[urlParts.pathname] !== undefined) {//If it's a registered action
+        action = ACTIONS[urlParts.pathname];//Get function
+        action(conn);
+    } else {//If not an action, check for resources
+
+        var resource = getResource(urlParts);
+
+        if(resource) {//If it's a valid resource
+            fs.readFile(resource, function(err, data) {
+                if(err) console.log(err);//Read and Send the file
+
+                console.log("Sending Resource " + urlParts.pathname);
+                resp.sendGeneric(conn.res, data);
+            });
+
+        } else {//If it's not an action or a resource, send a 404 error doc
+            console.log("File Not Available - " + urlParts.pathname);
+            conn.res.writeHead(404, {"Content-Type": "text/html"});
+            conn.res.write("That page does not exist!");
+            conn.res.end();
+        }
+    }
+}</pre>
+I'm not going to get into the nitty-gritty details of how Node.JS works - you should do that on your own - but I will explain the flow of my server. First off, you can see that I've used the http module to grab any request that come on port 1234. When it gets that request is starts building a variable with the post data, and then calls the function passRequest() once the data has all been gathered. passRequest() first checks if there is a registered function from the ACTIONS array (pulled from buildActionArray() ). If it's not a request, it checks if it's a valid resource type. If so, it checks if that file (it only uses the basename of the file, to avoid directory traversal) exists. If so, it serves the file, if not, it serves a generic 404 response.
+
+So there ya go. While this type of web server may take a bit more configuration when you add pages than your standard Apache/IIS, I definitely think the security benefits outweigh the little bit of time spent registering files.
+
+Check back soon to hear about how Node.JS is great for making portable web apps!
+</div>
+    <div id="disqus_thread" style="width: 75%; margin-top: 50px;"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'wegnerdesign'; // required: replace example with your forum shortname
+        var disqus_identifier = '';
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+  <div id="footer"></div>
+</body>
+</html>

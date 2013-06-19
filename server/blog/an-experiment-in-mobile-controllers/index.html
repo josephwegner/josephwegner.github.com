@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>An Experiment In Mobile Controllers | WegnerDesign</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/blog.css" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" />
+  <link rel="stylesheet" type="text/css" href="/fonts/stylesheet.css" />
+  <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-19623283-1']);
+      _gaq.push(['_setDomainName', 'wegnerdesign.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+  </script>
+  <script type="text/javascript">
+    function go() {
+      var tweetLink = document.getElementsByClassName("tweet")[0].getElementsByTagName("a")[0];
+
+      var url = encodeURIComponent("http://www.wegnerdesign.com/blog/an-experiment-in-mobile-controllers");
+      var name = encodeURIComponent("An Experiment In Mobile Controllers via #WegnerDesign")
+
+      tweetLink.href = "https://twitter.com/intent/tweet?url="+url+"&text="+name;
+    }
+  </script>
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="WegnerDesign" />
+</head>
+<body onload="go();">
+  <div id="socialColumn">
+    <div class='tweet'><a target="_blank" href="#"></a></div>
+  </div>
+  <div id="metaColumn">
+    <div id="logo">
+      <img src="/images/logo.png" />
+    </div>
+    <div id="footercontrols">
+      <div id="index"><a href="/blog"><img src="/images/index.png" /></a></div><!--
+     --><div id="rss"><a href="/feed.xml"><img src="/images/rss.png" /></a></div></div>
+    </div>
+  </div>
+  <div id="post">
+    <h2><span class='title'>An Experiment In Mobile Controllers</span><span class="date">11 January 2013</span></h2>
+    <div id="body"><p>I had jury duty the other day.  What that translates to is I had a whole day of <a href="https://twitter.com/Joe_Wegner/status/288812290910859265">forced free time</a>.  I had decided it would be a good idea to treat this time as a hackathon, and was inspired by a <a href="http://odem.chromeexperiments.com/8mEis2">Google+ demo</a> that allowed you to browse using gestures from your mobile phone.  The actual Google+ demo was pretty unexciting - it was very choppy, and not really an increase in usability at all.  But, cool nonetheless.</p>
+
+<p>In all reality, using your mobile device as a controller for your desktop computer doesn&#39;t really have a place on the normal web - adding a new layer of abstraction isn&#39;t ever going to make things easier.  However, it does have an application in one place - gaming.  It&#39;s never been a secret that people prefer to control games with a controller rather than a mouse and keyboard.</p>
+
+<p>So that&#39;s what I set out to do.  The end goal here is to create a library that people can use in the future, but for my forced hackathon I just wanted to create a proof of concept.  I didn&#39;t want to deal too heavily with designing a UI, so I chose the simplest game that might use a mobile controller - the keep-the-ball-on-the-tilty-thing game.</p>
+
+<p>Check out <a href="http://mobile-interactive.herokuapp.com/">the demo</a> - it&#39;ll make the rest of this post make sense.  <strong>Make sure you&#39;re phone is on wifi.  There&#39;s a lot of websockets magic, which will likely suck up your available data.</strong>  This will also probably only work on chrome, both on the desktop and on your mobile.  You can try other browsers, but I don&#39;t promise any success.</p>
+
+<p><img src="/images/mobile-interactive-demo.png" alt="Mobile Interactive Demo"></p>
+
+<p><a href="http://www.html5rocks.com">HTML5 Rocks</a> has a great tutorial on the specifics of <a href="http://www.html5rocks.com/en/tutorials/device/orientation/">working with orientation/movemenent data from a mobile phone</a>.  That&#39;s not the exact challenge here, but I suggest you skim that article before you read this one.  The challenges here are more related to coordinating things between the devices with websockets, and that&#39;s what I&#39;ll be focusing on.</p>
+
+<p>So, before I even get into the work of sending the orientation data back and forth, I need to make sure that the phone and the desktop are both synced up.  As you can see from the demo, I&#39;m using a QR code to send the phone to a URL with a unique identifier.  The basic flow of this process is:</p>
+
+<ol>
+<li>Desktop generates unique ID, and displays QR code</li>
+<li>Desktop sends a registration event to the server via socket.io, which contains the unique ID.</li>
+<li>Mobile phone scans QR code, which opens a page with the unique ID as a JS variable</li>
+<li>Mobile phone sends a registration event to the server via socket.io, which contains the unique ID.</li>
+<li>Server sends a notification to both the mobile phone and the desktop that pairing is complete, and they can start the game.</li>
+</ol>
+
+<p>I&#39;ll show you the code in a second, I just wanted to mention one thing.  You&#39;re probably looking at that step 5 and thinking it is redundant to send a notification to the mobile phone, because the phone is what initiated the whole process on the server.  I originally didn&#39;t have that step, but was noticing that there&#39;s a certain amount of latency that happens between the server receiving the websocket request and the desktop receiving the request.  In that time, the mobile phone was generating a slew of data and sending it to the server, which then was getting backlogged with processing those and ended up with inconsistencies on the desktop&#39;s end.  OK, here&#39;s the code:</p>
+
+<h3>On the desktop</h3>
+
+<div class="highlight"><pre><code class="javascript">  <span class="kd">var</span> <span class="nx">baseUrl</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">protocol</span> <span class="o">+</span> <span class="s2">&quot;//&quot;</span> <span class="o">+</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">host</span>
+      
+  <span class="kd">var</span> <span class="nx">allChars</span> <span class="o">=</span> <span class="s2">&quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890&quot;</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">ranLength</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+
+  <span class="kd">var</span> <span class="nx">uniqueId</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+
+  <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">ranLength</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">uniqueId</span> <span class="o">+=</span> <span class="nx">allChars</span><span class="p">[</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">allChars</span><span class="p">.</span><span class="nx">length</span><span class="p">)];</span>
+  <span class="p">}</span>
+
+  <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#qr&quot;</span><span class="p">).</span><span class="nx">qrcode</span><span class="p">(</span><span class="nx">baseUrl</span> <span class="o">+</span> <span class="s2">&quot;/mobile/&quot;</span> <span class="o">+</span> <span class="nx">uniqueId</span><span class="p">);</span>
+      
+      <span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">baseUrl</span><span class="p">);</span>
+
+      <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;desktop-register&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">id</span><span class="o">:</span> <span class="nx">uniqueId</span><span class="p">});</span>
+
+      <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;mobile-on&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#content&quot;</span><span class="p">).</span><span class="nx">slideDown</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;content-ready&#39;</span><span class="p">);</span> <span class="p">});</span>
+      <span class="p">});</span>
+  <span class="p">});</span>
+</code></pre></div>
+
+<h3>On the mobile phone</h3>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">baseUrl</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">protocol</span> <span class="o">+</span> <span class="s2">&quot;//&quot;</span> <span class="o">+</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">host</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">baseUrl</span><span class="p">);</span>
+
+    <span class="kd">var</span> <span class="nx">uniqueId</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;data-id&#39;</span><span class="p">);</span>
+
+    <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;mobile-register&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">id</span><span class="o">:</span> <span class="nx">uniqueId</span><span class="p">});</span>
+
+    <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">//Start Game</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<h3>On the server</h3>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">regUsers</span> <span class="o">=</span> <span class="p">{};</span>
+
+<span class="nx">io</span><span class="p">.</span><span class="nx">sockets</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">socket</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">deskSocket</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">mobileSocket</span>
+
+    <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;desktop-register&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">regUsers</span><span class="p">[</span><span class="nx">data</span><span class="p">.</span><span class="nx">id</span><span class="p">]</span> <span class="o">=</span> <span class="nx">deskSocket</span> <span class="o">=</span> <span class="nx">socket</span><span class="p">;</span>
+    <span class="p">});</span>
+
+    
+    <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;mobile-register&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">mobileSocket</span> <span class="o">=</span> <span class="nx">socket</span><span class="p">;</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="nx">regUsers</span><span class="p">[</span><span class="nx">data</span><span class="p">.</span><span class="nx">id</span><span class="p">])</span> <span class="o">!==</span> <span class="s2">&quot;undefined&quot;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">deskSocket</span> <span class="o">=</span> <span class="nx">regUsers</span><span class="p">[</span><span class="nx">data</span><span class="p">.</span><span class="nx">id</span><span class="p">];</span>
+            
+            <span class="nx">deskSocket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;mobile-on&#39;</span><span class="p">);</span>
+            <span class="nx">mobileSocket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<p>So as you can see I&#39;m just storing an array of desktop clients with the unique ID as the key.  When the mobile client registers, I use the uniqueID to associate the mobile phone with the desktop client.  In a real-life example, I would also want to do the vice versa, and bring the mobile phone&#39;s socket into the desktop socket&#39;s scope, but for this POC I didn&#39;t need to.  Also, in a real-life example, I would need to do some garbage collecting when the socket.io connection is broken so that my regUsers array doesn&#39;t get infinitely large.</p>
+
+<p>Now that we&#39;re all registered, we can start the fun part - passing the orientation data.  If you&#39;ve read through that HTML5 Rocks article, you probably noticed that the orientation data comes through an event system.  Essentially, whenever the browser notices that the orienation of your device changes, it will trigger an orientation event.  Unless you&#39;ve got your phone on a tripod (which is cheating.), the shake in your hands should cause the orientation event to be called pretty much as fast as javascript will allow.  Of course, we can&#39;t expect socket.io to be able to pass 100s of orientation events per second to the desktop client, so I wrote a wrapper that handles the event, and sends the data at a known interval (500ms).  That wrapper can be <a href="https://github.com/josephwegner/mobile-interactive/blob/master/static/js/mobile-data.js">found on github</a>, but here&#39;s how the implementation is done.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">MobileReader</span><span class="p">.</span><span class="nx">bindOrientation</span><span class="p">({</span>
+      <span class="nx">callback</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">orientation</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;mobile-orientation&#39;</span><span class="p">,</span> <span class="nx">orientation</span><span class="p">);</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.count&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.count&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+      <span class="p">},</span>
+      <span class="nx">interval</span><span class="o">:</span> <span class="mi">500</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<p>Now, 2 times every second, the mobile phone will check what the current orientation is, and send that off to socket.io to be passed to the desktop client.  The code on the server is simple:</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;mobile-orientation&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">orientation</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="nx">deskSocket</span><span class="p">)</span> <span class="o">!==</span> <span class="s2">&quot;undefined&quot;</span> <span class="o">&amp;&amp;</span> <span class="nx">deskSocket</span> <span class="o">!==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">deskSocket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;orientation&#39;</span><span class="p">,</span> <span class="nx">orientation</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<p>On the frontend, I did my best to abstract the game functionality from the socket.io work.  As I mentioned, my end goal here is to release a library that can be reused by other people, so I need those two parts to be separate.  In order to do that, I utilized jQuery&#39;s event passing system to get the data from socket.io, and then trigger an &#39;orientation-change&#39; event.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;orientation&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">orientation</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;orientation-change&#39;</span><span class="p">,</span> <span class="nx">orientation</span><span class="p">);</span>
+<span class="p">})</span>
+</code></pre></div>
+
+<p>And that&#39;s that.  Orientation data should be passing just fine.  The last part is just the game mechanics, which are relatively simple and I won&#39;t get into here.  You can <a href="https://github.com/josephwegner/mobile-interactive/blob/master/static/js/game.js">see that code on Github</a> as well.</p>
+
+<p>So, after reading all that and playing with the demo, you&#39;re probably wondering why in the world I&#39;m only sending orientation events every 500ms.  When that translates into the game, it becomes very jumpy, and you don&#39;t have very fine control.  I mentioned earlier that when the mobile phone sends events faster than the total transport+processing time (to server, server processing, to desktop), the desktop starts to get backlogged and behaves pretty weird.  500ms is a little bit slower than it needs to be to avoid that problem, but I figured people might be demoing this on 3G, which can be quite slow at times.  Any faster than 500ms, and I worry that the game will break.</p>
+
+<p>The unfortunate conclusion of that is that unless I can find some way to speed things up, using your mobile phone as a desktop controller is not a viable solution for high-intensity games.  Transport speeds are simply too slow.  You could definitely turn your phone into a regular controller with a bunch of buttons, and that would probably function fine.  Only sending an event every time a user touches a button would be a very light load for socket.io.  Definitely doable, and if I get around to turning mobile-interactive into a reusable library, that will definitely be a feature.</p>
+</div>
+    <div id="disqus_thread" style="width: 75%; margin-top: 50px;"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'wegnerdesign'; // required: replace example with your forum shortname
+        var disqus_identifier = '';
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+  <div id="footer"></div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google Won't Beat Oracle | WegnerDesign</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/blog.css" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" />
+  <link rel="stylesheet" type="text/css" href="/fonts/stylesheet.css" />
+  <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-19623283-1']);
+      _gaq.push(['_setDomainName', 'wegnerdesign.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+  </script>
+  <script type="text/javascript">
+    function go() {
+      var tweetLink = document.getElementsByClassName("tweet")[0].getElementsByTagName("a")[0];
+
+      var url = encodeURIComponent("http://www.wegnerdesign.com/blog/google-wont-beat-oracle");
+      var name = encodeURIComponent("Google Won't Beat Oracle via #WegnerDesign")
+
+      tweetLink.href = "https://twitter.com/intent/tweet?url="+url+"&text="+name;
+    }
+  </script>
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="WegnerDesign" />
+</head>
+<body onload="go();">
+  <div id="socialColumn">
+    <div class='tweet'><a target="_blank" href="#"></a></div>
+  </div>
+  <div id="metaColumn">
+    <div id="logo">
+      <img src="/images/logo.png" />
+    </div>
+    <div id="footercontrols">
+      <div id="index"><a href="/blog"><img src="/images/index.png" /></a></div><!--
+     --><div id="rss"><a href="/feed.xml"><img src="/images/rss.png" /></a></div></div>
+    </div>
+  </div>
+  <div id="post">
+    <h2><span class='title'>Google Won't Beat Oracle</span><span class="date">20 April 2012</span></h2>
+    <div id="body">Oracle has got a lovely little <a title="Oracle Opening Statements" href="http://www.oracle.com/us/corporate/features/opening-slides-1592541.pdf">document</a> available right now that outlines their opening statements in their copyright infringement case against Google.  As <a title="Joe_Wegner #Oracle" href="https://twitter.com/#!/search/%23Oracle%20from%3AJoe_Wegner">you can see</a>, I've found this document hilarious on multiple levels, but also a bit sobering.  Up until this point I haven't taken much time to really look at the dispute going on between Google and Oracle, because I've always considered Google as some unstoppable force of money and good PR.  As I look at the details, though, it's becoming clear that Google is grasping for straws, and Oracle may have the upper hand in this case.
+
+<!--more-->
+
+To be clear, I'm still rooting for Google.   Oracle quoted Andy Rubin in their opening statements:
+<blockquote>"Finally, SUN has a different license for its library for SE and ME. The SE library is LGPL, ME library is GPL. That means anything that links with the ME library gets infected. And the SE library is not optimized for embedded systems.  Sun chose GPL for this exact reason so that companies would need to come back to them and take a direct license and pay royalties.”</blockquote>
+This is a pretty disgraceful way to use an open source license - OSS isn't about making a profit, it's about innovating as a developer community.  Ironically, the same thing applies to the copyright and patent system that are now so abused.  While Oracle may have very valid points in this lawsuit, I certainly believe Google is paving the road of innovation with Android, and will hold my respect whichever way the case goes.
+
+In case you're not familiar with the Google-vs-Oracle case, here's a bit of back story.  Sun (now owned by Oracle) wrote an incredible piece of software called Java Runtime Environment (JRE), which is best known for its powerful Java Virtual Machine (JVM).  The JVM allowed developers to write code in a single language and run it on any platform (coined "Write Once, Run Anywhere" by Sun).  This was an incredible innovation, and added some great efficiencies for developers whose markets were cross platform.  Along with the JVM, Java has another critical piece: the Java API.  The API is the portion that is commonly (and somewhat incorrectly) called the Java programming language.  In reality, the Java API is just like any other API - it's an interface supplied by Sun so that developers can interact with the JVM.
+
+In functionality, the Java API behaves quite similarly to a standard programming language, but differs in how it compiles.  Standard languages like C compile down to assembly language, and is processed directly from there.  Java, however, compiles down into a type of <a title="Java Bytecode" href="http://en.wikipedia.org/wiki/Java_bytecode">bytecode</a>, and that bytecode is again compiled by a just-in-time complier built into the JVM.  This is the crucial piece that makes Java an API, instead of a standard programming language.  Java is just an interface  which people can use to communicate with the JVM.
+
+This is Google's fatal flaw.  Google is trying to argue with Oracle that they <a href="http://i2mag.com/google-says-you-cant-copyright-a-programming-language-oracle-says-you-can/">can't copyright a programming language</a>.  I believe they will successfully win that argument, and for good reason.   Can you imagine a world where C could have been copyrighted?  Unfortunately, Java <strong>is not a programming language</strong>.  Java is an interface for interacting with a piece of software (the JVM).  Google was intentional about not wording their argument as such, because I believe it's very clear that they could not win.  Under that definition, there is an incredibly large amount of APIs out there that are necessarily copyrighted.  Flip this on its head, and imagine if Google had to open up their <a title="Google Custom Search API" href="https://developers.google.com/custom-search/v1/overview">Customer Search API</a>.  Not only would they lose one of their major revenue sources (because they couldn't license it), but their entire structure would break down because the world would have a clear view into how they score their search results.
+
+I guess at the end of the day I'm torn.  Google is mostly in the right, here - they're using Java in an innovative way and they've created a wonderful developer platform with Android, but on the other hand <strong>they're clearly stealing.</strong>  I would hate to see Oracle win this case, because I believe they decrease the flexibility in the tech sector on many fronts, but I'm also afraid of the implications of APIs not being copyrightable.
+</div>
+    <div id="disqus_thread" style="width: 75%; margin-top: 50px;"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'wegnerdesign'; // required: replace example with your forum shortname
+        var disqus_identifier = '';
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+  <div id="footer"></div>
+</body>
+</html>

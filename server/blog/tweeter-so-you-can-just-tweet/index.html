@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tweeter, So You Can Just Tweet | WegnerDesign</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/blog.css" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" />
+  <link rel="stylesheet" type="text/css" href="/fonts/stylesheet.css" />
+  <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-19623283-1']);
+      _gaq.push(['_setDomainName', 'wegnerdesign.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+  </script>
+  <script type="text/javascript">
+    function go() {
+      var tweetLink = document.getElementsByClassName("tweet")[0].getElementsByTagName("a")[0];
+
+      var url = encodeURIComponent("http://www.wegnerdesign.com/blog/tweeter-so-you-can-just-tweet");
+      var name = encodeURIComponent("Tweeter, So You Can Just Tweet via #WegnerDesign")
+
+      tweetLink.href = "https://twitter.com/intent/tweet?url="+url+"&text="+name;
+    }
+  </script>
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="WegnerDesign" />
+</head>
+<body onload="go();">
+  <div id="socialColumn">
+    <div class='tweet'><a target="_blank" href="#"></a></div>
+  </div>
+  <div id="metaColumn">
+    <div id="logo">
+      <img src="/images/logo.png" />
+    </div>
+    <div id="footercontrols">
+      <div id="index"><a href="/blog"><img src="/images/index.png" /></a></div><!--
+     --><div id="rss"><a href="/feed.xml"><img src="/images/rss.png" /></a></div></div>
+    </div>
+  </div>
+  <div id="post">
+    <h2><span class='title'>Tweeter, So You Can Just Tweet</span><span class="date">07 July 2012</span></h2>
+    <div id="body">I try not to make it a habit of using this blog simply as a megaphone to tell the world about every little project I work on.  Most of them are just for fun or personal use, and it's not worth wasting your time to tell you about them.  One of my recent projects, <a title="Tweeter" href="https://chrome.google.com/webstore/detail/mneicboilaibkfhoealhcglboiabhodb">Tweeter</a> fell into that category - I wrote it because I'm trying to use <a title="MySocialCloud" href="http://www.mysocialcloud.com">MySocialCloud</a>'s interface for twitter more often, but there's no way to tweet from there.  Tweeter was just a way to quickly send tweets from wherever I am - not necessarily requiring the actual twitter interface.  I'm writing this blog post, though, because Tweeter seems to be picking up a fair amount of installations from the chrome web store.  Turns out a chrome extensions for quickly tweeting isn't only useful to me - people are quickly noticing it and I'm getting an exponential amount of installs.  I hope it can be helpful to you too.
+<!--more-->
+[caption id="attachment_336" align="aligncenter"]<a href="http://www.wegnerdesign.com/wp-content/uploads/tweeter_screenshot.png" style="display: block; width: 100%; text-align: center;"><img class="size-full wp-image-336" title="Tweeter" src="http://www.wegnerdesign.com/wp-content/uploads/tweeter_screenshot.png" alt="Tweeter" width="640" height="246" /></a> A screenshot of tweeter in use[/caption]
+
+Tweeter is really a pretty simple extension.  When you install it you're going to get a twitter icon in the top right of your browser.  When you click that, you'll be presented with a dialog to type your tweet, and then you can press "Tweet" to send it.  If you're paying close attention, you'll notice that a new window opens in the background of your screen, but quickly closes itself.  This is the little bit of magic that I've built in to not require you to enter passwords or authenticate via <a title="Twitter OAuth" href="https://dev.twitter.com/docs/auth/oauth">OAuth</a>.  What's happening in the background is that as soon as you hit that "Tweet" button, I open a new window and browse to twitter's <a title="Twitter Web Intents" href="https://dev.twitter.com/docs/intents">Web Intents</a>, fill in your tweet, press their "Tweet" button, and then close the page.  From the user experience side, running the extension this way removes almost all latency due to loading pages, while still not requiring you to authenticate with the extension.  The down side - which you may have found already if you've been trying to break things - is that the extension <strong>does not work</strong> if you're not already logged into twitter.
+
+One last thing I want to mention before I send you on your merry way - in the description of the app I make the harsh statement:
+<blockquote>If you've got feature requests, please go find another twitter extension and post them there.</blockquote>
+That sounds harsh, but I pretty much mean it.  In the past I've fallen victim to <a title="Software Bloat" href="http://en.wikipedia.org/wiki/Software_bloat">"Feature Bloat"</a> with this sort of project, and I'm not interested in that here.  There's plenty of extensions out there that will do most anything under the sun, and Tweeter is intentionally not that.  <a title="Tweeter" href="https://chrome.google.com/webstore/detail/mneicboilaibkfhoealhcglboiabhodb">Tweeter</a> is quick, to the point, and minimal.  I want it to stay that way.  If you've got a feature request that meets those criteria I'll certainly hear you out, but the fewer features the better in my mind.
+</div>
+    <div id="disqus_thread" style="width: 75%; margin-top: 50px;"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'wegnerdesign'; // required: replace example with your forum shortname
+        var disqus_identifier = '';
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+  <div id="footer"></div>
+</body>
+</html>

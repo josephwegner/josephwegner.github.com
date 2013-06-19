@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Detecting Javascript Memory Leaks | WegnerDesign</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/blog.css" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" />
+  <link rel="stylesheet" type="text/css" href="/fonts/stylesheet.css" />
+  <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-19623283-1']);
+      _gaq.push(['_setDomainName', 'wegnerdesign.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+  </script>
+  <script type="text/javascript">
+    function go() {
+      var tweetLink = document.getElementsByClassName("tweet")[0].getElementsByTagName("a")[0];
+
+      var url = encodeURIComponent("http://www.wegnerdesign.com/blog/draft-detecting-detecting-javascript-memory-leaks");
+      var name = encodeURIComponent("Detecting Javascript Memory Leaks via #WegnerDesign")
+
+      tweetLink.href = "https://twitter.com/intent/tweet?url="+url+"&text="+name;
+    }
+  </script>
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="WegnerDesign" />
+</head>
+<body onload="go();">
+  <div id="socialColumn">
+    <div class='tweet'><a target="_blank" href="#"></a></div>
+  </div>
+  <div id="metaColumn">
+    <div id="logo">
+      <img src="/images/logo.png" />
+    </div>
+    <div id="footercontrols">
+      <div id="index"><a href="/blog"><img src="/images/index.png" /></a></div><!--
+     --><div id="rss"><a href="/feed.xml"><img src="/images/rss.png" /></a></div></div>
+    </div>
+  </div>
+  <div id="post">
+    <h2><span class='title'>Detecting Javascript Memory Leaks</span><span class="date">08 May 2013</span></h2>
+    <div id="body"><p>Every app I&#39;ve built in the past has pretty much been unaware of memory management.  Computers these days are packed with memory, and even if you load a ton of AJAX requests, chances are the user will be refreshing or going to a new page before their memory runs out.  Recently, however, I&#39;ve been working on a display piece for <a href="http://www.cultivatestudios.com">Cultivate Studios</a>, and there is a <strong>ton</strong> of data that moves in and out.  For this specific project, the high end is around 100 updates per minute, each of them requiring a DOM insert, smooth transitions to shuffle existing elements and display the new one, and smooth removal of stale items.  On top of all that, the page could be open - literally - for weeks.  For the first time, I&#39;ve had to really worry about memory management in javascript.</p>
+
+<p>The down side is that there aren&#39;t really any great tools for monitoring javascript memory usage over long periods.  Yes, chrome has some <a href="http://blog.chromium.org/2011/05/chrome-developer-tools-put-javascript.html">awesome features for watching memory usage</a>, but they&#39;re really targeted for short timeframes.  The best option was to record usage on the dev tools Timeline, and watch the memory graph.  Unfortunately, that seems to gather an unnecessarily large amount of data, and running it for a long period of time is certain to crash your browser.</p>
+
+<p>Lucky for me (and you?), chrome has recently opened up a new experimental API to view process information.  I&#39;ve built <a href="https://github.com/CultivateStudios/chrome-leak-finder">a chrome extension</a> that watches for memory updates, and sends the update to your app.  Chrome seems to update about once every second - this is a lot of data, but I ran it for about 5 hours today and my browser didn&#39;t become the least big sluggish.</p>
+
+<p><img src="/images/memory_watcher.png" alt="Chrome Memory Monitor"></p>
+
+<p>You can see in the above that there are two metrics that I&#39;m able to watch - memory allocated, and memory used.  The extension is built to save (and output) the amount of memory that your app is using at the initial load time.  It then provides regular updates on the updated allocation and usage values, as well as how those numbers compare to the initial metrics and the metrics from the previous update.  I&#39;m using a 13&quot; MacBook Pro, and all of those metrics print out on a single line in my chrome console - this makes for a very easy spreadsheet-like view.</p>
+
+<p>Feel free to check out <a href="https://github.com/CultivateStudios/chrome-leak-finder">the extension</a> for yourself.  Just as a note, you will have to enable the experimental APIs in your chrome://flags.</p>
+
+<p>Oh, and another note, the current version will start spitting out memory usage metrics for <strong>every open tab</strong> as soon as you install it.  Obviously, it&#39;s probably not a good idea to leave this extension enabled during normal browsing - things could get a bit chaotic.</p>
+</div>
+    <div id="disqus_thread" style="width: 75%; margin-top: 50px;"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'wegnerdesign'; // required: replace example with your forum shortname
+        var disqus_identifier = '';
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+  <div id="footer"></div>
+</body>
+</html>
