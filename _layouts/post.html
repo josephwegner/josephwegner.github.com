@@ -34,9 +34,6 @@
   <meta property="og:site_name" content="WegnerDesign" />
 </head>
 <body onload="go();">
-  <div id="socialColumn">
-    <div class='tweet'><a target="_blank" href="#"></a></div>
-  </div>
   <div id="metaColumn">
     <div id="logo">
       <img src="/images/logo.png" />
@@ -49,6 +46,9 @@
   <div id="post">
     <h2><span class='title'>{{ page.title }}</span><span class="date">{{ page.date | date_to_long_string }}</span></h2>
     <div id="body">{{ content }}</div>
+    <div id="socialColumn">
+      <div class='tweet'><a target="_blank" href="#"></a></div>
+    </div>
     <div id="disqus_thread" style="width: 75%; margin-top: 50px;"></div>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

@@ -200,3 +200,25 @@ pre code {
 	top: -6px;
 	left: -6px;
 }
+
+@media screen and (max-device-width: 699px) {
+	#socialColumn {
+		position: static;
+		width: 75%;
+	}
+
+	#socialColumn .tweet {
+		margin: auto;
+	}
+}
+
+@media all and (max-width: 699px) {
+	#socialColumn {
+		position: static;
+		width: 75%;
+	}
+
+	#socialColumn .tweet {
+		margin: auto;
+	}
+}
