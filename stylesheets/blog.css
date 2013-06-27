@@ -180,23 +180,41 @@ pre code {
 	height: 100%;
 }
 
-.tweet {
+#socialColumn div {
 	display: block;
-	height: 48px;
-	width: 48px;
-	background-image: url("../images/twitter.png");
-	background-size: 48px 48px;
+	height: 35px;
+	width: 35px;
+	background-size: contain;
 	cursor: pointer;
+	transition: background-size .2s, height .2s, width .2s, top .2s, left .2s;
 	-webkit-transition: background-size .2s, height .2s, width .2s, top .2s, left .2s;
+	-moz-transition: background-size .2s, height .2s, width .2s, top .2s, left .2s;
+	-o-transition: background-size .2s, height .2s, width .2s, top .2s, left .2s;
+	-ms-transition: background-size .2s, height .2s, width .2s, top .2s, left .2s;
 	position: relative;
 	top: 0;
 	left: 0;
+
 }
 
-.tweet:hover {
-	background-size: 60px 60px;
+#socialColumn div.tweet {
+	height: 48px;
+	width: 48px;
+	background-image: url("../images/twitter.png");
+}
+
+#socialColumn div.gittip {
+	background-image: url("../images/gittip.png");
+	position: relative;
+	left: 8px;
+}
+
+#socialColumn div:hover {
 	height: 60px;
 	width: 60px;
+}
+
+#socialColumn .twitter:hover {
 	top: -6px;
 	left: -6px;
 }
@@ -205,10 +223,17 @@ pre code {
 	#socialColumn {
 		position: static;
 		width: 75%;
+		text-align: center;
 	}
 
-	#socialColumn .tweet {
+	#socialColumn div {
 		margin: auto;
+		display: inline-block;
+	}
+
+	#socialColumn .gittip {
+		left: auto;
+		top: -8px;
 	}
 }
 
@@ -216,9 +241,16 @@ pre code {
 	#socialColumn {
 		position: static;
 		width: 75%;
+		text-align: center;
 	}
 
-	#socialColumn .tweet {
+	#socialColumn div {
 		margin: auto;
+		display: inline-block;
+	}
+
+	#socialColumn .gittip {
+		left: auto;
+		top: -8px;
 	}
 }
