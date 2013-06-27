@@ -4,18 +4,27 @@
 	<style type="text/css">
 		body {
 			margin: 100px;
+			background-color: #5cbf94;
+		}
+
+		.human {
+			display: inline-block;
+			zoom: .2;
+			position: absolute;
+			bottom: 25%;
+			margin-bottom: 2%;
 		}
 
 		.head {
 			height: 50px;
 			width: 50px;
 			position: relative;
-			left: 16px;
+			left: 60%;
 			border-radius: 50px;
-			background-color: black;
+			background-color: white;
 			animation: headBob 1.5s linear infinite;
 			-webkit-animation: headBob 1.5s linear infinite;
-			top: 0;
+			margin: 0 0 0 -25px;
 		}
 
 		.head:before {
@@ -24,7 +33,7 @@
 			height: 25px;
 			width: 25px;
 			border-radius: 25px;
-			background-color: black;
+			background-color: white;
 			position: absolute;
 			left: -5px;
 			top: 11px;
@@ -36,7 +45,7 @@
 			height: 25px;
 			width: 25px;
 			border-radius: 25px;
-			background-color: black;
+			background-color: white;
 			position: absolute;
 			right: -5px;
 			top: 11px;
@@ -44,47 +53,47 @@
 
 		@keyframes headBob {
 			0% {
-				top: 0;
-				left: 16px;
+				margin: 0 0 0 -25px;
+				left: 55%;
 			}
 			25% {
-				top: -5px;
-				left: 11px;
+				margin: -8% 0 8% -25px;
+				left: 50%;
 			}
 			50% {
-				top: 0;
-				left: 9px;
+				margin: 0 0 0 -25px;
+				left: 45%;
 			}
 			75% {
-				top: -5px;
-				left: 11px;
+				margin: -8% 0 8% -25px;
+				left: 50%;
 			}
 			100% {
-				top: 0;
-				left: 16px;
+				margin: 0 0 0 -25px;
+				left: 55%;
 			}
 		}
 
 		@-webkit-keyframes headBob {
 			0% {
-				top: 0;
-				left: 16px;
+				margin: 0 0 0 -25px;
+				left: 55%;
 			}
 			25% {
-				top: -5px;
-				left: 11px;
+				margin: -8% 0 8% -25px;
+				left: 50%;
 			}
 			50% {
-				top: 0;
-				left: 9px;
+				margin: 0 0 0 -25px;
+				left: 45%;
 			}
 			75% {
-				top: -5px;
-				left: 11px;
+				margin: -8% 0 8% -25px;
+				left: 50%;
 			}
 			100% {
-				top: 0;
-				left: 16px;
+				margin: 0 0 0 -25px;
+				left: 55%;
 			}
 		}
 
@@ -93,7 +102,7 @@
 			top: 5px;
 			height: 150px;
 			width: 80px;
-			background-color: black;
+			background-color: white;
 			border-radius: 10px;
 		}
 
@@ -106,7 +115,7 @@
 			position: absolute;
 			left: -19px;
 			top: 0px;
-			background-color: black;
+			background-color: white;
 			-webkit-transform: rotateZ(15deg);
 		}
 		.body:after {
@@ -118,14 +127,14 @@
 			position: absolute;
 			right: -19px;
 			top: 0px;
-			background-color: black;
+			background-color: white;
 			-webkit-transform: rotateZ(-15deg);
 		}
 
 		.legs {
 			height: 1px;
 			width: 70px;
-			background-color: black;
+			background-color: white;
 			position: relative;
 		}
 
@@ -138,7 +147,7 @@
 			position: absolute;
 			left: 0px;
 			top: -15px;
-			background-color: black;
+			background-color: white;
 		}
 		.legs:after {
 			content: " ";
@@ -149,7 +158,123 @@
 			position: absolute;
 			right: -10px;
 			top: -15px;
-			background-color: black;
+			background-color: white;
+		}
+
+		.terrain {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 25%;
+			background-color: white;
+		}
+
+		.sun {
+			height: 200px;
+			width: 200px;
+			position: absolute;
+			top: -100px;
+			right: -100px;
+			border-radius: 100px;
+			background-color: white;
+		}
+
+		.clouds {
+			height: 40%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+		}
+
+		.clouds .cloud {
+			width: 200px;
+			height: 100px;
+			border-radius: 100px;
+			background-color: white;
+			position: absolute;
+			color: #5cbf94;
+			text-align: center;
+			font-family: sans-serif;
+			font-size: 200%;
+		}
+
+		.clouds .cloud.fast {
+			right: -200px;
+			top: 50%;
+			animation: cloudFloat 20s linear infinite;
+			-webkit-animation: cloudFloat 20s linear infinite;
+			z-index: 10;
+		}
+
+		.clouds .cloud.medium {
+			right: -600px;
+			top: 40%;
+			animation: cloudFloat 30s linear infinite;
+			-webkit-animation: cloudFloat 30s linear infinite;
+		}
+
+		.clouds .cloud.slow {
+			right: -1000px;
+			top: 30%;
+			animation: cloudFloat 40s linear infinite;
+			-webkit-animation: cloudFloat 40s linear infinite;
+		}
+
+		.clouds .cloud:before {
+			content: " ";
+			display: block;
+			height: 50px;
+			width: 50px;
+			border-radius: 50px;
+			background-color: white;
+			position: relative;
+			top: -30px;
+			left: 35px;
+			z-index: -1;
+		}
+
+		.clouds .cloud:after {
+			content: " ";
+			display: block;
+			height: 100px;
+			width: 100px;
+			border-radius: 100px;
+			background-color: white;
+			position: absolute;
+			top: -50px;
+			left: 65px;
+			z-index: -1;
+		}
+
+		@keyframes cloudFloat {
+			0% {
+				margin: 0 0 0 -25px;
+				left: 55%;
+			}
+			25% {
+				margin: -8% 0 8% -25px;
+				left: 50%;
+			}
+			50% {
+				margin: 0 0 0 -25px;
+				left: 45%;
+			}
+			75% {
+				margin: -8% 0 8% -25px;
+				left: 50%;
+			}
+			100% {
+				margin: 0 0 0 -25px;
+				left: 55%;
+			}
+		}
+
+		@-webkit-keyframes cloudFloat {
+			100% {
+				right: 100%;
+			}
 		}
 	</style>
 <body>
@@ -157,6 +282,15 @@
 	<div class="head"></div>
 	<div class="body"></div>
 	<div class="legs"></div>
+</div>
+<div class="world">
+	<div class="sun"></div>
+	<div class="terrain"></div>
+	<div class="clouds">
+		<div class="cloud slow"></div>
+		<div class="cloud fast">CSS Man</div>
+		<div class="cloud medium"></div>
+	</div>
 </div>
 </body>
 </html>
