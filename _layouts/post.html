@@ -26,6 +26,16 @@
 
       tweetLink.href = "https://twitter.com/intent/tweet?url="+url+"&text="+name;
     }
+
+    function trackMouseOver(ele) {
+      _gaq.push(['_trackEvent', 'Social Bar', 'Hover', ele.className]);
+      console.log("track mouse over");
+    }
+
+    function trackClick(ele) {
+      _gaq.push(['_trackEvent', 'Social Bar', 'Click', ele.className]);
+      console.log("track click");
+    }
   </script>
   <meta property="og:type" content="article" />
   <meta property="og:title" content="{{ title }}" />
@@ -47,8 +57,8 @@
     <h2><span class='title'>{{ page.title }}</span><span class="date">{{ page.date | date_to_long_string }}</span></h2>
     <div id="body">{{ content }}</div>
     <div id="socialColumn">
-      <div class='tweet'><a target="_blank" href="#"></a></div>
-      <div class="gittip"><a target="_blank" href="https://www.gittip.com/josephwegner/"></a></div>
+      <div class='tweet' onMouseOver="trackMouseOver(this);" onClick="trackClick(this);"><a target="_blank" href="#"></a></div>
+      <div class="gittip" onMouseOver="trackMouseOver(this);" onClick="trackClick(this);"><a target="_blank" href="https://www.gittip.com/josephwegner/"></a></div>
     </div>
     <div id="disqus_thread" style="width: 75%; margin-top: 50px;"></div>
     <script type="text/javascript">
