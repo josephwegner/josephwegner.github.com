@@ -1,0 +1,162 @@
+<html>
+<head>
+</head>
+	<style type="text/css">
+		body {
+			margin: 100px;
+		}
+
+		.head {
+			height: 50px;
+			width: 50px;
+			position: relative;
+			left: 16px;
+			border-radius: 50px;
+			background-color: black;
+			animation: headBob 1.5s linear infinite;
+			-webkit-animation: headBob 1.5s linear infinite;
+			top: 0;
+		}
+
+		.head:before {
+			content: " ";
+			display: block;
+			height: 25px;
+			width: 25px;
+			border-radius: 25px;
+			background-color: black;
+			position: absolute;
+			left: -5px;
+			top: 11px;
+		}
+
+		.head:after {
+			content: " ";
+			display: block;
+			height: 25px;
+			width: 25px;
+			border-radius: 25px;
+			background-color: black;
+			position: absolute;
+			right: -5px;
+			top: 11px;
+		}
+
+		@keyframes headBob {
+			0% {
+				top: 0;
+				left: 16px;
+			}
+			25% {
+				top: -5px;
+				left: 11px;
+			}
+			50% {
+				top: 0;
+				left: 9px;
+			}
+			75% {
+				top: -5px;
+				left: 11px;
+			}
+			100% {
+				top: 0;
+				left: 16px;
+			}
+		}
+
+		@-webkit-keyframes headBob {
+			0% {
+				top: 0;
+				left: 16px;
+			}
+			25% {
+				top: -5px;
+				left: 11px;
+			}
+			50% {
+				top: 0;
+				left: 9px;
+			}
+			75% {
+				top: -5px;
+				left: 11px;
+			}
+			100% {
+				top: 0;
+				left: 16px;
+			}
+		}
+
+		.body {
+			position: relative;
+			top: 5px;
+			height: 150px;
+			width: 80px;
+			background-color: black;
+			border-radius: 10px;
+		}
+
+		.body:before {
+			content: " ";
+			display: block;
+			height: 150px;
+			width: 30px;
+			border-radius: 30px;
+			position: absolute;
+			left: -19px;
+			top: 0px;
+			background-color: black;
+			-webkit-transform: rotateZ(15deg);
+		}
+		.body:after {
+			content: " ";
+			display: block;
+			height: 150px;
+			width: 30px;
+			border-radius: 30px;
+			position: absolute;
+			right: -19px;
+			top: 0px;
+			background-color: black;
+			-webkit-transform: rotateZ(-15deg);
+		}
+
+		.legs {
+			height: 1px;
+			width: 70px;
+			background-color: black;
+			position: relative;
+		}
+
+		.legs:before {
+			content: " ";
+			display: block;
+			height: 150px;
+			width: 35px;
+			border-radius: 30px;
+			position: absolute;
+			left: 0px;
+			top: -15px;
+			background-color: black;
+		}
+		.legs:after {
+			content: " ";
+			display: block;
+			height: 150px;
+			width: 35px;
+			border-radius: 30px;
+			position: absolute;
+			right: -10px;
+			top: -15px;
+			background-color: black;
+		}
+	</style>
+<body>
+<div class="human">
+	<div class="head"></div>
+	<div class="body"></div>
+	<div class="legs"></div>
+</div>
+</body>
+</html>
