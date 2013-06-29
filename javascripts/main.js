@@ -58,7 +58,6 @@ function typeInEditor(obj) {
 	var len = obj.text.length;
 	var time = 2000 / len;
 	time = time > 200 ? 200 : time;
-	console.log(time, len);
 
 	var type = setInterval(function() {
 		if(obj.text.length <= 0) {
