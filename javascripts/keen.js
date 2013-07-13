@@ -83,7 +83,7 @@
 		}
 
 		$(window).bind("beforeunload", function(e) {
-			Keen.addEvent("leave", {
+			Keen.track("leave", {
 				scrollTop: $(window).scrollTop(),
 				windowHeight: $(window).height() 
 			});
