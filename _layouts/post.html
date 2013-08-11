@@ -46,7 +46,7 @@
 <body onload="go();">
   <div id="metaColumn">
     <div id="logo">
-      <a href="/"><img src="/images/logo.png" /></a>
+      <a href="/"><img src="/images/logo.png" alt="Joe Wegner"/></a>
     </div>
     <div id="footercontrols">
       <div id="index"><a href="/blog"><img src="/images/index.png" /></a></div><!--
@@ -56,6 +56,13 @@
   <div id="post">
     <h2><span class='title'>{{ page.title }}</span><span class="date">{{ page.date | date_to_long_string }}</span></h2>
     <div id="body">{{ content }}</div>
+    <div id="thanks">
+      {% if page.thanks %}
+        {{page.thanks}}
+      {% else %}
+        Thanks for reading <a href="{{page.url}}">{{page.title}} by <a href="/">Joe Wegner</a>.  Want to <a href="/blog">read more</a>?
+      {% endif %}
+    </div>
     <div id="socialColumn">
       <div class='tweet' onMouseOver="trackMouseOver(this);" onClick="trackClick(this);"><a target="_blank" href="#"></a></div>
       <div class="gittip" onMouseOver="trackMouseOver(this);" onClick="trackClick(this);"><a target="_blank" href="https://www.gittip.com/josephwegner/"></a></div>

@@ -219,6 +219,16 @@ pre code {
 	left: -6px;
 }
 
+#thanks {
+	background-color: #dee0dc;
+	padding: 20px;
+	text-align: center;
+    width: 75%;
+    box-sizing: border-box;
+    font-size: 18px;
+    color: #3b3b3a;
+}
+
 @media screen and (max-device-width: 699px) {
 	#socialColumn {
 		position: static;
