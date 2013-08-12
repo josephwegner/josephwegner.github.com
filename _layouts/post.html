@@ -53,14 +53,14 @@
      --><div id="rss"><a href="/feed.xml"><img src="/images/rss.png" /></a></div></div>
     </div>
   </div>
-  <div id="post">
-    <h2><span class='title'>{{ page.title }}</span><span class="date">{{ page.date | date_to_long_string }}</span></h2>
-    <div id="body">{{ content }}</div>
+  <div id="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <h2><span class='title' itemprop="name">{{ page.title }}</span><span class="date"><time itemprop="dateCreated" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_long_string }}</time></span></h2>
+    <div id="body" itemprop="text">{{ content }}</div>
     <div id="thanks">
       {% if page.thanks %}
         {{page.thanks}}
       {% else %}
-        Thanks for reading <a href="{{page.url}}">{{page.title}}</a> by <a href="/">Joe Wegner</a>.  Want to <a href="/blog">read more</a>?
+        Thanks for reading <a itemprop="url" href="{{page.url}}">{{page.title}}</a> by <a href="/" itemprop="author">Joe Wegner</a>.  Want to <a href="/blog">read more</a>?
       {% endif %}
     </div>
     <div id="socialColumn">
