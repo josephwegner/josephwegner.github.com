@@ -20,8 +20,23 @@ div#content > div > * {
   position: relative;
 }
 
+#header-image-wrapper {
+  position: relative;
+}
+
 #content img.stretch {
   width: 100%;
+}
+
+#image-scroller {
+  height: 100%;
+  width: 100%;
+  background-size: 100%;
+  background-position: 0 0;
+  background-image: url("/images/bg_sprite.jpg");
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .float {

@@ -3,36 +3,33 @@ var imageObjs = [];
 var sentinel = 0;
 
 var changeImage = true;
-
+/*
 var sentinelBump = function() {
-    sentinel++;
-
-    if(sentinel >= images.length) {
+*/
         $(document).ready(function() {
             console.log("go!");
-            var bigImage = $(".bigImage");
+            var bigImage = $("#header-image-wrapper");
 
             $(bigImage).mousemove(function(e) {
                 if(changeImage) {
                     var chunk = $(this).height() / 5;
                     var y = e.pageY;
 
-                    var section = Math.ceil(y / chunk);
+                    var section = Math.floor(y / chunk);
+                    console.log("0 " + section + "%");
+                    $("#image-scroller").css('background-position', "0 " + (section * 25) + "%");
 
-                    $(".bigImage").attr('src', imageObjs[section - 1].src);
+                    //$(".bigImage").attr('src', imageObjs[section - 1].src);
                 }
             });
-        });
-    }
+       });/*
 }
 
-for(var i=0,max=images.length; i<max; i++) {
     var img = new Image();
     img.onload = sentinelBump;
-    img.src = images[i];
+    img.src = "/images/bg_sprite.jpg";
     imageObjs.push(img);
-}
-
+*/
 
 $(window).ready(function() {
 
