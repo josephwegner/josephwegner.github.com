@@ -186,8 +186,8 @@ pre code {
 
 #hello {
   position: absolute;
-  top: 20px;
-  right: 50px;
+  bottom: 30%;
+  left: 5%;
   z-index: 1000;
   color: white;
   opacity: .8;

@@ -1,3 +1,39 @@
+var images = ["/images/bg1.jpg", "/images/bg2.jpg", "/images/bg3.jpg", "/images/bg4.jpg", "/images/bg5.jpg"];
+var imageObjs = [];
+var sentinel = 0;
+
+var changeImage = true;
+
+var sentinelBump = function() {
+    sentinel++;
+
+    if(sentinel >= images.length) {
+        $(document).ready(function() {
+            console.log("go!");
+            var bigImage = $(".bigImage");
+
+            $(bigImage).mousemove(function(e) {
+                if(changeImage) {
+                    var chunk = $(this).height() / 5;
+                    var y = e.pageY;
+
+                    var section = Math.ceil(y / chunk);
+
+                    $(".bigImage").attr('src', imageObjs[section - 1].src);
+                }
+            });
+        });
+    }
+}
+
+for(var i=0,max=images.length; i<max; i++) {
+    var img = new Image();
+    img.onload = sentinelBump;
+    img.src = images[i];
+    imageObjs.push(img);
+}
+
+
 $(window).ready(function() {
 
 	var colors = ["blue", "red", "green", "orange", "purple"]
@@ -47,9 +83,12 @@ $(window).ready(function() {
     });
 
     $("#scrollArrow").click(function() {
+        changeImage = false;
     	$("html, body").animate({
     		scrollTop: $("#aboutme").offset().top
-    	}, 1000);
+    	}, 1000, function() {
+            changeImage = true;
+        });
     })
 
 });
