@@ -1,15 +1,40 @@
+/*
+ * Colors:
+ *
+ * Darker Blue (header): #05051f
+*/
+
 html, body {
 	width: 100%;
 	margin: 0;
 	font-family: "PTSansRegular";
 }
 
-h2 {
-	font-family: "PTSansCaptionBold";
+#header {
+	height: 2.5em;
+	background-color: #05051f;
+	font-size: 2em;
+	line-height: 2em;
 }
 
-body > div {
-	display: inline-block;
+#header h1 {
+	padding-left: 100px;
+	background-image: url(/images/logo.png);
+	background-size: auto 1.5em;
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	color: white;
+	padding-left: 60px;
+	margin: 0;
+	height: 1em;
+	font-size: 1em;
+	line-height: .5em;
+	padding-top: 1em;
+	margin-left: 2em;
+}
+
+h2 {
+	font-family: "PTSansCaptionBold";
 }
 
 span.date {
@@ -21,32 +46,12 @@ h2 span.date {
 	padding-left: 20px;
 }
 
-div#metaColumn {
-	width: 25%;
-	height: 100%;
-	position: fixed;
-	top: 0;
-}
-
-#logo {
-	max-width: 248px;
-	width: 75%;
+div#post {
+	width: 50%;
 	margin: auto;
 }
 
-#logo img {
-	width: 100%;
-}
-
-div#post, div#listWrap {
-	position: absolute;
-	left: 25%;
-	top: 0;
-	width: 74%;
-}
-
 div#post #body {
-	width: 75%;
 	font-size: 18px;
 	line-height: 1.5em;
 }
@@ -58,39 +63,6 @@ div#body img {
 div#post a {
 	color: #575757;
 	text-decoration: underline;
-}
-
-div#footercontrols {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	width: 25%;
-}
-
-div#footercontrols > div {
-	height: 30px;
-	width: 30px;
-	display: inline-block;
-	background-color: black;
-	cursor: pointer;
-}
-
-div#footercontrols > div:hover {
-	background-color: #383838;
-}
-
-div#footercontrols  img {
-	position: relative;
-	left: 3px;
-	top: 3px;
-}
-
-div#footer {
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	height: 4px;
-	background-color: black
 }
 
 ul#list {

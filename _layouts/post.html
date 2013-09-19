@@ -44,14 +44,8 @@
   <meta property="og:site_name" content="WegnerDesign" />
 </head>
 <body onload="go();">
-  <div id="metaColumn">
-    <div id="logo">
-      <a href="/"><img src="/images/logo.png" alt="Joe Wegner"/></a>
-    </div>
-    <div id="footercontrols">
-      <div id="index"><a href="/blog"><img src="/images/index.png" /></a></div><!--
-     --><div id="rss"><a href="/feed.xml"><img src="/images/rss.png" /></a></div></div>
-    </div>
+  <div id="header">
+    <h1>Joe Wegner</h2>
   </div>
   <div id="post" itemscope itemtype="http://schema.org/BlogPosting">
     <h2><span class='title' itemprop="name">{{ page.title }}</span><span class="date"><time itemprop="dateCreated" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_long_string }}</time></span></h2>
@@ -83,6 +77,5 @@
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
   </div>
-  <div id="footer"></div>
 </body>
 </html>
