@@ -2,6 +2,8 @@
  * Colors:
  *
  * Darker Blue (header): #05051f
+ * Tealish Blue (subheader): #5ae2e7;
+ * Darker Tealish Blue (subheader): #4ababd;
 */
 
 html, body {
@@ -33,8 +35,29 @@ html, body {
 	margin-left: 2em;
 }
 
-h2 {
+#post > h2 {
 	font-family: "PTSansCaptionBold";
+	background-color: #5ae2e7;
+	padding: .4em 0;
+	border-bottom: .6em solid #4ababd;
+	text-align: center;
+	margin-top: 0;
+}
+
+#post > h2:after {
+	content: " ";
+	display: block;
+	height: 0;
+	width: 0;
+	border-left: .75em solid #5ae2e7;
+	border-top: .75em solid transparent;
+	position: relative;
+	left: 50%;
+	top: .75em;
+	transform: rotateZ(-45deg);
+	-webkit-transform: rotateZ(-45deg);
+	-moz-transform: rotateZ(-45deg);
+	-o-transform: rotateZ(-45deg);
 }
 
 span.date {
@@ -44,14 +67,13 @@ span.date {
 
 h2 span.date {
 	padding-left: 20px;
+	display: block;
 }
 
-div#post {
-	width: 50%;
-	margin: auto;
-}
 
 div#post #body {
+	width: 50%;
+	margin: auto;
 	font-size: 18px;
 	line-height: 1.5em;
 }
