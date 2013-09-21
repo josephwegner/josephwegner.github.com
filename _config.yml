@@ -7,4 +7,4 @@ pygments: true
 paginate: 10
 auto: true
 markdown: redcarpet
-permalink: /blog/:title
+permalink: :categories/:title

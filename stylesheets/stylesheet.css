@@ -16,6 +16,10 @@ div#content > div > * {
   line-height: 1.4;
 }
 
+div#logo img {
+  max-height: 15em;
+}
+
 #content {
   position: relative;
 }
