@@ -60,7 +60,7 @@
     {% endif %}
     <div class="row post-header">
       <div class="col-md-12">
-        <h2><span class='title' itemprop="name">{{ page.title }}</span><span class="date"><time itemprop="dateCreated" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_long_string }}</time></span></h2>
+        <h2 {% if page.image %} class="with-image" {% endif %}><span class='title' itemprop="name">{{ page.title }}</span><span class="date"><time itemprop="dateCreated" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_long_string }}</time></span></h2>
       </div>
     </div>
     <div id="body" class="row">

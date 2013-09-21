@@ -77,6 +77,10 @@ h2.section-header {
 	color: white;
 }
 
+.post-header  h2.with-image {
+	border-top: .55em solid #bd4233;
+}
+
 .post-header  h2:after {
 	content: " ";
 	display: block;

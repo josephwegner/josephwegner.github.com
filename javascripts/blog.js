@@ -3,7 +3,6 @@ $(document).ready(function() {
 		if($(window).scrollTop() > 200) {
 			$(".go-to-top").css('bottom', 0);
 		} else {
-			console.log("above");
 			$(".go-to-top").css('bottom', '-4em');
 		}
 	});
