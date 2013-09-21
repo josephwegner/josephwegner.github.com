@@ -1,0 +1,15 @@
+---
+title: Redefine Your Goals
+layout: rambling
+---
+The last time I redesigned my website I wrote a blog post called [Portfolios: Design for your Goals](http://wegnerdesign.com/blog/portfolios-design-for-your-goals/).  The gist of that blog post was that it's important to keep your goals in mind when you're designing.  At the time, my goals were to create a wonderful reading experience for people that happened across my blog.
+
+I've redesigned my site again, and that original goal still applies, but there are some additional goals that I've had to design for.  The last design worked - WegnerDesign is starting to gain some traction, and I attribute that very much to a great reading experience.  As WegnerDesign has grown, I've been examing the types of posts that I write.  To be honest, many of them are written in an hour on the train; I read over them once, post them, and hope it goes well.  That's not a good formula for creating good content.  So I've added this additional goal: **Create wonderful content to be enjoyed in the wonderful reading experience**.
+
+To encoruage wonderful content creation, I've made two major changes to WegnerDesign.  The first is the addition of a [Ramblings](/ramblings) section.  I do a lot of thinking during the day, and sometimes I want to publish those thoughts but they're not good enough for a blog post.  Occasionally, these ideas are right on the line of being blog-worth, and have led to less-than-stellar blog posts.  The ramblings section will allow me to still write and publish my thoughts without contaminating the blog feed.  To separate the idea of a "rambling" from a "blog post" I've removed the RSS feed and social integrations.  That content should be intentionally unimportant.
+
+The second large change is that I've added a photography option to my blog posts.  I've been doing some [amateur photography] recently, and thing that will be a nice addition to my posts.  Not only will this make posts more beautiful and immersive, but it will require me to spend more time considering the themes of my posts before posting them.  I won't be able to write the article and immediately post it, because I will need to plan, shoot, and edit the photography.  You can see examples of a post with photography [here](/blog/please-disrupt-passwords/).
+
+As I developed the changes for that goal - and considered some reader feedback I've gotten - I added one additional goal: **Simplify Discovery of Wonderful Content.**  You'll notice that this new redesign has a new - more prominent - navigation bar.  In fact, you may not have even know that the old design *had* a navigation bar.  Hopefully this new navigation will make it easier for readers to discover other content on WegnerDesign.
+
+Enjoy the new design, and feel free to give me feedback if you find bugs/ugly things.

@@ -8,7 +8,7 @@ meta:
   dsq_thread_id: "analyticsplatformisaprivacydecision"
 status: post
 tags: []
-
+image: /images/population.jpg
 ---
 
 With [all of the PRISM news](https://twitter.com/Joe_Wegner/status/342841857723744256) flying around right now, I was putting some thought into how the average person might avoid having their entire lives digitally documented without their permission.  Turns out, it's pretty much impossible to both enjoy the internet and mantain your privacy.  The main problem - in my opinion - is web analytics.
