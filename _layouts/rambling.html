@@ -8,6 +8,7 @@
   <link rel="stylesheet" type="text/css" href="/fonts/stylesheet.css" />
   <script src="/javascripts/jquery.min.js"></script>
   <script src="/javascripts/keen.js"></script>
+  <script src="/javascripts/blog.js"></script>
   <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-19623283-1']);
@@ -20,24 +21,6 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
   </script>
-  <script type="text/javascript">
-    function go() {
-      var tweetLink = document.getElementsByClassName("tweet")[0].getElementsByTagName("a")[0];
-
-      var url = encodeURIComponent("http://www.wegnerdesign.com{{ page.url }}");
-      var name = encodeURIComponent("{{ page.title }} via #WegnerDesign")
-
-      tweetLink.href = "https://twitter.com/intent/tweet?url="+url+"&text="+name;
-    }
-
-    function trackMouseOver(ele) {
-      _gaq.push(['_trackEvent', 'Social Bar', 'Hover', ele.className]);
-    }
-
-    function trackClick(ele) {
-      _gaq.push(['_trackEvent', 'Social Bar', 'Click', ele.className]);
-    }
-  </script>
   <meta property="og:type" content="article" />
   <meta property="og:title" content="{{ title }}" />
   <meta property="og:url" content="{{ url }}" />
@@ -45,7 +28,7 @@
   <meta property="og:site_name" content="WegnerDesign" />
   <meta property="og:image" content="/images/logo.png" />
 </head>
-<body onload="go();">
+<body>
   {% include header.html %}
   <div id="rambling" itemscope itemtype="http://schema.org/BlogPosting">
     <div id="body" class="row">
@@ -57,6 +40,9 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="go-to-top">
+    <span class="glyphicon glyphicon-arrow-up"><span>
   </div>
   <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
 </body>

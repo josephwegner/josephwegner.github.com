@@ -323,6 +323,29 @@ pre code {
 	padding: 0 2em .5em 2em;
 }
 
+div.go-to-top {
+	position: fixed;
+	right: 2em;
+	bottom: -4em;
+	height: 4em;
+	width: 4em;
+	background-color: #05051f;
+	color: white;
+	border-radius: 1em 1em 0 0;
+	cursor: pointer;
+	-webkit-transition: background-color .25s, bottom .25s;
+}
+
+div.go-to-top:hover {
+	background-color: #bd4233;
+}
+
+div.go-to-top span {
+    font-size: 2.5em;
+    margin: .25em;
+
+}
+
 button.navbar-toggle {
 	margin-top: 1em;
 }
