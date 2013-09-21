@@ -43,6 +43,11 @@
   <meta property="og:url" content="{{ url }}" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="WegnerDesign" />
+  {% if page.image %}
+  <meta property="og:image" content="{{page.image}}" />
+  {% else %}
+  <meta property="og:image" content="/images/logo.png" />
+  {% endif %}
 </head>
 <body onload="go();">
   {% include header.html %}
