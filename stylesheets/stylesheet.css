@@ -97,7 +97,7 @@ body {
 
 .project-list {
   background-image: url(/images/blog_bg.jpg);
-  background-size: auto 100%;
+  background-size: 100% 100%;
 }
 
 .blog-list h2, .project-list h2 {
