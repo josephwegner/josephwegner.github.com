@@ -6,4 +6,4 @@ tags:
 - node
 - tech
 ---
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquam quam vel mauris volutpat, eget tempus erat aliquam. 
+Node-multipost is an easy-to-use Node.js interface for sending multipart/form requests.  Node-multipost takes all the difficulty out of multipart requests. 

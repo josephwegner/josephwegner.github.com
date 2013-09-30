@@ -6,4 +6,4 @@ tags:
 - node
 - tech
 ---
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquam quam vel mauris volutpat, eget tempus erat aliquam. 
+node-session is a great tool for the barebones Node.js web server, which will allow you to store user sessions. And the code is simple, to boot!
