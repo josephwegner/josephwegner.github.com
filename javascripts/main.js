@@ -1,107 +1,46 @@
-var images = ["/images/bg1.jpg", "/images/bg2.jpg", "/images/bg3.jpg", "/images/bg4.jpg", "/images/bg5.jpg"];
-var imageObjs = [];
-var sentinel = 0;
+$(document).ready(function() {
 
-var changeImage = true;
-/*
-var sentinelBump = function() {
-*/
-        $(document).ready(function() {
-            console.log("go!");
-            var bigImage = $("#header-image-wrapper");
+    var unBlur = setInterval(function() {
+        if($(".blurred").length) {
+            $(".blurred").first().removeClass("blurred");
+        } else {
+            startTitleRotation();
+            clearInterval(unBlur);
+        }
 
-            $(bigImage).mousemove(function(e) {
-                if(changeImage) {
-                    var chunk = $(this).height() / 5;
-                    var y = e.pageY;
+    }, 1000);
 
-                    var section = Math.floor(y / chunk);
-                    console.log("0 " + section + "%");
-                    $("#image-scroller").css('background-position', "0 " + (section * 25) + "%");
 
-                    //$(".bigImage").attr('src', imageObjs[section - 1].src);
-                }
-            });
-       });/*
-}
+    var header = $(".hello");
+    var headerText = $(header).find("h1");
 
-    var img = new Image();
-    img.onload = sentinelBump;
-    img.src = "/images/bg_sprite.jpg";
-    imageObjs.push(img);
-*/
+    var headerWidth = $(header).width();
+    var headerHeight = $(header).height();
+    var headerOffset = $(header).offset().top;
 
-$(window).ready(function() {
+    $(".hello").mousemove(function(e) {
+        var x = ((e.clientX / headerWidth) * 20) - 10;
+        var y = (((e.clientY - headerOffset) / headerHeight) * 20) - 10;
 
-	var colors = ["blue", "red", "green", "orange", "purple"]
-
-    $(".blogpost").each(function() {
-    	var color = colors[Math.floor(Math.random() * colors.length)];
-    	$(this).addClass(color);
-    });
-    
-    var editors = {};
-
-    var typeIn = [];
-
-    $(".editor").each(function() {
-    	var id = $(this).attr('id');
-    	var mode = $(this).attr('lang');
-    	var text = $(this).text();
-
-    	editors[id] = ace.edit(id);
-    	editors[id].setTheme("ace/theme/chrome");
-    	editors[id].getSession().setMode("ace/mode/"+mode);
-
-    	var that = this;
-    	setTimeout(function() {
-    		$(that).height($(that).find(".ace_gutter-cell").last().position().top + 100);
-    		editors[id].setValue("");
-    	}, 10);
-
-    	typeIn.push({
-    		ele: $(this),
-    		text: text,
-    		editor: editors[id]
-    	});
-
-    });
-
-    $(window).scroll(function(e) {
-    	var bottom = $(window).scrollTop() + $(window).height();
-
-    	for(var i=0,max=typeIn.length; i<max; i++) {
-    		if(bottom > $(typeIn[i].ele).offset().top + 100) {
-    			typeInEditor(typeIn.splice(i, 1)[0]);
-    			i--;
-    			max--;
-    		}
-    	}
-    });
-
-    $("#scrollArrow").click(function() {
-        changeImage = false;
-    	$("html, body").animate({
-    		scrollTop: $("#aboutme").offset().top
-    	}, 1000, function() {
-            changeImage = true;
-        });
+        $(header).css('background-position', (x*-1)+"px, "+(y*-1)+"px");
+        $(headerText).css({'top': y, 'left': x })
     })
 
 });
 
-function typeInEditor(obj) {
-	var len = obj.text.length;
-	var time = 2000 / len;
-	time = time > 200 ? 200 : time;
+function startTitleRotation() {
+    var titles = ["Father (to be)", "Server Admin", "Node.js Guru", "Christian", "Guy", "PHP Dev", "Blogger", "Husband", "Writer", "Web Designer"];
 
-	var type = setInterval(function() {
-		if(obj.text.length <= 0) {
-			clearInterval(type);
-		} else {
-			obj.editor.setValue(obj.editor.getValue()+obj.text.charAt(0));
-			obj.text = obj.text.substr(1);
-			obj.editor.gotoLine(0);
-		}
-	}, time)
+    var index = 0;
+
+    $("#rotating-self").addClass('blurrable');
+
+    setInterval(function() {
+        $("#rotating-self").addClass("blurred");
+
+        setTimeout(function() {
+            $("#rotating-self").text(titles[index]).removeClass("blurred");
+            index++;
+        }, 1000);
+    }, 4000);
 }

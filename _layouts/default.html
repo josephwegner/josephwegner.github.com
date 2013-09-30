@@ -1,10 +1,11 @@
-<!DOCTYPE html>
 <html>
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css" />
     <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/fonts/stylesheet.css" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
     <script src="javascripts/jquery.min.js"></script>
     <script src="javascripts/main.js"></script>
@@ -32,113 +33,68 @@
   </head>
 
   <body>
-    <div id="scrollArrow"></div>
-    <div id="hello">
-      <h1>Welcome to WegnerDesign</h1>
-      <h2>by Joe Wegner</h2>
-    </div>
-    <div id="content">
-      <div id="header-image-wrapper">
-        <img src="/images/bg1.jpg" class="stretch bigImage" />
-        <div id="image-scroller"></div>
-      </div>
-      <div class="textcontent" id="aboutme" offset="2%">
-        <div id="logo" class="half">
-          <img src="/images/logo.png" />
+      {% include header.html %}
+        <div class="hello">
+          <h1>
+            <span class="blurred blurrable">Hello!</span>
+            <span class="blurred blurrable">My name is Joe Wegner</span>
+            <span class="blurred blurrable">I'm a <b id='rotating-self'>Web Designer</b></span>
+          </h1>
         </div>
-        <div id="about" class="half pleasecenter">
-          <h1>Joe Wegner</h1>
-          <p>Web Guy.  Node.js Guru.  Database Architect.  Javascript Lover.  Frontend Designer.  Backend Developer.  Efficiency Builder.  Magic Maker.  Photo Blogger.  Startup Founder.  Really Cool.</p>
+        <div class="project-list">
+          <div class="godown"></div>
+          <h2>Projects</h2>
+          <ul class="row">
+            {% for post in site.categories.projects %}<li class="col-md-4 col-xs-6">
+              <div class="col-xs-1 visible-xs"></div>
+              <div class="col-md-10 col-md-offset-1 col-xs-12">
+                  <h3>{{post.title}}</h3>
+                  {{ post.excerpt }}
+                  <ul>
+                    {% for tag in post.tags %}<li class="{{tag}}"></li>{% endfor %}
+                    <li class="shadow"></li>
+                  </ul>
+                </div>
+              </li>{% endfor %}
+          </ul>
         </div>
-        <div class="clear"></div>
-      </div>
-      <div id="blogContent">
-        <h2><a href="/blog">Blog</a></h2>
-        <ul>
-          {% for post in site.posts limit:5 %}
-            <li class="blogpost"><a href="{{ post.url }}">{{ post.title }}</a></li>
-          {% endfor %}
-          <li class="clear" style="float: none; height: 0; width: 0; padding: 0;"></li>
-        </ul>
-      </div>
-      <img src="/images/node.jpg" class="stretch" />
-      <div class="code-module" id="node-session">
-        <div class="half">
-          <h2>node-session</h2>
-          <p>I'm a pretty big believer that less is more when it comes to web servers - that's why I started using Node.js in the first place! So, while there's plenty of great Node.js web servers out there, I would (almost) always recommend starting from scratch, and adding features as you need them. That's why I built node-session - it's a great tool for the barebones Node.js web server, which will allow you to store user sessions. And the code is simple, to boot!</p>
+        <div class="blog-list">
+          <div class="godown"></div>
+          <h2><a href="/blog">Blog</a></h2>
+          <ul class="row">
+            {% for post in site.categories.blog limit:3 %}<li class="col-md-4 col-xs-4">
+              <div class="col-md-10 col-md-offset-1">
+                  <h3><a href="{{post.url}}">{{post.title}}</a></h3>
+                  {{ post.excerpt }}
+                </div>
+              </li>{% endfor %}
+          </ul>
         </div>
-        <div id="node-session-editor" class="editor" lang="javascript">var session = require('./node-session.js');
-
-//Start your http server however you like. Imagine the code below is inside of your server loop
-
-var yourSession = session.start(response, request); //response and request are the res/req variables passed from http.createServer()
-
-yourSession.testValue = "A session variable" //Create a session variable called testValue</div>
-        <div class="clear"></div>
-      </div>
-      <img src="/images/nerd.jpg" class="stretch" />
-      <div class="code-module" id="node-multipost" >
-        <div class="half">
-          <h2>node-multipost</h2>
-          <p>Node-multipost is an easy-to-use Node.js interface for sending multipart/form requests. Multipart/form requests require a pretty wacky format, which is very hard to read and even harder to generate via code. Node-multipost takes all the difficulty out of multipart requests.</p>
+        <div class="footer">
+          <div class="footer-content row">
+            <div class="col-md-3 col-md-offset-1 tree col-xs-4">
+              <div class="col-xs-1 visible-xs"></div>
+              <img src="/images/tree.png" />
+              <div>
+                <span>I drew a tree!</span>
+              </div>
+            </div>
+            <div class="col-md-5 contact col-md-offset-2 col-xs-7">
+              <div class="col-xs-2 visible-xs"></div>
+              <h3>Get In Touch</h3>
+              <ul class="social-links">
+                <li class="col-xs-1 spacer"> </li>
+                <li class="twitter col-md-1 col-md-offset-1 col-xs-1"><a href="http://www.twitter.com/Joe_Wegner"></a></li>
+                <li class="col-xs-2 spacer"> </li>
+                <li class="github col-md-1 col-md-offset-2 col-xs-1"><a href="http://github.com/josephwegner"></a></li>
+                <li class="col-xs-2 spacer"> </li>
+                <li class="pt col-md-1 col-md-offset-2 col-xs-1"><a href="http://10pt.co"></a></li>
+                <li class="col-xs-2 spacer"> </li>
+                <li class="linkedin col-md-1 col-md-offset-2 col-xs-1"><a href="http://www.linkedin.com/in/joewegner/"></a></li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div id="node-multipost-editor" class="editor" lang="javascript">var multipost = require("multipost");
-
-var postFields = [
-        {
-            name: "field1", //Required
-            value: "thisisfield1" //Required
-        },
-        {
-            name: "field2",
-            value: "thisisfield2"
-        }
-    ];
-
-var req = new multipost("http://www.wegnerdesign.com/testFiles.php", postFields);
-
-req.post(function(res) {
-    console.log(res.data); 
-});</div>
-        <div class="clear"></div>
-      </div>
-      <img src="/images/dg.jpg"  class="stretch" />
-      <div class="halfimage" id="filedrop" offset="38%">
-        <div class="mainText">
-          <h2>fileDrop</h2>
-          <img src="/images/repos/filedrop.png" class="mainImage" />
-          <p>Have you ever used FTP before? How'd you do it? Filezilla? Your browser? Some other crappy FTP client? Doesn't matter - one way or another, I would bet money that the experience sucked. **No one likes FTP.**</p>
-          <p>fileDrop was built to ease the pain for businesses that require an easy method to move files back and forth. First and foremost, fileDrop's interface **just makes sense**. On top of that we've got quick uploads and downloads, secure transfers, easy management, intelligent notifications, popup previews, and tons of configurations for all you overbearing sys admins. Don't make your clients deal with your crappy FTP system - give fileDrop a try.</p>
-        </div>
-        <div class="clear"></div>
-      </div>
-      <img src="/images/sitting.jpg"  class="stretch" />
-      <div class="code-module" id="node-ass">
-        <div class="half">
-          <h2>node-ass</h2>
-          <p>Advanced Style Sheets for Node.js. LESS and SASS have been all the craze recently in web design, but the problem is that they're fat. Sure, relatively, they're not that bad - but certainly they slow down your load times. Node-ass is a solution for node.js based web servers that allows the server to do the parsing of the advanced style sheets, rather than the user. At just 3KB for the entire git repo, node-ass is perfect for your node.js project! Check out the super simple syntax below.</p>
-        </div>
-        <div id="node-ass-editor" class="editor" lang="css">/* These are your CSS rules */
-
-rule all-box-shadow {
-  -moz-box-shadow: %1 %2 %3 %4;
-  -webkit-box-shadow: %1 %2 %3 %3;
-  box-shadow: %1 %2 %3 %4;
-}
-
-/*  And then your regular CSS layout */
-
-#shadowed_box {
-  all-box-shadow: 5px 5px 5px #eee;
-}</div>
-        <div class="clear"></div>
-      </div>
-      <div id="social">
-        <a href="https://www.twitter.com/Joe_Wegner" class="twitter"></a>
-        <a href="https://plus.google.com/u/1/113276225930245000776" class="google"></a>
-        <a href="http://10pt.co" class="tumblr"></a>
-        <a href="http://www.linkedin.com/in/joewegner" class="linkedin"></a>
-      </div>
-    </div>
+    <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
   </body>
 </html>

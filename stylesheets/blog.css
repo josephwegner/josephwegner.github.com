@@ -11,48 +11,7 @@
 */
 
 body {
-	font-family: "PTSansRegular";
-	padding-top: 59px;
 	background-color: #e9e9e9;
-}
-
-#header {
-	background-color: #05051f;
-	margin-bottom: 0;
-	border: none;
-	box-shadow: 0 0 10px #000;
-	-webkit-box-shadow: 0 0 10px #000;
-	-moz-box-shadow: 0 0 10px #000;
-	-o-box-shadow: 0 0 10px #000;
-}
-
-#header h1 {
-	background-image: url(/images/logo.png);
-	background-size: auto 1.5em;
-	background-repeat: no-repeat;
-	background-position: left;
-	color: white;
-	padding-left: 60px;
-	margin: 10px 0;
-	margin-left: 1em;
-}
-
-.navbar-nav {
-	margin-right: 4em;
-	margin-top: 5px;
-}
-
-#header .navbar-nav li a {
-	color: white;
-	font-size: 1.5em;
-}
-
-#header .navbar-nav li a:hover {
-	color: #bd4233;
-}
-
-#header .navbar-nav li a.active {
-	color: #bd4233;
 }
 
 h2.section-header {
