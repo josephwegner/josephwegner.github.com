@@ -15,44 +15,6 @@ body {
   padding-top: 59px;
 }
 
-#header {
-  background-color: #05051f;
-  margin-bottom: 0;
-  border: none;
-  box-shadow: 0 0 10px #000;
-  -webkit-box-shadow: 0 0 10px #000;
-  -moz-box-shadow: 0 0 10px #000;
-  -o-box-shadow: 0 0 10px #000;
-}
-
-#header h1 {
-  background-image: url(/images/logo.png);
-  background-size: auto 1.5em;
-  background-repeat: no-repeat;
-  background-position: left;
-  color: white;
-  padding-left: 60px;
-  margin: 10px 0;
-  margin-left: 1em;
-}
-
-.navbar-nav {
-  margin-right: 4em;
-  margin-top: 5px;
-}
-
-#header .navbar-nav li a {
-  color: white;
-  font-size: 1.5em;
-}
-
-#header .navbar-nav li a:hover {
-  color: #bd4233;
-}
-
-#header .navbar-nav li a.active {
-  color: #bd4233;
-}
 
 .hello {
   background-image: url(/images/graph.png);
@@ -120,6 +82,7 @@ body {
   margin-bottom: 3em;
   padding: 0 0 4em 0;
   box-shadow: 0 0 15px #333;
+  height: 16em;
 }
 
 .project-list > ul > li h3 {
@@ -147,7 +110,6 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  cursor: pointer;
   transition: background-color .5s;
   -webkit-transition: background-color .5s;
   -moz-transition: background-color .5s;
@@ -218,7 +180,7 @@ body {
   opacity: .2;
 }
 
-.footer .footer-content .tree div {
+.footer .footer-content .tree div.arrow {
     position: absolute;
     top: 40%;
     right: 0;
@@ -241,6 +203,11 @@ body {
   margin-bottom: 1em;
 }
 
+ul.social-links {
+  text-align: center;
+  padding-left: 0;
+}
+
 ul.social-links li {
   height: 50px;
   background-size: cover;
@@ -252,6 +219,8 @@ ul.social-links li {
   background-color: rgba(0, 0, 0, 0);
   -webkit-transition: background-color .2s, opacity .2s;
   cursor: pointer;
+  display: inline-block;
+  margin: 1em;
 }
 
 ul.social-links li:hover {
@@ -286,10 +255,6 @@ ul.social-links li.github {
 ul.social-links li.linkedin {
   background-image: url(/images/linkedin.png);
   width: 50px;
-}
-
-ul.social-links li.spacer {
-  border: none;
 }
 
 .godown {
@@ -330,11 +295,15 @@ ul.social-links li.spacer {
 }
 
 /* Smartphones (portrait) ----------- */
-@media only screen and (max-width : 320px) {
+@media (max-width : 400px) {
 
   .hello {
     height: auto;
     padding: 10em auto;
   }
 
+
+  .footer .footer-content h3 {
+    padding-left: 0;
+  }
 }
