@@ -4,7 +4,7 @@ layout: post
 meta: 
  _edit_last: "1"
  dsq_thread_id: "waltzthemodernaccountmanager"
-image: /images/blog_images/onpriorities.jpg
+image: /images/blog_images/waltz_release.jpg
 ---
 It's no secret that passwords bug me. I've [written](/blog/passwords-part-1-how-they-get-hacked) [about](/blog/passwords-part-2-your-password-policy) [them](/blog/passwords-part-3-social-sign-on-is-the-future) a number of times - mostly about why they're terrible and why you shouldn't use them. Generally my advice in the past has been to find a good password manager that can store randomly generated passwords, but today I have some new advice. I, along with an excellent group of developers, have built [Waltz](http://getwaltz.com).
 
