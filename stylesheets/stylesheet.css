@@ -130,6 +130,11 @@ body {
   background-image: url(/images/icons/laptop.png);
 }
 
+.project-list > ul ul li.chrome {
+  background-color: #b137dc; 
+  background-image: url(/images/icons/chrome.png);
+}
+
 .project-list > ul ul li.shadow {
   position: absolute;
   top: 0;
