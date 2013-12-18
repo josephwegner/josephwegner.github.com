@@ -1,6 +1,7 @@
 ---
 layout: blogTile
 title: node-multipost
+link: https://github.com/josephwegner/Multipost
 tags:
 - web
 - node

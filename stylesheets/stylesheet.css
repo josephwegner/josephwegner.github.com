@@ -92,6 +92,10 @@ body {
   padding: 2% 4%;
 }
 
+.project-list > ul > li h3 a {
+  color: white;
+}
+
 .project-list > ul > li p {
   padding: 4%;
 }
