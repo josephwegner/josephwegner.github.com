@@ -29,7 +29,7 @@ $(document).ready(function() {
 });
 
 function startTitleRotation() {
-    var titles = ["Father (to be)", "Server Admin", "Node.js Guru", "Christian", "Guy", "PHP Dev", "Blogger", "Husband", "Writer", "Web Designer"];
+    var titles = ["Father", "Server Admin", "Node.js Guru", "Christian", "Guy", "PHP Dev", "Blogger", "Husband", "Writer", "Web Designer"];
 
     var index = 0;
 
