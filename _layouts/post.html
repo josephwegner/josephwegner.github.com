@@ -67,6 +67,9 @@
     <div id="body" class="row">
       <div class="col-xs-1 visible-xs"></div>
       <div  itemprop="text" id="paragraph-text" class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-10">
+      {% if page.message %}
+        <div class="alert alert-info">{{page.message}}</div>
+      {% endif %}
       {{ content }}
       </div>
     </div>

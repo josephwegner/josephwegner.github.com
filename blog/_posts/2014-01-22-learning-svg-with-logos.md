@@ -5,10 +5,8 @@ meta:
  _edit_last: "1"
  dsq_thread_id: "learningsvgwithlogos"
 tutorialbg: "#05051f"
+message: It seems that Google Chrome has some trouble looping SVG animations.  If you're interested in the examples, you may want to view this page in Firefox
 ---
-*It seems that Google Chrome has some trouble looping SVG animations.  If you're interested in the examples, you may want to view this page in Firefox*
-
-
 
 In my book, [SVG](http://en.wikipedia.org/wiki/Scalable_Vector_Graphics) is classified as a mythical unicorn super technology.  SVG shares this category with other technologies like [RegExp](http://en.wikipedia.org/wiki/Regular_expression), [vim](http://www.vim.org/), and [OpenGL](http://en.wikipedia.org/wiki/OpenGL). The common traits between each of these technologies is that they are incredibly useful when used correctly, but incredibly difficult to use correctly.  All three pack some serious punch inside of a terribly confusing syntax.
 
@@ -149,8 +147,8 @@ In order to cut out the little bit of the arc that is overlapping, I will duplic
 
 ```html
 <mask id="opacity-mask" x="0" y="0" height="2" width="2">
-	<path d="M300,330 A70,85 0 1,0 540,330" style="stroke: #ffffff; stroke-width: 100;" />
-	<path d="M60,330 A70,85 0 1,0 300,330" style="stroke: #000000; stroke-width: 100;" />
+      <path d="M300,330 A70,85 0 1,0 540,330" style="stroke: #ffffff; stroke-width: 100;" />
+      <path d="M60,330 A70,85 0 1,0 300,330" style="stroke: #000000; stroke-width: 100;" />
 </mask>
 ```
 
@@ -182,8 +180,8 @@ Here's what the entire SVG code looked like in the end:
   <path d="M300,50 L300,330 A70,85 0 0,1 50,330" style="stroke: #dd524b; stroke-opacity: .5; fill: transparent; stroke-width: 100;" />
 
   <mask id="first-u-mask" x="0" y="0" height="2" width="2">
-    	<path d="M550,50 L550,330 A70,85 0 0,1 300,330" style="stroke: #ffffff; stroke-width: 100;" />
-    	<path d="M50,50 L50,330 A70,85 0 1,0 300,330 L300,50" style="stroke: #000000; stroke-width: 100;" />
+      <path d="M550,50 L550,330 A70,85 0 0,1 300,330" style="stroke: #ffffff; stroke-width: 100;" />
+      <path d="M50,50 L50,330 A70,85 0 1,0 300,330 L300,50" style="stroke: #000000; stroke-width: 100;" />
   </mask>
 ```
 
@@ -335,233 +333,233 @@ That will do the first animation, and should work well enough.  As you can see, 
 And now we're done!  The code for the whole thing is super long, so I'm not going to paste it here.  You can grab the whole thing from [this codepen](http://codepen.io/anon/pen/HfvKw) if you'd like.
 
 <div class="example-block" data-target-anchor="logo_example_target" style="color: white; font-weight: bold;">
-	<span>The Goal</span><br>
-	<img src="/images/logo.png" style="height: 300px; width: auto;" />
+      <span>The Goal</span><br>
+      <img src="/images/logo.png" style="height: 300px; width: auto;" />
 </div>
 
 <div class="example-block" data-target-anchor="rectangle-target" style="height: 200px;">
-	<svg  xmlns="http://www.w3.org/2000/svg"
-	      xmlns:xlink="http://www.w3.org/1999/xlink"
-	      viewbox="0 0 200 100" style="width: 50%;">
+      <svg  xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewbox="0 0 200 100" style="width: 50%;">
 
-	      <rect x="0" y="0" height="100" width="200" style="stroke: #70d5dd; fill: #dd524b" />
+            <rect x="0" y="0" height="100" width="200" style="stroke: #70d5dd; fill: #dd524b" />
 
-	</svg>
+      </svg>
 </div>
 
 <div class="example-block" data-target-anchor="rxry-target" style="height: 130px; color: white;">
-	<span>rx vs. ry</span><br>
-	<svg  xmlns="http://www.w3.org/2000/svg"
-	      xmlns:xlink="http://www.w3.org/1999/xlink"
-	      viewbox="0 0 100 30" style="width: 80%;">
+      <span>rx vs. ry</span><br>
+      <svg  xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewbox="0 0 100 30" style="width: 80%;">
 
-	      <path d="M10,5 A10,10 0 0,0 40,5" style="stroke: #dd524b; stroke-width: 1; fill: #70d4dd;">
-	    	<animate id="rxryone" attributeName="d" attributeType="XML"
-			    from="M10,5 A10,10 0 0,0 40,5"
-			    to="M10,5 A15,10 0 0,0 30,5"
-			    begin="0s; rxrytwo.end" dur="1s"
-			    fill="freeze" />
-	    	<animate id="rxrytwo" attributeName="d" attributeType="XML"
-			    from="M10,5 A15,10 0 0,0 30,5"
-			    to="M10,5 A10,10 0 0,0 40,5"
-			    begin="rxryone.end;" dur="1s"
-			    fill="freeze" />
-	      </path>
+            <path d="M10,5 A10,10 0 0,0 40,5" style="stroke: #dd524b; stroke-width: 1; fill: #70d4dd;">
+            <animate id="rxryone" attributeName="d" attributeType="XML"
+                      from="M10,5 A10,10 0 0,0 40,5"
+                      to="M10,5 A15,10 0 0,0 30,5"
+                      begin="0s; rxrytwo.end" dur="1s"
+                      fill="freeze" />
+            <animate id="rxrytwo" attributeName="d" attributeType="XML"
+                      from="M10,5 A15,10 0 0,0 30,5"
+                      to="M10,5 A10,10 0 0,0 40,5"
+                      begin="rxryone.end;" dur="1s"
+                      fill="freeze" />
+            </path>
 
-	      <path d="M60,5 A10,10 0 0,0 90,5" style="stroke: #dd524b; stroke-width: 1; fill: #70d4dd">
-	    	<animate id="rxrythree" attributeName="d" attributeType="XML"
-			    from="M60,5 A10,10 0 0,0 90,5"
-			    to="M60,5 A10,15 0 0,0 90,5"
-			    begin="0s; rxryfour.end;" dur="1s"
-			    fill="freeze" />
-	    	<animate id="rxryfour" attributeName="d" attributeType="XML"
-			    from="M60,5 A10,15 0 0,0 90,5"
-			    to="M60,5 A10,10 0 0,0 90,5"
-			    begin="rxrythree.end;" dur="1s"
-			    fill="freeze" />
-	      </path>	      
+            <path d="M60,5 A10,10 0 0,0 90,5" style="stroke: #dd524b; stroke-width: 1; fill: #70d4dd">
+            <animate id="rxrythree" attributeName="d" attributeType="XML"
+                      from="M60,5 A10,10 0 0,0 90,5"
+                      to="M60,5 A10,15 0 0,0 90,5"
+                      begin="0s; rxryfour.end;" dur="1s"
+                      fill="freeze" />
+            <animate id="rxryfour" attributeName="d" attributeType="XML"
+                      from="M60,5 A10,15 0 0,0 90,5"
+                      to="M60,5 A10,10 0 0,0 90,5"
+                      begin="rxrythree.end;" dur="1s"
+                      fill="freeze" />
+            </path>           
 
-	</svg>
+      </svg>
 </div>
 
 <div class="example-block" data-target-anchor="xaxis-target" style="height: 130px; color: white;">
-	<span>x-axis rotation</span><br>
-	<svg  xmlns="http://www.w3.org/2000/svg"
-	      xmlns:xlink="http://www.w3.org/1999/xlink"
-	      viewbox="0 0 100 30" style="width: 80%;">
+      <span>x-axis rotation</span><br>
+      <svg  xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewbox="0 0 100 30" style="width: 80%;">
 
-	      <path d="M35,5 A10,15 0 0,0 65,5" style="stroke: #dd524b; stroke-width: 1; fill: #70d4dd;">
-	    	<animate id="xaxisone" attributeName="d" attributeType="XML"
-			    from="M35,5 A10,15 0 0,0 65,5"
-			    to="M35,5 A10,15 50 0,0 65,5"
-			    begin="0s; xaxistwo.end;" dur="1s"
-			    fill="freeze" />
-	    	<animate id="xaxistwo" attributeName="d" attributeType="XML"
-			    from="M35,5 A10,15 50 0,0 65,5"
-			    to="M35,5 A10,15 0 0,0 65,5"
-			    begin="xaxisone.end;" dur="1s"
-			    fill="freeze" />
-	      </path>
-	</svg>
+            <path d="M35,5 A10,15 0 0,0 65,5" style="stroke: #dd524b; stroke-width: 1; fill: #70d4dd;">
+            <animate id="xaxisone" attributeName="d" attributeType="XML"
+                      from="M35,5 A10,15 0 0,0 65,5"
+                      to="M35,5 A10,15 50 0,0 65,5"
+                      begin="0s; xaxistwo.end;" dur="1s"
+                      fill="freeze" />
+            <animate id="xaxistwo" attributeName="d" attributeType="XML"
+                      from="M35,5 A10,15 50 0,0 65,5"
+                      to="M35,5 A10,15 0 0,0 65,5"
+                      begin="xaxisone.end;" dur="1s"
+                      fill="freeze" />
+            </path>
+      </svg>
 </div>
 
 <div class="example-block" data-target-anchor="largearc-target" style="height: 130px; color: white;">
-	<span>large arc</span><br>
-	<svg  xmlns="http://www.w3.org/2000/svg"
-	      xmlns:xlink="http://www.w3.org/1999/xlink"
-	      viewbox="0 0 100 30" style="width: 80%;">
+      <span>large arc</span><br>
+      <svg  xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewbox="0 0 100 30" style="width: 80%;">
 
-	      <path d="M10,5 A20,10 0 0 0 40,5" style="stroke: #dd524b; stroke-width: 1; fill: #70d4dd;" />
-	      <path d="M60,5 A20,10 0 1 0 90,5" style="stroke: #dd524b; stroke-width: 1; fill: #70d4dd" /> 
-	</svg>
+            <path d="M10,5 A20,10 0 0 0 40,5" style="stroke: #dd524b; stroke-width: 1; fill: #70d4dd;" />
+            <path d="M60,5 A20,10 0 1 0 90,5" style="stroke: #dd524b; stroke-width: 1; fill: #70d4dd" /> 
+      </svg>
 </div>
 
 <div class="example-block" data-target-anchor="sweep-target" style="height: 130px; color: white;">
-	<span>sweep</span><br>
-	<svg  xmlns="http://www.w3.org/2000/svg"
-	      xmlns:xlink="http://www.w3.org/1999/xlink"
-	      viewbox="0 0 100 30" style="width: 80%;">
+      <span>sweep</span><br>
+      <svg  xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewbox="0 0 100 30" style="width: 80%;">
 
-	      <path d="M10,5 A10,15 0 0,0 40,5" style="stroke: #dd524b; stroke-width: 1; fill: #70d4dd;" />
-	      <path d="M60,30 A10,15 0 0,1 90,30" style="stroke: #dd524b; stroke-width: 1; fill: #70d4dd" />
-	</svg>
+            <path d="M10,5 A10,15 0 0,0 40,5" style="stroke: #dd524b; stroke-width: 1; fill: #70d4dd;" />
+            <path d="M60,30 A10,15 0 0,1 90,30" style="stroke: #dd524b; stroke-width: 1; fill: #70d4dd" />
+      </svg>
 </div>
 
 <div class="example-block" data-target-anchor="first-break-target" style="height: 400px;">
-	<svg  xmlns="http://www.w3.org/2000/svg"
+      <svg  xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
       viewbox="0 0 620 600" style="width: 50%;">
-		<rect x="20" y="10" height="320" width="100"
-			style="fill: #dd524b; fill-opacity: .6;">
-	    </rect>
-	    <path d="M70,330 A70,85 0 1,0 310,330" style="stroke: #dd524b; stroke-opacity: .6; fill: transparent; stroke-width: 100;">
-	    	<animate id="firstbreakone" attributeName="d" attributeType="XML"
-			    from="M70,330 A70,85 0 1,0 310,330"
-			    to="M50,350 A70,85 0 1,0 290,350"
-			    begin="0s; firstbreaktwo.end+2s" dur="1s"
-			    fill="freeze" />
-			<animate id="firstbreaktwo" attributeName="d" attributeType="XML"
-			    from="M50,350 A70,85 0 1,0 290,350"
-			    to="M70,330 A70,85 0 1,0 310,330"
-			    begin="firstbreakone.end+2s" dur="1s" 
-			    fill="freeze" />
-	    </path>
-	    <rect x="260" y="10" height="320" width="100"
-	          style="fill: #dd524b; fill-opacity: .6;" >
-	    </rect>
-	    <path d="M310,330 A70,85 0 1,0 550,330" style="stroke: #dd524b; stroke-opacity: .5; fill: transparent; stroke-width: 100; mask: url(#first-u-mask)" >
-	    	<animate id="firstbreakthree" attributeName="d" attributeType="XML"
-			    from="M310,330 A70,85 0 1,0 550,330"
-			    to="M330,350 A70,85 0 1,0 570,350"
-			    begin="0s; firstbreakfour.end+2s" dur="1s" fill="freeze" />
-			<animate id="firstbreakfour" attributeName="d" attributeType="XML"
-			    from="M330,350 A70,85 0 1,0 570,350"
-			    to="M310,330 A70,85 0 1,0 550,330"
-			    begin="firstbreakthree.end+2s" dur="1s" fill="freeze" />
-	   	</path>
-	    <rect x="500" y="10" height="320" width="100"
-	          style="fill: #dd524b; fill-opacity: .5;" >
-	    </rect>
+            <rect x="20" y="10" height="320" width="100"
+                  style="fill: #dd524b; fill-opacity: .6;">
+          </rect>
+          <path d="M70,330 A70,85 0 1,0 310,330" style="stroke: #dd524b; stroke-opacity: .6; fill: transparent; stroke-width: 100;">
+            <animate id="firstbreakone" attributeName="d" attributeType="XML"
+                      from="M70,330 A70,85 0 1,0 310,330"
+                      to="M50,350 A70,85 0 1,0 290,350"
+                      begin="0s; firstbreaktwo.end+2s" dur="1s"
+                      fill="freeze" />
+                  <animate id="firstbreaktwo" attributeName="d" attributeType="XML"
+                      from="M50,350 A70,85 0 1,0 290,350"
+                      to="M70,330 A70,85 0 1,0 310,330"
+                      begin="firstbreakone.end+2s" dur="1s" 
+                      fill="freeze" />
+          </path>
+          <rect x="260" y="10" height="320" width="100"
+                style="fill: #dd524b; fill-opacity: .6;" >
+          </rect>
+          <path d="M310,330 A70,85 0 1,0 550,330" style="stroke: #dd524b; stroke-opacity: .5; fill: transparent; stroke-width: 100; mask: url(#first-u-mask)" >
+            <animate id="firstbreakthree" attributeName="d" attributeType="XML"
+                      from="M310,330 A70,85 0 1,0 550,330"
+                      to="M330,350 A70,85 0 1,0 570,350"
+                      begin="0s; firstbreakfour.end+2s" dur="1s" fill="freeze" />
+                  <animate id="firstbreakfour" attributeName="d" attributeType="XML"
+                      from="M330,350 A70,85 0 1,0 570,350"
+                      to="M310,330 A70,85 0 1,0 550,330"
+                      begin="firstbreakthree.end+2s" dur="1s" fill="freeze" />
+            </path>
+          <rect x="500" y="10" height="320" width="100"
+                style="fill: #dd524b; fill-opacity: .5;" >
+          </rect>
 
-	    <mask id="first-u-mask" x="0" y="0" height="2" width="2">
-	    	<path d="M310,330 A70,85 0 1,0 550,330" style="stroke: #ffffff; stroke-width: 100;">
-		    	<animate id="firstbreakfive" attributeName="d" attributeType="XML"
-				    from="M310,330 A70,85 0 1,0 550,330"
-				    to="M330,350 A70,85 0 1,0 570,350"
-				    begin="0s; firstbreaksix.end+2s" dur="1s" fill="freeze" />
-				<animate id="firstbreaksix" attributeName="d" attributeType="XML"
-				    from="M330,350 A70,85 0 1,0 570,350"
-				    to="M310,330 A70,85 0 1,0 550,330"
-				    begin="firstbreakfive.end+2s" dur="1s" fill="freeze" />
-	    	</path>
-	    	<path d="M70,330 A70,85 0 1,0 310,330" style="stroke: #000000; stroke-width: 100;">
-	    		<animate id="firstbreakseven" attributeName="d" attributeType="XML"
-				    from="M70,330 A70,85 0 1,0 310,330"
-				    to="M90,350 A70,85 0 1,0 330,350"
-				    begin="0s; firstbreakeight.end+2s" dur="1s" fill="freeze" />
-				<animate id="firstbreakeight" attributeName="d" attributeType="XML"
-				    from="M90,350 A70,85 0 1,0 330,350"
-				    to="M70,330 A70,85 0 1,0 310,330"
-				    begin="firstbreakseven.end+2s" dur="1s" fill="freeze" />
-	    	</path>
-	    </mask>
-	</svg>
+          <mask id="first-u-mask" x="0" y="0" height="2" width="2">
+            <path d="M310,330 A70,85 0 1,0 550,330" style="stroke: #ffffff; stroke-width: 100;">
+                  <animate id="firstbreakfive" attributeName="d" attributeType="XML"
+                            from="M310,330 A70,85 0 1,0 550,330"
+                            to="M330,350 A70,85 0 1,0 570,350"
+                            begin="0s; firstbreaksix.end+2s" dur="1s" fill="freeze" />
+                        <animate id="firstbreaksix" attributeName="d" attributeType="XML"
+                            from="M330,350 A70,85 0 1,0 570,350"
+                            to="M310,330 A70,85 0 1,0 550,330"
+                            begin="firstbreakfive.end+2s" dur="1s" fill="freeze" />
+            </path>
+            <path d="M70,330 A70,85 0 1,0 310,330" style="stroke: #000000; stroke-width: 100;">
+                  <animate id="firstbreakseven" attributeName="d" attributeType="XML"
+                            from="M70,330 A70,85 0 1,0 310,330"
+                            to="M90,350 A70,85 0 1,0 330,350"
+                            begin="0s; firstbreakeight.end+2s" dur="1s" fill="freeze" />
+                        <animate id="firstbreakeight" attributeName="d" attributeType="XML"
+                            from="M90,350 A70,85 0 1,0 330,350"
+                            to="M70,330 A70,85 0 1,0 310,330"
+                            begin="firstbreakseven.end+2s" dur="1s" fill="freeze" />
+            </path>
+          </mask>
+      </svg>
 </div>
 
 <div class="example-block" data-target-anchor="rects-target" style="height: 400px;">
-	<svg  xmlns="http://www.w3.org/2000/svg"
-	  xmlns:xlink="http://www.w3.org/1999/xlink"
-	  viewbox="0 0 600 600" style="width: 60%;">
-	    <rect x="10" y="10" height="320" width="100"
-	          style="fill: #dd524b;" />
-	    <rect x="250" y="10" height="320" width="100"
-	          style="fill: #dd524b;" />
-	    <rect x="490" y="10" height="320" width="100"
-	          style="fill: #dd524b;" />
-	</svg>
+      <svg  xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewbox="0 0 600 600" style="width: 60%;">
+          <rect x="10" y="10" height="320" width="100"
+                style="fill: #dd524b;" />
+          <rect x="250" y="10" height="320" width="100"
+                style="fill: #dd524b;" />
+          <rect x="490" y="10" height="320" width="100"
+                style="fill: #dd524b;" />
+      </svg>
 </div>
 
 <div class="example-block" data-target-anchor="paths-target" style="height: 400px;">
-	<svg  xmlns="http://www.w3.org/2000/svg"
-	  xmlns:xlink="http://www.w3.org/1999/xlink"
-	  viewbox="0 0 600 600" style="width: 60%;">
-	  	<rect x="10" y="10" height="320" width="100"
-	          style="fill: #dd524b;" />
-	    <path d="M60,330 A70,85 0 1,0 300,330" style="stroke: #dd524b; fill: transparent; stroke-width: 100;" />
-	    <rect x="250" y="10" height="320" width="100"
-	          style="fill: #dd524b;" />
-	    <path d="M300,330 A70,85 0 1,0 540,330" style="stroke: #dd524b; fill: transparent; stroke-width: 100;" />
-	    <rect x="490" y="10" height="320" width="100"
-	          style="fill: #dd524b;" />
-	</svg>
+      <svg  xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewbox="0 0 600 600" style="width: 60%;">
+            <rect x="10" y="10" height="320" width="100"
+                style="fill: #dd524b;" />
+          <path d="M60,330 A70,85 0 1,0 300,330" style="stroke: #dd524b; fill: transparent; stroke-width: 100;" />
+          <rect x="250" y="10" height="320" width="100"
+                style="fill: #dd524b;" />
+          <path d="M300,330 A70,85 0 1,0 540,330" style="stroke: #dd524b; fill: transparent; stroke-width: 100;" />
+          <rect x="490" y="10" height="320" width="100"
+                style="fill: #dd524b;" />
+      </svg>
 </div>
 
 <div class="example-block" data-target-anchor="opacity-target" style="height: 400px;">
-	<svg  xmlns="http://www.w3.org/2000/svg"
-	  xmlns:xlink="http://www.w3.org/1999/xlink"
-	  viewbox="0 0 600 600" style="width: 60%;">
-	  	<rect x="10" y="10" height="320" width="100"
-	          style="fill: #dd524b; fill-opacity: .5" />
-	    <path d="M60,330 A70,85 0 1,0 300,330" style="stroke: #dd524b; fill: transparent; stroke-width: 100; stroke-opacity: .6" />
-	    <rect x="250" y="10" height="320" width="100"
-	          style="fill: #dd524b; fill-opacity: .6" />
-	    <path d="M300,330 A70,85 0 1,0 540,330" style="stroke: #dd524b; fill: transparent; stroke-width: 100; stroke-opacity: .5" />
-	    <rect x="490" y="10" height="320" width="100"
-	          style="fill: #dd524b; fill-opacity: .5" />
-	</svg>
+      <svg  xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewbox="0 0 600 600" style="width: 60%;">
+            <rect x="10" y="10" height="320" width="100"
+                style="fill: #dd524b; fill-opacity: .5" />
+          <path d="M60,330 A70,85 0 1,0 300,330" style="stroke: #dd524b; fill: transparent; stroke-width: 100; stroke-opacity: .6" />
+          <rect x="250" y="10" height="320" width="100"
+                style="fill: #dd524b; fill-opacity: .6" />
+          <path d="M300,330 A70,85 0 1,0 540,330" style="stroke: #dd524b; fill: transparent; stroke-width: 100; stroke-opacity: .5" />
+          <rect x="490" y="10" height="320" width="100"
+                style="fill: #dd524b; fill-opacity: .5" />
+      </svg>
 </div>
 
 <div class="example-block" data-target-anchor="mask-target" style="height: 400px;">
-	<svg  xmlns="http://www.w3.org/2000/svg"
-	  xmlns:xlink="http://www.w3.org/1999/xlink"
-	  viewbox="0 0 600 600" style="width: 60%;">
-	    <rect x="10" y="10" height="320" width="100"
-	          style="fill: #dd524b; fill-opacity: .5;" />
-	    <path d="M60,330 A70,85 0 1,0 300,330" style="stroke: #dd524b; stroke-opacity: .6; fill: transparent; stroke-width: 100;" />
-	    <rect x="250" y="10" height="320" width="100"
-	          style="fill: #dd524b; fill-opacity: .6;" />
-	    <path d="M300,330 A70,85 0 1,0 540,330" style="stroke: #dd524b; stroke-opacity: .5; fill: transparent; stroke-width: 100; mask: url(#opacity-mask)" />
-	    <rect x="490" y="10" height="320" width="100"
-	          style="fill: #dd524b; fill-opacity: .5;" />
-	    <mask id="opacity-mask" x="0" y="0" height="2" width="2">
-	    	<path d="M300,330 A70,85 0 1,0 540,330" style="stroke: #ffffff; stroke-width: 100;" />
-	    	<path d="M60,330 A70,85 0 1,0 300,330" style="stroke: #000000; stroke-width: 100;" />
-	    </mask>
-	</svg>
+      <svg  xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewbox="0 0 600 600" style="width: 60%;">
+          <rect x="10" y="10" height="320" width="100"
+                style="fill: #dd524b; fill-opacity: .5;" />
+          <path d="M60,330 A70,85 0 1,0 300,330" style="stroke: #dd524b; stroke-opacity: .6; fill: transparent; stroke-width: 100;" />
+          <rect x="250" y="10" height="320" width="100"
+                style="fill: #dd524b; fill-opacity: .6;" />
+          <path d="M300,330 A70,85 0 1,0 540,330" style="stroke: #dd524b; stroke-opacity: .5; fill: transparent; stroke-width: 100; mask: url(#opacity-mask)" />
+          <rect x="490" y="10" height="320" width="100"
+                style="fill: #dd524b; fill-opacity: .5;" />
+          <mask id="opacity-mask" x="0" y="0" height="2" width="2">
+            <path d="M300,330 A70,85 0 1,0 540,330" style="stroke: #ffffff; stroke-width: 100;" />
+            <path d="M60,330 A70,85 0 1,0 300,330" style="stroke: #000000; stroke-width: 100;" />
+          </mask>
+      </svg>
 </div>
 
 <div class="example-block" data-target-anchor="refactor-target" style="height: 400px;">
-	<svg  xmlns="http://www.w3.org/2000/svg"
-	  xmlns:xlink="http://www.w3.org/1999/xlink"
-	  viewbox="0 0 600 600" style="width: 60%">
-	  <path d="M50,50 L50,330 A70,85 0 1,0 300,330 L300,50" style="stroke: #dd524b; stroke-opacity: .6; fill: transparent; stroke-width: 100;" />
-	  <path d="M550,50 L550,330 A70,85 0 0,1 300,330" style="stroke: #dd524b; stroke-opacity: .6; fill: transparent; stroke-width: 100; mask: url(#refactor-mask)" />
-	  <path d="M300,50 L300,330 A70,85 0 0,1 50,330" style="stroke: #dd524b; stroke-opacity: .5; fill: transparent; stroke-width: 100;" />
+      <svg  xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewbox="0 0 600 600" style="width: 60%">
+        <path d="M50,50 L50,330 A70,85 0 1,0 300,330 L300,50" style="stroke: #dd524b; stroke-opacity: .6; fill: transparent; stroke-width: 100;" />
+        <path d="M550,50 L550,330 A70,85 0 0,1 300,330" style="stroke: #dd524b; stroke-opacity: .6; fill: transparent; stroke-width: 100; mask: url(#refactor-mask)" />
+        <path d="M300,50 L300,330 A70,85 0 0,1 50,330" style="stroke: #dd524b; stroke-opacity: .5; fill: transparent; stroke-width: 100;" />
 
-	  <mask id="refactor-mask" x="0" y="0" height="2" width="2">
-	    	<path d="M550,50 L550,330 A70,85 0 0,1 300,330" style="stroke: #ffffff; stroke-width: 100;" />
-	    	<path d="M50,50 L50,330 A70,85 0 1,0 300,330 L300,50" style="stroke: #000000; stroke-width: 100;" />
-	  </mask>
-	</svg>
+        <mask id="refactor-mask" x="0" y="0" height="2" width="2">
+            <path d="M550,50 L550,330 A70,85 0 0,1 300,330" style="stroke: #ffffff; stroke-width: 100;" />
+            <path d="M50,50 L50,330 A70,85 0 1,0 300,330 L300,50" style="stroke: #000000; stroke-width: 100;" />
+        </mask>
+      </svg>
 </div>
 

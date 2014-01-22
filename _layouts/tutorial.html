@@ -62,7 +62,10 @@
     </div>
     <div id="body" class="row">
       <div class="col-xs-1 visible-xs"></div>
-      <div  itemprop="text" id="paragraph-text" class="col-md-5 col-md-offset-1 col-sm-6 col-xs-10">
+      <div  itemprop="text" id="paragraph-text" class="col-md-5 col-md-offset-1 col-sm-6 col-xs-10">  
+      {% if page.message %}
+        <div class="alert alert-info">{{page.message}}</div>
+      {% endif %}
       {{ content }}
       </div>
       <div class="col-md-5 col-md-offset-1 col-sm-6 tutorial-examples hidden-xs" style="background-color: {{page.tutorialbg}}">
