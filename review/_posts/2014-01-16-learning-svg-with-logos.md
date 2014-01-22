@@ -6,6 +6,10 @@ meta:
  dsq_thread_id: "learningsvgwithlogos"
 tutorialbg: "#05051f"
 ---
+*It seems that Google Chrome has some trouble looping SVG animations.  If you're interested in the examples, you may want to view this page in Firefox*
+
+
+
 In my book, [SVG](http://en.wikipedia.org/wiki/Scalable_Vector_Graphics) is classified as a mythical unicorn super technology.  SVG shares this category with other technologies like [RegExp](http://en.wikipedia.org/wiki/Regular_expression), [vim](http://www.vim.org/), and [OpenGL](http://en.wikipedia.org/wiki/OpenGL). The common traits between each of these technologies is that they are incredibly useful when used correctly, but incredibly difficult to use correctly.  All three pack some serious punch inside of a terribly confusing syntax.
 
 <div id="logo_example_target"></div>
@@ -27,11 +31,11 @@ The WegnerDesign logo is essentially a giant 'W', with a 'J' highlighted on one 
 
 There are two basic components we need to create these pieces.  The first, and certainly the easiest, is the [`rect`](http://www.w3.org/TR/SVG/shapes.html#RectElement).  A rectangle is probably the simplest shape you will find in SVG.  As you would probably imagine, there are four key properties: `x`, `y`, `height`, and `width`. `x` and `y` define the location of the top left corner of the rectangle.  Coordinates in SVG are relative to their container.  In our case, the container is the root SVG document, so they're pretty simple.
 
-`height` and `width` are also pretty obvious.  `height` is how tall the rectangle will be, and `width` is how wide the rectangle will be.  Because SVG graphics are made to scale, the idea of "units" doesn't make too much sense.  You may be used to defining heights, widths, and positions in `px` from CSS.  In SVG, you're best off not putting a unit.  Using `px` will just map to the graphics internal unit.  You *can* use things like `em` and `ex`, but that would only cause confusion in this context.
+`height` and `width` are also pretty obvious.  `height` is how tall the rectangle will be, and `width` is how wide the rectangle will be.  Because SVG graphics are made to scale, the idea of "units" doesn't make too much sense.  You may be used to defining heights, widths, and positions in `px` from CSS; in SVG you're best off not putting a unit.  Using `px` will just map to the SVG internal unit.  You *can* use things like `em` and `ex`, but that would only cause confusion in this context.
 
 <div id="rectangle-target"></div>
 
-If you create a rectangle just using the information about, you might be a bit disappointed.  You'll be given a black rectangle, which isn't terribly interesting.  Luckily, every svg shape accepts a `style` attribute.  The `style` attribute is just CSS markup, so the syntax is identical to the CSS you are familiar with.  The two important style rules are `stroke` and `fill`.  On a `rect`, `stroke` refers to the border of the box, and `fill` is the inside portion.  Both rules accept either a hex color or a regular CSS color.  At the end of the day, your `rect` code should look like this:
+If you create a rectangle just using the information above, you might be a bit disappointed; you'll be given a black rectangle, which isn't terribly interesting.  Luckily, every svg shape accepts a `style` attribute.  The `style` attribute is just CSS markup, so the syntax is identical to the CSS you are familiar with.  The two important style rules are `stroke` and `fill`.  On a `rect`, `stroke` refers to the border of the box, and `fill` is the inside portion.  Both rules accept either a hex color or a regular CSS color.  At the end of the day, your `rect` code should look like this:
 
 ```html
 <svg  xmlns="http://www.w3.org/2000/svg"
@@ -44,17 +48,19 @@ If you create a rectangle just using the information about, you might be a bit d
 
 ### Path
 
-The [`path`](http://www.w3.org/TR/SVG/paths.html) shape is the next one we will be using.  In fact, `path` is probably the most versatile SVG shape - you can literally draw anything you want.  The `path` shape utilizes a pretty weird syntax that allows you to draw everything from straight lines to bezier curves.  Learning the syntax takes some elbow grease, but once you get it down, it's very powerful.
+The [`path`](http://www.w3.org/TR/SVG/paths.html) shape is the next one we will be using.  In fact, `path` is probably the most versatile SVG shape - you can literally draw anything you want.  The `path` shape utilizes a pretty weird syntax, but it allows you to draw everything from straight lines to bezier curves.  Learning the syntax takes some elbow grease, but once you get it down it's very powerful.
 
-The important attribute on a `path` is `d`.  `d` is short for **drawing**, and will contain all of the commands to draw the path. We're only going to be needing arcs for this logo, but there are [a lot more](http://tutorials.jenkov.com/svg/path-element.html) options you can use.  The `d` attribute is a string, that is sort of formatted as a space-separated list of commands.  The `M` command is using to **move** the pen without creating a stroke.  `M` accepts x and y coordinates, and will usually looking something like `M70,330` - that would move the pen to x=70, y=330.
+The important attribute on a `path` is `d`, which is short for **`d`rawing**, and will contain all of the commands to draw the path. We're only going to be needing arcs for this logo, but there are [a lot more](http://tutorials.jenkov.com/svg/path-element.html) options you can use.  The `d` attribute is a string that is sort of formatted as a space-separated list of commands.  The `M` command is used to **`m`ove** the pen without creating a stroke.  `M` accepts x and y coordinates, and will usually looking something like `M70,330` - that would move the pen to x=70, y=330.
 
 <div id="rxry-target"></div>
 
-Once you've moved the cursor to where you want it, you actually need to draw the arc.  You do this with the `A` command. `A` takes 7 parameters - radius x(rx), radius y(ry), x-axis-rotation, large-arc-flag, sweep-flag, x, and y. The first two are fairly easy; `rx` will define how wide your arc is, and `ry` will define how tall the arc is. Once you've got rx and ry figured out, you need to think about the x-axis rotation of your arc.  I find it's easiest to visualize the rotation if you think about your arc as a full oblong circle.  The x-axis rotation simply rotates that circle around the x-axis.
+Once you've moved the cursor to where you want it, you actually need to draw the arc.  You do this with the `A` command. `A` takes 7 parameters - radius x(rx), radius y(ry), x-axis-rotation, large-arc-flag, sweep-flag, x, and y. The first two are fairly easy; `rx` will define how wide your arc is, and `ry` will define how tall the arc is
+
+Once you've got rx and ry figured out, you need to think about the x-axis rotation of your arc.  I find it's easiest to visualize the rotation if you think about your arc as a full oblong circle.  The x-axis rotation simply rotates that circle around the x-axis.
 
 <div id="xaxis-target"></div>
 
-The next two parameters are a bit more confusing. For any set of rx,ry parameters, four different arcs can be drawn. These three parameters will define that. The first option called the `large-arc-flag`. This flag decides if the arc will greater or less than 180 degrees.  Setting the large-arc-flag to 0 will make the arc less than 180 degrees, and setting it to 1 will use greater than 180 degrees.  This flag mostly just sets if your arc will be wide or thin.
+The next two parameters are a bit more confusing. For any set of rx,ry parameters, four different arcs can be drawn. These three parameters will define that. The first option is called the `large-arc-flag`. This flag decides if the arc will greater or less than 180 degrees.  Setting the large-arc-flag to 0 will make the arc less than 180 degrees, and setting it to 1 will make it greater than 180 degrees.  This flag mostly just sets if your arc will be wide or thin.
 
 <div id="largearc-target"></div>
 
@@ -66,15 +72,15 @@ Finally, we get to the easy parameters. `x` and `y` are very straight forward - 
 
 ## Building a Logo
 
-Now that we've got all of our basic components, we can start fitting them together to create a logo.  If you remember, we broke the WegnerDesign logo up into five pieces - the three long arms at the top, and two arcs connect them all at the bottom.  Using our basic components, that means we will need three `rect`s and two `path`s.
+Now that we've got all of our basic components, we can start fitting them together to create a logo.  If you remember, we broke the WegnerDesign logo up into five pieces - the three long arms at the top, and two arcs connecting them all at the bottom.  Using our basic components, that means we will need three `rect`s and two `path`s.
 
-My original logo design was done on a 600x600 canvas, so I will be using sizes and positions according to that canvas. As I've mentioned, SVG is a vector image format, so regardless of what scale you use, it should come out crisp.
+My original logo design was done on a 600x600 canvas, so I will be using sizes and positions according to that canvas. As I've mentioned, SVG is a vector image format, so regardless of what scale you use it should come out crisp.
 
 ### Rectangles
 
-Each of the rectangles will need to be 320 units tall, and 100 units wide.  We will need three of them evenly spaced with 150 units between them.  I will be starting my logo as 10,10 simply because I like a little bit of padding.  The padding isn't required, but can be helpful if you ever want to do animations in the future.  I also will not be using any stroke color for these rects.  I find that when I'm matching a design done elsewhere, it's easier to get the correct sizes of you're not translating between fill-width and stroke-width.
+Each of the rectangles will need to be 320 units tall, and 100 units wide.  We will need three of them evenly spaced with 150 units between them.  I will be starting my logo at 10,10 simply because I like a little bit of padding.  The padding isn't required, but can be helpful if you ever want to do animations in the future.  I also will not be using any stroke color for these rects.  I find that when I'm matching a design done elsewhere, it's easier to get the correct sizes of you're not translating between fill-width and stroke-width.
 
-So, your rect should look something like this:
+Your rect code should look something like this:
 
 ```html
 <rect x="10" y="10" height="320" width="100" style="fill: #dd524b; fill-opacity: .5;" />
@@ -92,7 +98,7 @@ We want to space three of those with 150 units in between.  Remember, we are usi
 
 ### Arcs
 
-Now we need the two arcs that will connect the three rectangles.  Both of the arcs will be identical, just shifted across the x axis from eachother.  According to my previous logo design, the radius inside of the arcs should be 140 units in diameter.  However, when we're drawing arcs using SVG we have to account for the width of the stroke. SVG draws your stroke from the center of the path out. So, if you have a vertical path with x=50, and a stroke-width of 50 units, the stroke will be drawn solid from x=25 to x=75.  My strokes will be 100 units wide, so I need to shift my edge points 50 units out.  That puts me at 240 units.  The `rx` for these arcs is 70, and `ry` is 85.  The path code should look like this:
+Now we need the two arcs that will connect the three rectangles.  Both of the arcs will be identical, just shifted across the x axis from eachother.  According to my previous logo design, the radius inside of the arcs should be 140 units in diameter.  However, when we're drawing arcs using SVG we have to account for the width of the stroke. SVG draws your stroke from the center of the path out. For example, if you have a vertical path with x=50, and a stroke-width of 50 units, the stroke will be drawn solid from x=25 to x=75.  My strokes will be 100 units wide, so I need to shift my edge points 50 units out.  That puts me at 240 units.  The `rx` for these arcs is 70, and `ry` is 85.  The path code should look like this:
 
 ```html
 <path d="M60,330 A70,85 0 1,0 300,330" style="stroke: #dd524b; fill: transparent; stroke-width: 100;" />
@@ -113,7 +119,7 @@ The next path's left edge should match exactly with the right edge of the first 
       style="fill: #dd524b;" />
 ```
 
-Awesome!  We've got the shape down.  However, if you're looking at the example you're probably noticing that it doesn't look quite the same as my original logo.  If you compare what we've got so far against the original, the difference is pretty obvious: the original has some opacity.  Luckily, opacity is really easy to do - it's almost identical to playing with opacity in regular CSS.  The two properties we want to pay attention to are `stroke-opacity` and `fill-opacity`.  Those two values are set inside of the shapes `style` attribute, and accept values from 0 to 1.
+Awesome!  We've got the shape down!  However, if you're looking at the example you're probably noticing that it doesn't look quite the same as my original logo.  If you compare what we've got so far against the original, the difference is pretty obvious: the original has some opacity.  Luckily, opacity is really easy to do - it's almost identical to playing with opacity in regular CSS.  The two properties we want to pay attention to are `stroke-opacity` and `fill-opacity`.  Those two values are set inside of the shape's `style` attribute, and accept values from 0 to 1.
 
 
 On my design I highlight the J on top of the W.  That translates to the first arc and the second rectangle.  Those two shapes will have an opacity of .6, while the rest will be 0.5.
@@ -160,11 +166,11 @@ Now, all that's left is to apply the mask to the correct shape. Remember, the ri
 
 That looks pretty dang good.  As far as I can tell, we've matched my logo 1-to-1.  The colors are the same, the opacities are the same, and everything scales beautifully. It looks good at first glance right now, but unfortunately there are some quirks that we need to take care of before we can call this finished. The major thing - and you may have already noticed this - is that certain browsers really struggle with antialiasing on SVG shapes.
 
-Depending on your browser, you may notice thin gaps between each of the arcs and the rectangles. It looks as if we ended the rectangles one pixel too high, so that it doesn't quite reach the top of the arc. In fact, that's what I originally thought I did - I spent nearly an hour playing with stroke widths and positioning to try and fix that one pixel gap. It turns out that all along, the black line is an artifact from the browser trying to create smooth edges. It seems like a silly bug, especially given that the lines in question are flat horizontals, but SVG is new and you have to let these things slide sometimes.
+Depending on your browser, you may notice thin gaps between each of the arcs and the rectangles. It looks as if we ended the rectangles one pixel too high so that it doesn't quite reach the top of the arc. In fact, that's what I originally thought I did - I spent nearly an hour playing with stroke widths and positioning to try and fix that one pixel gap. It turns out that all along the black line is an artifact from the browser trying to create smooth edges. It seems like a silly bug, especially given that the lines in question are flat horizontals, but SVG is new and you have to let these things slide sometimes.
 
 The bad news is that there's no fix for this.  If we're going to design an SVG with the architecture that we're using above, there is no way not to have these antialiasing artifacts in some browsers. Obviously I'm not about to place a messed up image on my website, so I had to refactor the whole thing.  In the end, instead of using 3 rects and 2 arcs, I broke the whole design into three paths - the first "U", the highlighted "J" that sits on top of that first U, and a second "J" to make up the third branch of the W.
 
-The only thing new that you need to know in order to implement this new architecture is the `L` command on paths. `L` stands for Line, and just creates a straight line from your starting pen position to an end position. The syntax is simple - simply provide `x` and `y` coordinates for where you want the line to end (your `M`ove commands define where it starts). For example, this command draws a line to x=300, y=330: `L300,330`.
+The only thing new that you need to know in order to implement this new architecture is the `L` command on paths. `L` stands for Line, and just creates a straight line from your starting pen position to an end position. The syntax is simple - just provide `x` and `y` coordinates for where you want the line to end (your `M`ove commands define where it starts). For example, this command draws a line to x=300, y=330: `L300,330`.
 
 Here's what the entire SVG code looked like in the end:
 
@@ -182,17 +188,17 @@ Here's what the entire SVG code looked like in the end:
 ```
 
 ## Animating
-One of my goals for this logo-to-SVG project has been to add some animation to the logo. [Jesse Pollak](http://jessepollak.me) has a cool effect on his website header that slowly transitions the background color between a few well-picked colors.  The effect happens very slowly and with enough space inbetween each transition that it's very subtle and easy to miss - you just notice it out of the corner of your eye.  It's not distrating, it just adds a feeling of detailed design.  I want to recreate that effect in my logo.
+One of my goals for this logo-to-SVG project has been to add some animation to the logo. [Jesse Pollak](http://jessepollak.me) has a cool effect on his website header that slowly transitions the background color between a few well-picked colors.  The effect happens very slowly and with enough space inbetween each transition that it's very subtle and easy to miss - you just notice it out of the corner of your eye.  It's not distracting, it just adds a feeling of detailed design.  I want to recreate that effect in my logo.
 
 I will be transitioning through 5 different colors, and will do a transition every 10 seconds. The "J" in my logo should start the color transition three seconds before the rest of the logo.  My hope is that this will increase the contrast of the "J", and also create a more interesting effect once the two color transitions lock into eachother.
 
 As you've certainly seen from the examples, all major browsers support animation of SVG documents. To add animation to an SVG shape, you simple place an `animate` element as a child of the shape you want to animate. According to the SVG spec, color animation is actually supposed to be done in an `animateColor` element, but Firefox doesn't support that.  We will stick to the `animate` element.
 
-`animate` elements require a few attributes.  First off is the easy one, `attributeName` - this defines which attribute on the shape that you want to animate.  Then you have the `from` and `to` attributes; these define the starting and ending states of the animation. The value for `from` and `to` should match the format of the original attribute.  Next up is timing, with `begin` and `duration`. `begin` gets a time format similar to CSS animations - if you want the animation to begin 5 seconds from page load, you set `begin` to `5s`. `dur` has the same format - a 5 second animation should have `dur` set to `5s`.
+`animate` elements require a few attributes.  First off is the easy one, `attributeName` - this defines which attribute on the shape that you want to animate; in our case, that will be `stroke` or `fill`. Then you have the `from` and `to` attributes; these define the starting and ending states of the animation. The value for `from` and `to` should match the format of the original attribute.  Next up is timing with `begin` and `duration`. `begin` gets a time format similar to CSS animations - if you want the animation to begin 5 seconds from page load, you set `begin` to `5s`. `dur` has the same format - a 5 second animation should have `dur` set to `5s`.
 
-You also need to set a `fill` attribute. BLAH BLAH BLAH.
+You also need to set a `fill` attribute. The fill attribute accepts two parameters - `remove` or `freeze`. Setting `fill` to remove will set whatever value you are animating back to it's original state once the animation finishes.  `freeze` will persist the final state of the animation even after the animation is finished.
 
-There is one more optional attribute that is very important if you're going to do looping or sequencing animations - `id`. `id` works just the same as ids on any other HTML element - you can set it to whatever unique string that yo want.  The upside to setting an id is that you can now use that id for timing sequences.  Let's say I have an animation that fades an element out over 5 seconds, and I want another animation that fades it back in.  I would set `begin` on the second element to `firstanimation.end`.
+There is one more optional attribute that is very important if you're going to do looping or sequencing animations - `id`. `id` works just the same as ids on any other HTML element - you can set it to whatever unique string that you want.  The upside to setting an id is that you can now use that id for timing sequences.  Let's say I have an animation that fades an element out over 5 seconds, and I want another animation that fades it back in.  I would set `begin` on the second element to `firstanimation.end`.
 
 The animation for my logo is going to be animating the stroke (or fill, depending on the shape) attribute.  It will start at 10s and run for a duration of 5s.  An example animation element would look like this:
 
@@ -325,6 +331,8 @@ That will do the first animation, and should work well enough.  As you can see, 
         </mask>
       </svg>
 </div>
+
+And now we're done!  The code for the whole thing is super long, so I'm not going to paste it here.  You can grab the whole thing from [this codepen](http://codepen.io/anon/pen/HfvKw) if you'd like.
 
 <div class="example-block" data-target-anchor="logo_example_target" style="color: white; font-weight: bold;">
 	<span>The Goal</span><br>
@@ -485,11 +493,11 @@ That will do the first animation, and should work well enough.  As you can see, 
 	  xmlns:xlink="http://www.w3.org/1999/xlink"
 	  viewbox="0 0 600 600" style="width: 60%;">
 	    <rect x="10" y="10" height="320" width="100"
-	          style="fill: #dd524b; fill-opacity: .5;" />
+	          style="fill: #dd524b;" />
 	    <rect x="250" y="10" height="320" width="100"
-	          style="fill: #dd524b; fill-opacity: .6;" />
+	          style="fill: #dd524b;" />
 	    <rect x="490" y="10" height="320" width="100"
-	          style="fill: #dd524b; fill-opacity: .5;" />
+	          style="fill: #dd524b;" />
 	</svg>
 </div>
 
