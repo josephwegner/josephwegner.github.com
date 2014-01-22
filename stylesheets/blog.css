@@ -301,6 +301,9 @@ div.go-to-top {
 	border-radius: 1em 1em 0 0;
 	cursor: pointer;
 	-webkit-transition: background-color .25s, bottom .25s;
+	-moz-transition: background-color .25s, bottom .25s;
+	-o-transition: background-color .25s, bottom .25s;
+	transition: background-color .25s, bottom .25s;
 }
 
 div.go-to-top:hover {
@@ -310,7 +313,7 @@ div.go-to-top:hover {
 div.go-to-top span {
     font-size: 2.5em;
     margin: .25em;
-
+    position: absolute;
 }
 
 button.navbar-toggle {

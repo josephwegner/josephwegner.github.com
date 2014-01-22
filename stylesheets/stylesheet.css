@@ -226,6 +226,9 @@ ul.social-links li {
   opacity: .2;
   background-color: rgba(0, 0, 0, 0);
   -webkit-transition: background-color .2s, opacity .2s;
+  -moz-transition: background-color .2s, opacity .2s;
+  -o-transition: background-color .2s, opacity .2s;
+  transition: background-color .2s, opacity .2s;
   cursor: pointer;
   display: inline-block;
   margin: 1em;
