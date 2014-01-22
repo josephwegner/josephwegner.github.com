@@ -14,15 +14,22 @@ body {
   -o-box-shadow: 0 0 10px #000;
 }
 
+#header svg {
+  display: inline;
+  height: 50px;
+  width: 50px;
+  margin-left: 50px;
+  position: relative;
+  top: 3px;
+}
+
 #header h1 {
-  background-image: url(/images/logo.png);
-  background-size: auto 1.5em;
-  background-repeat: no-repeat;
-  background-position: left;
+  display: inline;
   color: white;
-  padding-left: 60px;
+  padding-left: 10px;
   margin: 10px 0;
-  margin-left: 1em;
+  position: relative;
+  top: -10px;
 }
 
 .navbar-nav {
