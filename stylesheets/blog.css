@@ -22,10 +22,6 @@ h2.section-header {
 	text-shadow: 0px -1px 1px rgba(0,0,0,0.6),0px 1px 1px #fff;
 }
 
-.post-header {
-	margin-bottom: 3em;
-}
-
 .post-header  h2 {
 	font-family: "PTSansCaptionBold";
 	background-color: #f35744;
@@ -64,6 +60,10 @@ h2.section-header {
 	width: 100%;
 }
 
+.post-header h2 {
+	margin-bottom: 0;
+}
+
 .post-header h2 span.title {
 	display: block;
 	margin-bottom: 5px;
@@ -87,6 +87,10 @@ div#rambling h3 {
 div#post #body {
 	font-size: 18px;
 	line-height: 1.5em;
+}
+
+div#post #body #paragraph-text {
+	margin-top: 3em;
 }
 
 div#body img {
