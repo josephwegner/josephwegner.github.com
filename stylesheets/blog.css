@@ -94,7 +94,9 @@ div#post #body #paragraph-text {
 }
 
 div#body img {
-	width: 100%;
+	max-width: 100%;
+	display: block;
+	margin: auto;
 }
 
 div#post a {
