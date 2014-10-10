@@ -1,0 +1,102 @@
+#dashboard-wrapper {
+  background-color: #05051f;
+  min-height: 100%;
+  padding-top: 24px;
+}
+
+#total-traffic-series {
+  margin-bottom: 24px;
+}
+
+#popular-blog-list {
+  list-style-type: none;
+  color: white;
+  width: 33%;
+  box-sizing: border-box;
+  padding: 0 12px;
+  float: left;
+}
+
+#popular-blog-list li {
+  padding: 6px 0;
+  border-bottom: 1px solid #333; 
+}
+
+#popular-blog-list li:last-child {
+  border-bottom: none;
+}
+
+.list-header {
+  font-size: 24px;
+  font-weight-bold;
+  padding-bottom: 6px;
+  border-color: #fff !important;
+}
+
+.num-header {
+  float: right;
+  font-size: 21px;
+}
+
+.finish-rate {
+  float: right;
+}
+
+.blog-path {
+  display: inline-block;
+  max-width: 75%;
+  float: left;
+}
+
+#visitor-type {
+  float: left;
+}
+
+#twitter-clicks {
+  position: relative;
+  width: 33%;
+  float: left;
+  padding-bottom: 30%;
+  background: url('/images/giant_twitter.png') center;
+  background-repeat: no-repeat;
+  background-size: 0;
+}
+
+#total-twitter-views {
+  position: absolute;
+  background: url('/images/giant_twitter.png') center;
+  background-size: 90%;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  opacity: .33;
+}
+
+#twitter-hovers {
+  position: absolute;
+  background: url('/images/giant_twitter.png') center;
+  background-size: 0;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  opacity: .33;
+}
+
+.twitter-stats {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: white;
+  z-index: 10;
+}
+
+@media (max-width: 992px) {
+  #visitor-type, #twitter-clicks, #popular-blog-list {
+    float: none;
+    width: 100%;
+  }
+
+  #twitter-clicks {
+    padding-bottom: 100%;
+  }
+}

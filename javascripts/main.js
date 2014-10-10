@@ -13,18 +13,19 @@ $(document).ready(function() {
 
     var header = $(".hello");
     var headerText = $(header).find("h1");
+    if(headerText.length) {
+      var headerWidth = $(header).width();
+      var headerHeight = $(header).height();
+      var headerOffset = $(header).offset().top;
 
-    var headerWidth = $(header).width();
-    var headerHeight = $(header).height();
-    var headerOffset = $(header).offset().top;
+      $(".hello").mousemove(function(e) {
+          var x = ((e.clientX / headerWidth) * 20) - 10;
+          var y = (((e.clientY - headerOffset) / headerHeight) * 20) - 10;
 
-    $(".hello").mousemove(function(e) {
-        var x = ((e.clientX / headerWidth) * 20) - 10;
-        var y = (((e.clientY - headerOffset) / headerHeight) * 20) - 10;
-
-        $(header).css('background-position', (x*-1)+"px, "+(y*-1)+"px");
-        $(headerText).css({'top': y, 'left': x })
-    })
+          $(header).css('background-position', (x*-1)+"px, "+(y*-1)+"px");
+          $(headerText).css({'top': y, 'left': x })
+      })
+    }
 
 });
 
