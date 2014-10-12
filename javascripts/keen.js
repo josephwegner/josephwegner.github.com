@@ -41,25 +41,25 @@
 	    writeKey: "1cf031f9560d9e59be38b22dd85739d6132766ea78dafb6803c4da904891adc8ff5c04b978b9ff89e369086db3faf331ee0ce68fe52b725006956e0ebd32be0d4e67166ed918734f109c1d55e72c6a9531fef19fafc3967ba260a081df4a3413b16de0333ae14e9a6e88773bbfc69a4f", // required for sending events
 	    readKey: "d26495906529de8ee6f9ad9cdee37505b3eaf4d6f5b5c8c072eef9fc61db01011e7bff3a0ea98055239921986b15118480463aa1b2b6f89ef6328fa8ee84a43cb4927886657cdaab402dd36f0eca7a4a23761d5df3e50ac787803bd607272a719936261fa61b43458ec51de250fd8cf5"    // required for doing analysis
 	});
+
+  KeenClient.setGlobalProperties(function(eventCollection) {
+    var props = {
+      newVisitor: firstVisit,
+      guid: guid,
+      page: {
+        path: document.location.pathname,
+        href: document.location.href,
+        host: document.location.host
+      },
+      referrer: document.referrer,
+      sinceLoad: Date.now() - loadTime
+    };
+
+    return props;
+  });
   
   Keen.ready(function() {
     $(document).trigger("keen_ready", KeenClient);
-
-    KeenClient.setGlobalProperties(function(eventCollection) {
-      var props = {
-        newVisitor: firstVisit,
-        guid: guid,
-        page: {
-          path: document.location.pathname,
-          href: document.location.href,
-          host: document.location.host
-        },
-        referrer: document.referrer,
-        sinceLoad: Date.now() - loadTime
-      };
-
-      return props;
-    });
   });
 
 	$(document).ready(function() {
