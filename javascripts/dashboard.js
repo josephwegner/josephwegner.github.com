@@ -3,6 +3,7 @@ $(document).ready(function() {
     /* Define Metrics */
     var totalTrafficSeries = new Keen.Query("count_unique",  {
       event_collection: "page_load",
+      max_age: 600,
       targetProperty: "guid",
       interval: "daily",
       timeframe: "this_31_days"
@@ -10,6 +11,7 @@ $(document).ready(function() {
 
     var mostReadBlogs = new Keen.Query("count", {
       event_collection: "page_load",
+      max_age: 3600,
       groupBy: "page.path",
       filters: [
         {
@@ -28,6 +30,7 @@ $(document).ready(function() {
 
     var blogReadCount = new Keen.Query("count", {
       event_collection: "interaction",
+      max_age: 3600,
       groupBy: "page.path",
       filters: [{
         "property_name": "action",
@@ -39,6 +42,7 @@ $(document).ready(function() {
 
     var visitorType = new Keen.Query("count", {
       event_collection: "page_load",
+      max_age: 1800,
       groupBy: "newVisitor",
       timeframe: "this_31_days",
       filters: [{
@@ -50,6 +54,7 @@ $(document).ready(function() {
 
     var twitterHovers = new Keen.Query("count", {
       event_collection: "interaction",
+      max_age: 600,
       timeframe: "this_31_days",
       filters: [{
         property_name: "action",
@@ -60,6 +65,7 @@ $(document).ready(function() {
 
     var twitterClicks = new Keen.Query("count", {
       event_collection: "interaction",
+      max_age: 600,
       timeframe: "this_31_days",
       filters: [{
         property_name: "action",
@@ -70,6 +76,7 @@ $(document).ready(function() {
 
     var totalBlogPostViews = new Keen.Query("count", {
       event_collection: "page_load",
+      max_age: 600,
       timeframe: "this_31_days",
       filters: [
         {
