@@ -93,6 +93,10 @@ div#post #body #paragraph-text {
 	margin-top: 3em;
 }
 
+div#post #body #paragraph-text ol li {
+  margin-bottom: 12px;
+}
+
 div#body img {
 	max-width: 100%;
 	display: block;
@@ -170,6 +174,7 @@ pre {
   color: #f2f2f2;
   text-shadow: none;
   overflow: auto;
+  margin-bottom: 0;
 }
 pre code {
   color: #f2f2f2;
