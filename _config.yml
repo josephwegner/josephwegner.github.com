@@ -3,7 +3,7 @@ description: "Nerdy Ramblings, Usually about Javascript"
 url: http://www.wegnerdesign.com
 safe: true
 lsi: false
-highlighter: true
+highlighter: pygments
 paginate: 10
 markdown: redcarpet
 permalink: :categories/:title

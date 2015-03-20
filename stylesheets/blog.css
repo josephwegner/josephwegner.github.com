@@ -170,7 +170,7 @@ code {
 
 pre {
   padding: 20px;
-  background: #303030;
+  background: #505050;
   color: #f2f2f2;
   text-shadow: none;
   overflow: auto;
@@ -178,7 +178,7 @@ pre {
 }
 pre code {
   color: #f2f2f2;
-  background-color: #303030;
+  background-color: #505050;
   border: none;
   padding: 0;
 }
