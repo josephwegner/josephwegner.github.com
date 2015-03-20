@@ -23,7 +23,8 @@ h2.section-header {
 }
 
 .post-header  h2 {
-	font-family: "PTSansCaptionBold";
+	font-family: "Lato", sans-serif;
+  font-weight: 700;
 	background-color: #f35744;
 	padding-top: .4em;
 	border-bottom: .55em solid #bd4233;
@@ -86,7 +87,7 @@ div#rambling h3 {
 
 div#post #body {
 	font-size: 21px;
-	line-height: 1.5em;
+	line-height: 1.7em;
 }
 
 div#post #body #paragraph-text {
@@ -115,7 +116,8 @@ ul#list {
 }
 
 ul#list li {
-	font-family: "PTSansCaptionBold";
+	font-family: "Lato", sans-serif;
+  font-weight: bold;
 	font-size: 18px;
 	border-left: 1px solid #BABABA;
 	border-bottom: 1px solid #BABABA;
@@ -293,7 +295,7 @@ pre code {
 
 .post-list-container p {
 	font-size: 18px;
-	line-height: 1.5em;
+	line-height: 1.7em;
 	padding: 0 2em .5em 2em;
 }
 
