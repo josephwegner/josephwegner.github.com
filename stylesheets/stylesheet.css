@@ -21,6 +21,7 @@ body {
   background-position: 0 0;
   height: 90%;
   display: table;
+  overflow: hidden;
   width: 100%;
 }
 

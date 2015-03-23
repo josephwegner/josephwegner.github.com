@@ -39,16 +39,16 @@
 </head>
 <body onload="go();">
   {% include header.html %}
-  <div id="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div id="post" class="container-fluid" itemscope itemtype="http://schema.org/BlogPosting">
     {% if page.image %}
     <div class="row">
-      <div class="col-md-12 halo-container">
+      <div class="col-md-12 halo-container full-width-column">
         <img src="{{page.image}}" class='halo-image' />
       </div>
     </div>
     {% endif %}
     <div class="row post-header">
-      <div class="col-md-12">
+      <div class="col-md-12 full-width-column">
         <h2 {% if page.image %} class="with-image" {% endif %}><span class='title' itemprop="name">{{ page.title }}</span><span class="date"><time itemprop="dateCreated" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_long_string }}</time></span></h2>
       </div>
     </div>

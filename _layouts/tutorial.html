@@ -42,31 +42,33 @@
 </head>
 <body onload="go();">
   {% include header.html %}
-  <div id="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div id="post" class="container-fluid" itemscope itemtype="http://schema.org/BlogPosting">
     <div class="row post-header">
-      <div class="col-md-12">
+      <div class="col-md-12 full-width-column">
         <h2 {% if page.image %} class="with-image" {% endif %}><span class='title' itemprop="name">{{ page.title }}</span><span class="date"><time itemprop="dateCreated" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_long_string }}</time></span></h2>
       </div>
     </div>
-    <div id="body" class="row">
-      <div class="col-xs-1 visible-xs"></div>
-      <div  itemprop="text" id="paragraph-text" class="col-md-5 col-md-offset-1 col-sm-6 col-xs-10">  
-      {% if page.message %}
-        <div class="alert alert-info">{{page.message}}</div>
-      {% endif %}
-      {{ content }}
+    <div id="body">
+      <div class="row">
+        <div class="col-xs-1 visible-xs"></div>
+        <div  itemprop="text" id="paragraph-text" class="col-md-5 col-md-offset-1 col-sm-6 col-xs-10">  
+        {% if page.message %}
+          <div class="alert alert-info">{{page.message}}</div>
+        {% endif %}
+        {{ content }}
+        </div>
+        <div class="col-md-5 col-md-offset-1 col-sm-6 tutorial-examples hidden-xs" style="background-color: {{page.tutorialbg}}">
+        </div>
       </div>
-      <div class="col-md-5 col-md-offset-1 col-sm-6 tutorial-examples hidden-xs" style="background-color: {{page.tutorialbg}}">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <div id="thanks">
-          {% if page.thanks %}
-            {{page.thanks}}
-          {% else %}
-            Thanks for reading <a itemprop="url" href="{{page.url}}">{{page.title}}</a> by <a href="/" itemprop="author">Joe Wegner</a>.  Want to <a href="/blog">read more</a>?
-          {% endif %}
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div id="thanks">
+            {% if page.thanks %}
+              {{page.thanks}}
+            {% else %}
+              Thanks for reading <a itemprop="url" href="{{page.url}}">{{page.title}}</a> by <a href="/" itemprop="author">Joe Wegner</a>.  Want to <a href="/blog">read more</a>?
+            {% endif %}
+          </div>
         </div>
       </div>
     </div>
