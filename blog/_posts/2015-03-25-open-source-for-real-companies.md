@@ -4,14 +4,14 @@ layout: post
 meta:
  _edit_last: "1"
  dsq_thread_id: "opensourceforrealcompanies"
-image: /images/blog_images/2014_tools.jpg
+image: /images/blog_images/bazaar.jpg
 ---
 
 I'm reading [*The Cathedral and the Bazzar*](LINK HERE) right now, and just finished the section titled *Homesteading the Noosphere*. Eric Raymond talks at length in that essay about the economic model that drives open source. He compares the traditional exchange model that most private commercial companies use against what is called a "reputation-game gift" model.
 
 As a quick overview, the exchange model is what we all know and understand quite well - both employers and employees have scarce resources, money and time/skill respectively. An employer exchanges their money with an employed programmer, in return for them to spend their time and expertise producing quality software.
 
-The reputation-game gift model is wildly different - it operates under the assumption that money *is not* a scarce resource for the programmer. In this case, the programmer has either excess time or money, so they are not motivated by exchanging them - instead, argues Raymond, the programmer is motivated by reputation allocation. Raymond compares the open-source economic model to a similar model seen in remote tribal communities, where people will compete in their generocity - giving away massive amounts of their wealth in exchange for increased reputation among their tribe.
+The reputation-game gift model is wildly different - it operates under the assumption that money *is not* a scarce resource for the programmer. In this case, the programmer has either excess time or money, so they are not motivated by exchanging them - instead, argues Raymond, the programmer is motivated by reputation allocation. Raymond compares the open-source economic model to a similar model seen in remote tribal communities, where people will compete in their generocity - giving away massive amounts of their wealth in exchange for increased reputation among the tribe.
 
 In an attempt to encourage all-out replacement of the exchange model with the reputation-game, Raymond closes his argument in *Homesteading the Noosphere* with this incredible quote:
 
@@ -65,12 +65,22 @@ If you fit in any of those three categories, then engineering probably isn't you
 
 If you're still reading and engaged at this point, you're probably following my point about open-source not being the end of the world for real companies. Or, I guess, you might just be reading as fodder for a flame war in the comments, but I certainly hope not. Anyways, if we can agree that open-source isn't *bad*, then our next step is to figure out why it's *good*. What are the benefits of trusting me, and diving in to the open source world?
 
-Eric Raymond, along with looking at a bunch of different open source projects that are active and awesome *right now*, have convinced me that open-source engineering creates better software. One of the primary reasons (and my favorite) for this, according to Raymond, is selfish actors.
+Eric Raymond, along with looking at a bunch of different open source projects that are active and awesome *right now*, has convinced me that open-source engineering creates better software. One of the primary reasons (and my favorite) for this, according to Raymond, is selfish actors.
 
 In closed-source engineering, a product is guided by a single entity (your company). Your company has selfish motives as they guide the development of a project. They want to make money, and they want to do that in the most efficient and lucrative way possible. Sometimes the best thing for the project (ie: the best thing for your *users*) does not align with the most lucrative thing for the business. In the short term, it may seem beneficial to make these decisions, but in the long-term providng the best experience for your users will likely result in the most success. Suddenly, your product goals and your business goals don't align - guess who wins in the closed-source world.
 
 Running your engineering as an open-source project vastly decreases the likelihood of business goals getting in the way of user-focued project enhancements. Open source projects attract a wide variety of contributors, all of which can be considered selfish actors. Every contributor has their own goals - be it business goals, or simply a desire to create a project they think is cool. The distribution of selfish actors with different goals will eventually balance out, and provide a consistent drive towards user happiness.
 
-I know it sounds crazy, and I definitely can't make the argument that open-source is better for *every* business, but I do think open-source is both a viable and beneficial option for a lot of companies. It's crazy, but maybe it's good crazy.
+I know it sounds crazy, and I definitely can't make the argument that open-source is better for *every* business, but I do think open-source is both a viable and a beneficial option for a lot of companies. It's crazy, but maybe it's good crazy.
 
 If you're living the dream and doing open-source in a commerical sense, please [reach out to me](mailto:joe@wegnerdesign.com) - I'm becoming increasingly interested in the topic, and I'd love to hear your story. Same deal if you've got battle scars from this approach - I want to hear about it.
+
+### Examples
+
+Some of my readers had requested that I come up with some examples of companies that have proven the rules that I wrote about here. That seems fair, and the research is pretty fun as well.
+
+- [Ghost](https://github.com/TryGhost), [Discourse](https://github.com/discourse). and [Reddit](https://github.com/reddit) all have fairly simple concepts, and have wonderful open-source communities.
+- [NASA](https://github.com/nasa), [Android](https://github.com/android), and [Coinbase](https://github.com/coinbase) are all such capital-heavy projects that even with their source open, it's difficult for any competitors to gain an advantage
+- [Wordpress](https://github.com/wordpress), [Docker](https://github.com/docker), and [SugarCRM](https://github.com/sugarcrm) all have wide enough target markets that they can afford for their competition to benefit from their source code.
+
+On the opposite side of the spectrum, [Mailchimp](http://mailchimp.com/), [Google](Google)(search, specifically), and [iRobot](http://www.irobot.com/) are all companies that probably would not benefit from open sourcing their core products.
