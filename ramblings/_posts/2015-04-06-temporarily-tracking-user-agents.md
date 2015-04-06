@@ -3,6 +3,8 @@ title: Temporarily Tracking User Agents
 layout: rambling
 ---
 
+<div class="alert alert-info">A couple hours of data turned out to be enough. It turns out all of the duplicate UUIDs were coming from Googlebots. It would appear that Googlebots all use the same seed for javascript's Math.random() function, which resulted in duplicate UUIDs. I have turned off user-agent tracking, filtered out Googlebot from my analytics, and scrubbed the data with Keen's <a href="https://keen.io/docs/maintenance/">handy maintenance APIs</a>.</div>
+
 In the name of transparency, I thought it would be a good idea for me to put a notice here. This post was written on the morning of April 6th, 2015 - the changes discussed here were published a few minutes before this post.
 
 I was looking at some of my analytics today, and noticed that I have had an extreme increase in the number of UUID collisions. I generate a UUID for every new visitor to WegnerDesign. I pretty much only use this to track if people are new visitors or returning.
