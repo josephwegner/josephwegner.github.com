@@ -63,6 +63,9 @@
   });
 
 	$(document).ready(function() {
+    if(window.navigator.userAgent.indexOf('Googlebot') !== -1) {
+      return false;
+    }
 
 		guid = readCookie("keen_sess");
 
