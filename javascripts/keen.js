@@ -51,8 +51,20 @@
         href: document.location.href,
         host: document.location.host
       },
+      user_agent: '${keen.user_agent}',
       referrer: document.referrer,
-      sinceLoad: Date.now() - loadTime
+      sinceLoad: Date.now() - loadTime,
+      keen: {
+        addons: [
+          {
+            name: 'keen:ua_parser',
+            input: {
+              ua_string: 'user_agent'
+            },
+            output: 'parsed_user_agent'
+          }
+        ]
+      }
     };
 
     return props;
