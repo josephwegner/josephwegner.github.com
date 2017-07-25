@@ -19,7 +19,7 @@ Prototype, though, is a very interesting concept.  I'm very glad I was asked abo
 
 ## Prototype - Inheritance for Javascript
 
-On a very basic level, prototype gives javascript the ability to create class-like inheritance using objects.  We know that (mostly) [everything is an object](http://mirkokiefer.com/blog/2010/02/everything-is-an-object-in-javascript/) in javascript.  However, there's something unqiue about a function-object.  The first unique thing is that every function-object is instantiated with a `prototype` parameter, which is also an object.  The second unique thing is that you can use the `new` keyword on a function-object to create a "child" of that object.  
+On a very basic level, prototype gives javascript the ability to create class-like inheritance using objects.  We know that (mostly) [everything is an object](https://mirkokiefer.com/blog/2010/02/everything-is-an-object-in-javascript/) in javascript.  However, there's something unqiue about a function-object.  The first unique thing is that every function-object is instantiated with a `prototype` parameter, which is also an object.  The second unique thing is that you can use the `new` keyword on a function-object to create a "child" of that object.  
 
 {% highlight javascript %}
 var Dog = function() {
@@ -122,7 +122,7 @@ If we had instead set all of the functions in the `Animal` constructor, we would
 
 ## Advanced - Object Interfaces
 
-The patterns above defintely get us within the bounds of saying that javascript is object oriented.  However, it's not yet quite as powerful as other more traditional OOP languages.  One of the things I really like about OOP programming is being able to manage abstractions via [Object Interfaces](http://www.cs.utah.edu/~germain/PPS/Topics/interfaces.html).  Object Interfaces let you define an abstract class that requires child classes to have certain functions.  In the above example, we might require that every Animal be able to move.  However, every animal moves/walks in a different way, so there isn't a generic way to do that on the parent class.
+The patterns above defintely get us within the bounds of saying that javascript is object oriented.  However, it's not yet quite as powerful as other more traditional OOP languages.  One of the things I really like about OOP programming is being able to manage abstractions via [Object Interfaces](https://www.cs.utah.edu/~germain/PPS/Topics/interfaces.html).  Object Interfaces let you define an abstract class that requires child classes to have certain functions.  In the above example, we might require that every Animal be able to move.  However, every animal moves/walks in a different way, so there isn't a generic way to do that on the parent class.
 
 I've been using a pattern recently to mock standard Object Interfacing.  Of course, the code isn't quite as clean as a language that supports interfacing out of the box, but it gets the job done.
 

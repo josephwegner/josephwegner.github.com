@@ -1,7 +1,7 @@
 ---
 layout: blogTile
 title: In Every Language
-link: http://www.ineverylang.com
+link: https://www.ineverylang.com
 tags:
 - web
 - tech

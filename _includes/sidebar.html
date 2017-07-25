@@ -2,7 +2,7 @@
 	$(document).ready(function() {
 
 		if(window.location.host !== "josephwegner.github.com") {
-			eventsAPI = "http://localhost:4000/testData/repos.json";
+			eventsAPI = "https://localhost:4000/testData/repos.json";
 			$.ajax({
 				type: "GET",
 				url: eventsAPI,

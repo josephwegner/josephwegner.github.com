@@ -39,11 +39,11 @@ I've already explained, from personal experience, why the first point is in that
 
 ## Incredibly High Operational Cost
 
-There's a handful of businesses out there that work on things that are so massively scaled that it's almost impossible to compete with them. These are the kinds of companies that, whenever I hear about what they are working on, my reaction is to blurt out "My job is so easy." [SpaceX](http://www.spacex.com/) is the big obvious one that comes to mind. Even if SpaceX were to completely open up their source, document it with incredible detail, and personally hold the hand of any developer who was interested, it would still be nearly impossible to compete with them.
+There's a handful of businesses out there that work on things that are so massively scaled that it's almost impossible to compete with them. These are the kinds of companies that, whenever I hear about what they are working on, my reaction is to blurt out "My job is so easy." [SpaceX](https://www.spacex.com/) is the big obvious one that comes to mind. Even if SpaceX were to completely open up their source, document it with incredible detail, and personally hold the hand of any developer who was interested, it would still be nearly impossible to compete with them.
 
 <iframe src="https://vine.co/v/OjqeYWWpVWK/embed/simple" width="600" height="600" frameborder="0"></iframe><script src="https://platform.vine.co/static/scripts/embed.js"></script>
 
-That's a video of SpaceX crash landing a [$61.2M](http://www.spacex.com/about/capabilities) Falcon 9 rocket. They considered that a success, because it will help them get the landing correct [in the future](https://twitter.com/elonmusk/status/553855109114101760). There's not many companies out there that have the capital available to run $61.2M trial-and-error sort of tests. SpaceX's advantage is in its money, not its engineering.
+That's a video of SpaceX crash landing a [$61.2M](https://www.spacex.com/about/capabilities) Falcon 9 rocket. They considered that a success, because it will help them get the landing correct [in the future](https://twitter.com/elonmusk/status/553855109114101760). There's not many companies out there that have the capital available to run $61.2M trial-and-error sort of tests. SpaceX's advantage is in its money, not its engineering.
 
 The really exciting thing about this category of business is that most of their engineering resources fall into the research category. They're spending all that money pushing the edges of our understanding. This is commonly the explanation of why the US has dumped so much money in to NASA - their research has benefited society in ways that dwarf the amount of money they have spent. Open-sourcing that research means that external parties can validate the data in parallel, and build on it in ways that may never have occurred to the actual researcher.
 
@@ -83,4 +83,4 @@ Some of my readers had requested that I come up with some examples of companies 
 - [NASA](https://github.com/nasa), [Android](https://github.com/android), and [Coinbase](https://github.com/coinbase) are all such capital-heavy projects that even with their source open, it's difficult for any competitors to gain an advantage
 - [Wordpress](https://github.com/wordpress), [Docker](https://github.com/docker), and [SugarCRM](https://github.com/sugarcrm) all have wide enough target markets that they can afford for their competition to benefit from their source code.
 
-On the opposite side of the spectrum, [Mailchimp](http://mailchimp.com/), [Google](Google)(search, specifically), and [iRobot](http://www.irobot.com/) are all companies that probably would not benefit from open sourcing their core products.
+On the opposite side of the spectrum, [Mailchimp](https://mailchimp.com/), [Google](Google)(search, specifically), and [iRobot](https://www.irobot.com/) are all companies that probably would not benefit from open sourcing their core products.

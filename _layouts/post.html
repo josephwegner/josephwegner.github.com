@@ -6,7 +6,7 @@
   <link rel="stylesheet" type="text/css" href="/stylesheets/blog.css" />
   <link rel="stylesheet" type="text/css" href="/stylesheets/global.css" />
   <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" />
-  <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
   <script src="/javascripts/jquery.min.js"></script>
   <script src="/javascripts/keen.js"></script>
   <script src="/javascripts/blog.js"></script>
@@ -14,7 +14,7 @@
     function go() {
       var tweetLink = document.getElementsByClassName("tweet")[0].getElementsByTagName("a")[0];
 
-      var url = encodeURIComponent("http://www.wegnerdesign.com{{ page.url }}");
+      var url = encodeURIComponent("https://www.wegnerdesign.com{{ page.url }}");
       var name = encodeURIComponent("{{ page.title }} via #WegnerDesign")
 
       tweetLink.href = "https://twitter.com/intent/tweet?url="+url+"&text="+name;
@@ -39,7 +39,7 @@
 </head>
 <body onload="go();">
   {% include header.html %}
-  <div id="post" class="container-fluid" itemscope itemtype="http://schema.org/BlogPosting">
+  <div id="post" class="container-fluid" itemscope itemtype="https://schema.org/BlogPosting">
     {% if page.image %}
     <div class="row">
       <div class="col-md-12 halo-container full-width-column">
@@ -88,12 +88,12 @@
             /* * * DON'T EDIT BELOW THIS LINE * * */
             (function() {
                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
             })();
         </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
       </div>
     </div>
   </div>
@@ -109,8 +109,8 @@ If you see this, it would be awesome if you put this pixel on your own website (
 
 Don't talk about it - just let it sit there. I want to see how fast this thing spreads.
 
-If you want to see how it's spreading, check out http://pixel.wegnerdesign.com
+If you want to see how it's spreading, check out https://pixel.wegnerdesign.com
   -->
-  <img src="http://pixel.wegnerdesign.com/pixel.gif" style="position: absolute; bottom: 0; right: 0;" />
+  <img src="https://pixel.wegnerdesign.com/pixel.gif" style="position: absolute; bottom: 0; right: 0;" />
 </body>
 </html>

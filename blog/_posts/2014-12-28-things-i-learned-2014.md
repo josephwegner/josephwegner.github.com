@@ -14,9 +14,9 @@ The tools I've picked up have been incredibly helpful, and not only do I want to
 
 ## iTerm/zsh
 
-A few months ago I came across a blog post telling me how to [badassify my terminal and shell](http://jilles.me/badassify-your-terminal-and-shell/). I was still using OSX's built-in terminal at the time, and had been hearing about some of the crazy stuff that my coworkers do with their shells, so I thought I'd take a look.
+A few months ago I came across a blog post telling me how to [badassify my terminal and shell](https://jilles.me/badassify-your-terminal-and-shell/). I was still using OSX's built-in terminal at the time, and had been hearing about some of the crazy stuff that my coworkers do with their shells, so I thought I'd take a look.
 
-Simply switching to [iTerm](http://iterm.sourceforge.net/) and [zsh](http://www.zsh.org/) wasn't that life-changing. When I first popped them open, it felt very similar to Terminal. However, iTerm and zsh put together open up a _ton_ of ways to easily customize your terminal, and it also just encouraged me to dig into those customizations.
+Simply switching to [iTerm](https://iterm.sourceforge.net/) and [zsh](https://www.zsh.org/) wasn't that life-changing. When I first popped them open, it felt very similar to Terminal. However, iTerm and zsh put together open up a _ton_ of ways to easily customize your terminal, and it also just encouraged me to dig into those customizations.
 
 ![Terminal Customizations](/images/blog_images/term-screenshot.png)
 
@@ -106,13 +106,13 @@ My first few months of commuting I usually played a game or read a book on my ph
 There's a few things that didn't quite make the list. Maybe I used them last year, or maybe I started using them too recently to really say that I officially love them. Those are here.
 
 ### Dash
-I've only been using [Dash](http://kapeli.com/dash) for about a week, but so far I love it. Dash let's you pull in the docs for a bunch of different things - CSS, Angular, the DOM, etc. - and crunch them into a single super-intuitive interface. I pull up dash using a hotkey (`Cmd+d`), and it opens in HUD mode. The search is so fast and smart that from the moment I think I _might_ want docs to the time I'm actually reading them is easily less than 5 seconds. It's the ultimate tool to quickly reach a lot of documentation without having to lose the context of what you are working on.
+I've only been using [Dash](https://kapeli.com/dash) for about a week, but so far I love it. Dash let's you pull in the docs for a bunch of different things - CSS, Angular, the DOM, etc. - and crunch them into a single super-intuitive interface. I pull up dash using a hotkey (`Cmd+d`), and it opens in HUD mode. The search is so fast and smart that from the moment I think I _might_ want docs to the time I'm actually reading them is easily less than 5 seconds. It's the ultimate tool to quickly reach a lot of documentation without having to lose the context of what you are working on.
 
 ### Keen
 I've been using [Keen](https://keen.io) for a long time - this definitely isn't a new love. However, in the past year I've started using Keen a bit differently than I have in the past. The new way of using Keen for analytics has given me a new view on what Analytics means, and better visibility into the metrics I care about.
 
-- [Goodbye Google Analytics](http://wegnerdesign.com/blog/goodbye-google-analytics/)
-- [WegnerDesign Analytics Dashboard](http://wegnerdesign.com/dashboard/)
+- [Goodbye Google Analytics](https://wegnerdesign.com/blog/goodbye-google-analytics/)
+- [WegnerDesign Analytics Dashboard](https://wegnerdesign.com/dashboard/)
 - [Analytics in Chrome New Tab Page (Chrome Extension)](https://github.com/josephwegner/WegnerDesign-Chrome-Extension)
 
 ### Flux

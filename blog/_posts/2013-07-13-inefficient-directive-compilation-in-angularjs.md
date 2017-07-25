@@ -11,9 +11,9 @@ tags: []
 
 ---
 
-*I wrote a little side project recently, called [CSS3 Man](http://www.css3man.com).  It's a fun experiment in CSS3.  You should check it out, it's fun and interactive, and will be sort of necessary to understand this blog post.*
+*I wrote a little side project recently, called [CSS3 Man](https://www.css3man.com).  It's a fun experiment in CSS3.  You should check it out, it's fun and interactive, and will be sort of necessary to understand this blog post.*
 
-I've taken to [AngularJS](http://angularjs.org) recently for most of my little side projects.  It's super fast, simple, and every time I use it I feel like my apps give off this feel of "wow, that was really well done!"  Most of that vibe comes from the data-binding, but from the developer end my favorite part is definitely directives.  I wrote [a tutorial](http://wegnerdesign.com/blog/angular-js-directive-tutorial-on-attribute-bootstrap-confirm-button/) awhile back on how to write an AngularJS directive, but now I want to write some words of caution on why they can be dangerious.
+I've taken to [AngularJS](https://angularjs.org) recently for most of my little side projects.  It's super fast, simple, and every time I use it I feel like my apps give off this feel of "wow, that was really well done!"  Most of that vibe comes from the data-binding, but from the developer end my favorite part is definitely directives.  I wrote [a tutorial](https://wegnerdesign.com/blog/angular-js-directive-tutorial-on-attribute-bootstrap-confirm-button/) awhile back on how to write an AngularJS directive, but now I want to write some words of caution on why they can be dangerious.
 
 In CSS3 Man, I have to generate styles for each of the men on the fly.  The requirements were that they can't be stored in a file, they have to be dynamic, and they have to be dynamic *fast*.  To do this, I wrote a directive called `superStyle`.  The direcive is given two attributes - a selector and the content (note: it wasn't given pure CSS for XSS reasons).  It would then generate style tags, insert them into the DOM, and watch the attributes to see when they changed.  The code is below.
 
@@ -57,7 +57,7 @@ app.directive( 'superstyle', function( $compile ) {
 });
 {% endhighlight %}
 
-You might be wondering why I'm not using [AngularJS templates](http://docs.angularjs.org/guide/dev_guide.templates) and letting Angular handle the binding.  Unfortunately, AngularJS templates don't work with `style` tags - which makes sense, and I'm fine working around it.
+You might be wondering why I'm not using [AngularJS templates](https://docs.angularjs.org/guide/dev_guide.templates) and letting Angular handle the binding.  Unfortunately, AngularJS templates don't work with `style` tags - which makes sense, and I'm fine working around it.
 
 Anyways, I created a bunch of these for each human - one for head, body, legs, head-after, etc.  It worked absolutely wonderfully in the editor.  It loaded up almost instantaneously, and there was no noticeable delay between changing a CSS rule and seeing it show up on the preview.  This was a great solution, and I was pretty excited to share it.
 

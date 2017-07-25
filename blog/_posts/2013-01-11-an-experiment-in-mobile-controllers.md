@@ -11,17 +11,17 @@ tags: []
 
 ---
 
-I had jury duty the other day.  What that translates to is I had a whole day of [forced free time](https://twitter.com/Joe_Wegner/status/288812290910859265).  I had decided it would be a good idea to treat this time as a hackathon, and was inspired by a [Google+ demo](http://odem.chromeexperiments.com/8mEis2) that allowed you to browse using gestures from your mobile phone.  The actual Google+ demo was pretty unexciting - it was very choppy, and not really an increase in usability at all.  But, cool nonetheless.
+I had jury duty the other day.  What that translates to is I had a whole day of [forced free time](https://twitter.com/Joe_Wegner/status/288812290910859265).  I had decided it would be a good idea to treat this time as a hackathon, and was inspired by a [Google+ demo](https://odem.chromeexperiments.com/8mEis2) that allowed you to browse using gestures from your mobile phone.  The actual Google+ demo was pretty unexciting - it was very choppy, and not really an increase in usability at all.  But, cool nonetheless.
 
 In all reality, using your mobile device as a controller for your desktop computer doesn't really have a place on the normal web - adding a new layer of abstraction isn't ever going to make things easier.  However, it does have an application in one place - gaming.  It's never been a secret that people prefer to control games with a controller rather than a mouse and keyboard.
 
 So that's what I set out to do.  The end goal here is to create a library that people can use in the future, but for my forced hackathon I just wanted to create a proof of concept.  I didn't want to deal too heavily with designing a UI, so I chose the simplest game that might use a mobile controller - the keep-the-ball-on-the-tilty-thing game.
 
-Check out [the demo](http://mobile-interactive.herokuapp.com/) - it'll make the rest of this post make sense.  **Make sure you're phone is on wifi.  There's a lot of websockets magic, which will likely suck up your available data.**  This will also probably only work on chrome, both on the desktop and on your mobile.  You can try other browsers, but I don't promise any success.
+Check out [the demo](https://mobile-interactive.herokuapp.com/) - it'll make the rest of this post make sense.  **Make sure you're phone is on wifi.  There's a lot of websockets magic, which will likely suck up your available data.**  This will also probably only work on chrome, both on the desktop and on your mobile.  You can try other browsers, but I don't promise any success.
 
 ![Mobile Interactive Demo](/images/mobile-interactive-demo.png)
 
-[HTML5 Rocks](http://www.html5rocks.com) has a great tutorial on the specifics of [working with orientation/movemenent data from a mobile phone](http://www.html5rocks.com/en/tutorials/device/orientation/).  That's not the exact challenge here, but I suggest you skim that article before you read this one.  The challenges here are more related to coordinating things between the devices with websockets, and that's what I'll be focusing on.
+[HTML5 Rocks](https://www.html5rocks.com) has a great tutorial on the specifics of [working with orientation/movemenent data from a mobile phone](https://www.html5rocks.com/en/tutorials/device/orientation/).  That's not the exact challenge here, but I suggest you skim that article before you read this one.  The challenges here are more related to coordinating things between the devices with websockets, and that's what I'll be focusing on.
 
 So, before I even get into the work of sending the orientation data back and forth, I need to make sure that the phone and the desktop are both synced up.  As you can see from the demo, I'm using a QR code to send the phone to a URL with a unique identifier.  The basic flow of this process is:
 

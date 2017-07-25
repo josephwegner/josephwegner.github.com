@@ -8,14 +8,14 @@ tutorialbg: "#05051f"
 message: It seems that Google Chrome has some trouble looping SVG animations.  If you're interested in the examples, you may want to view this page in Firefox
 ---
 
-In my book, [SVG](http://en.wikipedia.org/wiki/Scalable_Vector_Graphics) is classified as a mythical unicorn super technology.  SVG shares this category with other technologies like [RegExp](http://en.wikipedia.org/wiki/Regular_expression), [vim](http://www.vim.org/), and [OpenGL](http://en.wikipedia.org/wiki/OpenGL). The common traits between each of these technologies is that they are incredibly useful when used correctly, but incredibly difficult to use correctly.  All three pack some serious punch inside of a terribly confusing syntax.
+In my book, [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) is classified as a mythical unicorn super technology.  SVG shares this category with other technologies like [RegExp](https://en.wikipedia.org/wiki/Regular_expression), [vim](https://www.vim.org/), and [OpenGL](https://en.wikipedia.org/wiki/OpenGL). The common traits between each of these technologies is that they are incredibly useful when used correctly, but incredibly difficult to use correctly.  All three pack some serious punch inside of a terribly confusing syntax.
 
 <div id="logo_example_target"></div>
 
 I've made the jump and figured out how to do RegExp, and have reaped many benefits from that bit of knowledge. Today I'm going to try and do the same with SVG.  SVG stands for Scalable Vector Graphics - essentially it is a XML-formatted document that describes a graphic.  The benefit to using SVG over other image formats is that it describes vector graphics - that means your images will scale crisply at any size.  Best of all, HTML5 brought along support for native SVG documents inside of a web page, so you can now treat SVG graphics like first-class DOM elements.
 
 ## The Task
-I learn best by finding something I need done, and just pounding away at it until it's done. For awhile now I've been wanting to change the [WegnerDesign](http://www.wegnerdesign.com) logo into SVG, so that will be the task I start with.
+I learn best by finding something I need done, and just pounding away at it until it's done. For awhile now I've been wanting to change the [WegnerDesign](https://www.wegnerdesign.com) logo into SVG, so that will be the task I start with.
 
 ## Break It Down
 Since SVG is an XML document, you can think about it much like you do regular HTML markup.  The thing you're trying to create needs to be broken up into multiple pieces, which will be represented by separate elements in the markup. Just like learning any new language, beginners probably will want to break their image up into the most simple components possible.  It's possible this isn't the most efficient design, but it's probably the easiest to learn with.
@@ -27,7 +27,7 @@ The WegnerDesign logo is essentially a giant 'W', with a 'J' highlighted on one 
 ## Basic Components
 ### Rectangle
 
-There are two basic components we need to create these pieces.  The first, and certainly the easiest, is the [`rect`](http://www.w3.org/TR/SVG/shapes.html#RectElement).  A rectangle is probably the simplest shape you will find in SVG.  As you would probably imagine, there are four key properties: `x`, `y`, `height`, and `width`. `x` and `y` define the location of the top left corner of the rectangle.  Coordinates in SVG are relative to their container.  In our case, the container is the root SVG document, so they're pretty simple.
+There are two basic components we need to create these pieces.  The first, and certainly the easiest, is the [`rect`](https://www.w3.org/TR/SVG/shapes.html#RectElement).  A rectangle is probably the simplest shape you will find in SVG.  As you would probably imagine, there are four key properties: `x`, `y`, `height`, and `width`. `x` and `y` define the location of the top left corner of the rectangle.  Coordinates in SVG are relative to their container.  In our case, the container is the root SVG document, so they're pretty simple.
 
 `height` and `width` are also pretty obvious.  `height` is how tall the rectangle will be, and `width` is how wide the rectangle will be.  Because SVG graphics are made to scale, the idea of "units" doesn't make too much sense.  You may be used to defining heights, widths, and positions in `px` from CSS; in SVG you're best off not putting a unit.  Using `px` will just map to the SVG internal unit.  You *can* use things like `em` and `ex`, but that would only cause confusion in this context.
 
@@ -36,8 +36,8 @@ There are two basic components we need to create these pieces.  The first, and c
 If you create a rectangle just using the information above, you might be a bit disappointed; you'll be given a black rectangle, which isn't terribly interesting.  Luckily, every svg shape accepts a `style` attribute.  The `style` attribute is just CSS markup, so the syntax is identical to the CSS you are familiar with.  The two important style rules are `stroke` and `fill`.  On a `rect`, `stroke` refers to the border of the box, and `fill` is the inside portion.  Both rules accept either a hex color or a regular CSS color.  At the end of the day, your `rect` code should look like this:
 
 ```html
-<svg  xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg  xmlns="https://www.w3.org/2000/svg"
+      xmlns:xlink="https://www.w3.org/1999/xlink">
 
       <rect x="0" y="0" height="100" width="200" style="stroke: #70d5dd; fill: #dd524b" />
 
@@ -46,9 +46,9 @@ If you create a rectangle just using the information above, you might be a bit d
 
 ### Path
 
-The [`path`](http://www.w3.org/TR/SVG/paths.html) shape is the next one we will be using.  In fact, `path` is probably the most versatile SVG shape - you can literally draw anything you want.  The `path` shape utilizes a pretty weird syntax, but it allows you to draw everything from straight lines to bezier curves.  Learning the syntax takes some elbow grease, but once you get it down it's very powerful.
+The [`path`](https://www.w3.org/TR/SVG/paths.html) shape is the next one we will be using.  In fact, `path` is probably the most versatile SVG shape - you can literally draw anything you want.  The `path` shape utilizes a pretty weird syntax, but it allows you to draw everything from straight lines to bezier curves.  Learning the syntax takes some elbow grease, but once you get it down it's very powerful.
 
-The important attribute on a `path` is `d`, which is short for **`d`rawing**, and will contain all of the commands to draw the path. We're only going to be needing arcs for this logo, but there are [a lot more](http://tutorials.jenkov.com/svg/path-element.html) options you can use.  The `d` attribute is a string that is sort of formatted as a space-separated list of commands.  The `M` command is used to **`m`ove** the pen without creating a stroke.  `M` accepts x and y coordinates, and will usually looking something like `M70,330` - that would move the pen to x=70, y=330.
+The important attribute on a `path` is `d`, which is short for **`d`rawing**, and will contain all of the commands to draw the path. We're only going to be needing arcs for this logo, but there are [a lot more](https://tutorials.jenkov.com/svg/path-element.html) options you can use.  The `d` attribute is a string that is sort of formatted as a space-separated list of commands.  The `M` command is used to **`m`ove** the pen without creating a stroke.  `M` accepts x and y coordinates, and will usually looking something like `M70,330` - that would move the pen to x=70, y=330.
 
 <div id="rxry-target"></div>
 
@@ -186,7 +186,7 @@ Here's what the entire SVG code looked like in the end:
 ```
 
 ## Animating
-One of my goals for this logo-to-SVG project has been to add some animation to the logo. [Jesse Pollak](http://jessepollak.me) has a cool effect on his website header that slowly transitions the background color between a few well-picked colors.  The effect happens very slowly and with enough space inbetween each transition that it's very subtle and easy to miss - you just notice it out of the corner of your eye.  It's not distracting, it just adds a feeling of detailed design.  I want to recreate that effect in my logo.
+One of my goals for this logo-to-SVG project has been to add some animation to the logo. [Jesse Pollak](https://jessepollak.me) has a cool effect on his website header that slowly transitions the background color between a few well-picked colors.  The effect happens very slowly and with enough space inbetween each transition that it's very subtle and easy to miss - you just notice it out of the corner of your eye.  It's not distracting, it just adds a feeling of detailed design.  I want to recreate that effect in my logo.
 
 I will be transitioning through 5 different colors, and will do a transition every 10 seconds. The "J" in my logo should start the color transition three seconds before the rest of the logo.  My hope is that this will increase the contrast of the "J", and also create a more interesting effect once the two color transitions lock into eachother.
 
@@ -241,8 +241,8 @@ That will do the first animation, and should work well enough.  As you can see, 
 </path>
 ```
 <div style="width: 100%;">
-      <svg  xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
+      <svg  xmlns="https://www.w3.org/2000/svg"
+        xmlns:xlink="https://www.w3.org/1999/xlink"
         viewbox="0 0 600 600">
         <path d="M50,50 L50,330 A70,85 0 1,0 300,330 L300,50" style="stroke: #dd524b; stroke-opacity: .6; fill: transparent; stroke-width: 100;">
               <animate id="first1" attributeName="stroke"
@@ -330,7 +330,7 @@ That will do the first animation, and should work well enough.  As you can see, 
       </svg>
 </div>
 
-And now we're done!  The code for the whole thing is super long, so I'm not going to paste it here.  You can grab the whole thing from [this codepen](http://codepen.io/anon/pen/HfvKw) if you'd like.
+And now we're done!  The code for the whole thing is super long, so I'm not going to paste it here.  You can grab the whole thing from [this codepen](https://codepen.io/anon/pen/HfvKw) if you'd like.
 
 <div class="example-block" data-target-anchor="logo_example_target" style="color: white; font-weight: bold;">
       <span>The Goal</span><br>
@@ -338,8 +338,8 @@ And now we're done!  The code for the whole thing is super long, so I'm not goin
 </div>
 
 <div class="example-block" data-target-anchor="rectangle-target" style="height: 200px;">
-      <svg  xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
+      <svg  xmlns="https://www.w3.org/2000/svg"
+            xmlns:xlink="https://www.w3.org/1999/xlink"
             viewbox="0 0 200 100" style="width: 50%;">
 
             <rect x="0" y="0" height="100" width="200" style="stroke: #70d5dd; fill: #dd524b" />
@@ -349,8 +349,8 @@ And now we're done!  The code for the whole thing is super long, so I'm not goin
 
 <div class="example-block" data-target-anchor="rxry-target" style="height: 130px; color: white;">
       <span>rx vs. ry</span><br>
-      <svg  xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
+      <svg  xmlns="https://www.w3.org/2000/svg"
+            xmlns:xlink="https://www.w3.org/1999/xlink"
             viewbox="0 0 100 30" style="width: 80%;">
 
             <path d="M10,5 A10,10 0 0,0 40,5" style="stroke: #dd524b; stroke-width: 1; fill: #70d4dd;">
@@ -384,8 +384,8 @@ And now we're done!  The code for the whole thing is super long, so I'm not goin
 
 <div class="example-block" data-target-anchor="xaxis-target" style="height: 130px; color: white;">
       <span>x-axis rotation</span><br>
-      <svg  xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
+      <svg  xmlns="https://www.w3.org/2000/svg"
+            xmlns:xlink="https://www.w3.org/1999/xlink"
             viewbox="0 0 100 30" style="width: 80%;">
 
             <path d="M35,5 A10,15 0 0,0 65,5" style="stroke: #dd524b; stroke-width: 1; fill: #70d4dd;">
@@ -405,8 +405,8 @@ And now we're done!  The code for the whole thing is super long, so I'm not goin
 
 <div class="example-block" data-target-anchor="largearc-target" style="height: 130px; color: white;">
       <span>large arc</span><br>
-      <svg  xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
+      <svg  xmlns="https://www.w3.org/2000/svg"
+            xmlns:xlink="https://www.w3.org/1999/xlink"
             viewbox="0 0 100 30" style="width: 80%;">
 
             <path d="M10,5 A20,10 0 0 0 40,5" style="stroke: #dd524b; stroke-width: 1; fill: #70d4dd;" />
@@ -416,8 +416,8 @@ And now we're done!  The code for the whole thing is super long, so I'm not goin
 
 <div class="example-block" data-target-anchor="sweep-target" style="height: 130px; color: white;">
       <span>sweep</span><br>
-      <svg  xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
+      <svg  xmlns="https://www.w3.org/2000/svg"
+            xmlns:xlink="https://www.w3.org/1999/xlink"
             viewbox="0 0 100 30" style="width: 80%;">
 
             <path d="M10,5 A10,15 0 0,0 40,5" style="stroke: #dd524b; stroke-width: 1; fill: #70d4dd;" />
@@ -426,8 +426,8 @@ And now we're done!  The code for the whole thing is super long, so I'm not goin
 </div>
 
 <div class="example-block" data-target-anchor="first-break-target" style="height: 400px;">
-      <svg  xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
+      <svg  xmlns="https://www.w3.org/2000/svg"
+      xmlns:xlink="https://www.w3.org/1999/xlink"
       viewbox="0 0 620 600" style="width: 50%;">
             <rect x="20" y="10" height="320" width="100"
                   style="fill: #dd524b; fill-opacity: .6;">
@@ -487,8 +487,8 @@ And now we're done!  The code for the whole thing is super long, so I'm not goin
 </div>
 
 <div class="example-block" data-target-anchor="rects-target" style="height: 400px;">
-      <svg  xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
+      <svg  xmlns="https://www.w3.org/2000/svg"
+        xmlns:xlink="https://www.w3.org/1999/xlink"
         viewbox="0 0 600 600" style="width: 60%;">
           <rect x="10" y="10" height="320" width="100"
                 style="fill: #dd524b;" />
@@ -500,8 +500,8 @@ And now we're done!  The code for the whole thing is super long, so I'm not goin
 </div>
 
 <div class="example-block" data-target-anchor="paths-target" style="height: 400px;">
-      <svg  xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
+      <svg  xmlns="https://www.w3.org/2000/svg"
+        xmlns:xlink="https://www.w3.org/1999/xlink"
         viewbox="0 0 600 600" style="width: 60%;">
             <rect x="10" y="10" height="320" width="100"
                 style="fill: #dd524b;" />
@@ -515,8 +515,8 @@ And now we're done!  The code for the whole thing is super long, so I'm not goin
 </div>
 
 <div class="example-block" data-target-anchor="opacity-target" style="height: 400px;">
-      <svg  xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
+      <svg  xmlns="https://www.w3.org/2000/svg"
+        xmlns:xlink="https://www.w3.org/1999/xlink"
         viewbox="0 0 600 600" style="width: 60%;">
             <rect x="10" y="10" height="320" width="100"
                 style="fill: #dd524b; fill-opacity: .5" />
@@ -530,8 +530,8 @@ And now we're done!  The code for the whole thing is super long, so I'm not goin
 </div>
 
 <div class="example-block" data-target-anchor="mask-target" style="height: 400px;">
-      <svg  xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
+      <svg  xmlns="https://www.w3.org/2000/svg"
+        xmlns:xlink="https://www.w3.org/1999/xlink"
         viewbox="0 0 600 600" style="width: 60%;">
           <rect x="10" y="10" height="320" width="100"
                 style="fill: #dd524b; fill-opacity: .5;" />
@@ -549,8 +549,8 @@ And now we're done!  The code for the whole thing is super long, so I'm not goin
 </div>
 
 <div class="example-block" data-target-anchor="refactor-target" style="height: 400px;">
-      <svg  xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
+      <svg  xmlns="https://www.w3.org/2000/svg"
+        xmlns:xlink="https://www.w3.org/1999/xlink"
         viewbox="0 0 600 600" style="width: 60%">
         <path d="M50,50 L50,330 A70,85 0 1,0 300,330 L300,50" style="stroke: #dd524b; stroke-opacity: .6; fill: transparent; stroke-width: 100;" />
         <path d="M550,50 L550,330 A70,85 0 0,1 300,330" style="stroke: #dd524b; stroke-opacity: .6; fill: transparent; stroke-width: 100; mask: url(#refactor-mask)" />

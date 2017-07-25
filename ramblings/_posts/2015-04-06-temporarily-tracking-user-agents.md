@@ -15,7 +15,7 @@ Anyways, in order to figure out the root of this duplicate UUID bug, I have temp
 
 Also, once it's turned off, I will reach out to Keen (my analytics service) and see if I can either scrub user-agent info out of those events, or if I can just delete all of the events during that time period. I'm going to start working at Keen in a week anyways, so I'll probably have some pull on that subject :)
 
-As always, you can see my analytics on the [WegnerDesign dashboard](http://www.wegnerdesign.com/dashboard). If you want to see exactly what I track, my Keen read keys will be in the source of that page.
+As always, you can see my analytics on the [WegnerDesign dashboard](https://www.wegnerdesign.com/dashboard). If you want to see exactly what I track, my Keen read keys will be in the source of that page.
 
 Please reach out to me [on twitter](https://www.twitter.com/Joe_Wegner) if you're freaked out about this.
 

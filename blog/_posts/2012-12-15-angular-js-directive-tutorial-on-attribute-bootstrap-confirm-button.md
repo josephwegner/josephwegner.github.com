@@ -10,13 +10,13 @@ status: publish
 tags: []
 
 ---
-I haven't talked about it much on the blog yet, but let me tell you something - I _love_ [AngularJS](http://angularjs.org).  AngularJS is a client-side javascript framework that pretty much speeds up development by 500% by taking out **100%** of the DOM manipulation.  That's right - no more fighting with the DOM in your javascript.  Let AngularJS do it.  It's really awesome.
+I haven't talked about it much on the blog yet, but let me tell you something - I _love_ [AngularJS](https://angularjs.org).  AngularJS is a client-side javascript framework that pretty much speeds up development by 500% by taking out **100%** of the DOM manipulation.  That's right - no more fighting with the DOM in your javascript.  Let AngularJS do it.  It's really awesome.
 
-One of my favorite things about AngularJS is something called [directives](http://docs.angularjs.org/guide/directive).  Directives are an awesome tool that essentially lets you create new HTML tags, or supercharge existing tags with attributes.  Have a special button that you like to use, but you hate typing all that HTML every time?  Directives will fix that.  Want to do a special sort of validation on all of your email inputs?  Directives can help with that.
+One of my favorite things about AngularJS is something called [directives](https://docs.angularjs.org/guide/directive).  Directives are an awesome tool that essentially lets you create new HTML tags, or supercharge existing tags with attributes.  Have a special button that you like to use, but you hate typing all that HTML every time?  Directives will fix that.  Want to do a special sort of validation on all of your email inputs?  Directives can help with that.
 
-The majority of the directive tutorials out there - including the [great one provided by AngularJS](http://docs.angularjs.org/guide/directive) - focus on tag directives.  That means that it's all about creating new HTML tags, like &lt;specialbutton>, for instance.  That's all fine and well, but I've found that the really cool stuff actually happens in the less-talked-about attribute directives.  These are the things like &lt;input validate="email" />.
+The majority of the directive tutorials out there - including the [great one provided by AngularJS](https://docs.angularjs.org/guide/directive) - focus on tag directives.  That means that it's all about creating new HTML tags, like &lt;specialbutton>, for instance.  That's all fine and well, but I've found that the really cool stuff actually happens in the less-talked-about attribute directives.  These are the things like &lt;input validate="email" />.
 
-I built one recently for my super secret startup that I'd like to teach you how to make.  It's a confirm button that utilizes [Bootstrap Popovers](http://twitter.github.com/bootstrap/javascript.html#popovers).  Here's a [demo of what we're going to build](http://plnkr.co/edit/a7TTvWSXbWHY14PgR7Ew?p=preview).
+I built one recently for my super secret startup that I'd like to teach you how to make.  It's a confirm button that utilizes [Bootstrap Popovers](https://twitter.github.com/bootstrap/javascript.html#popovers).  Here's a [demo of what we're going to build](https://plnkr.co/edit/a7TTvWSXbWHY14PgR7Ew?p=preview).
 
 So, first off, let's just build the scaffolding of an AngularJS app with a directive. Check it out:
 
@@ -30,7 +30,7 @@ function TestCtrl($scope) {
 }
 {% endhighlight %}
 
-So that's the super simple part.  It creates a controller called TestApp, and loads in [AngularUI](http://angular-ui.github.com/), an awesome UI library for AngularJS.  It's fairly lightweight, and is required to get Bootstrap to work correctly.  You'll notice that the directive loads in $document and $parse.  $document is just a wrapper of the regular document object.  [$parse](http://docs.angularjs.org/api/ng.$parse) is used to turn angular expressions into functions.
+So that's the super simple part.  It creates a controller called TestApp, and loads in [AngularUI](https://angular-ui.github.com/), an awesome UI library for AngularJS.  It's fairly lightweight, and is required to get Bootstrap to work correctly.  You'll notice that the directive loads in $document and $parse.  $document is just a wrapper of the regular document object.  [$parse](https://docs.angularjs.org/api/ng.$parse) is used to turn angular expressions into functions.
 
 Now that that's set, let's start putting in some of the scaffolding for the actual directive.  Still no functionality, but these parts are important too.
 
@@ -139,7 +139,7 @@ Again, as I mentioned, a lot of this code has to do propagation.  Keep ignoring 
 
 The next one is the binding for the No button.  When you click on the no button, it should unbind any of the listeners we had and then hide the popover.  Makes sense.
 
-After that we've got the famous Yes button.  This is where things get fancy.  Remember earlier when I told you that we were bringing the $parse module into the directive?  Well, we're using that here.  The confirm button accepts a string parameter, in the form of an [AngularJS expression](http://docs.angularjs.org/guide/expression).  When you pass $parse a string expression, it parses it and returns to you a function you can call.  That's `func` in our code.  When you call the returned function, though, by default it doesn't know what scope to be run in.  Luckily the directive linking function is given the parent scope, so we can pass that in to `func`.
+After that we've got the famous Yes button.  This is where things get fancy.  Remember earlier when I told you that we were bringing the $parse module into the directive?  Well, we're using that here.  The confirm button accepts a string parameter, in the form of an [AngularJS expression](https://docs.angularjs.org/guide/expression).  When you pass $parse a string expression, it parses it and returns to you a function you can call.  That's `func` in our code.  When you call the returned function, though, by default it doesn't know what scope to be run in.  Luckily the directive linking function is given the parent scope, so we can pass that in to `func`.
 
 That last click handler is just another propagation thing, but it's actually an interesting one.  The default functionality for a Bootstrap Popover is to not close until you explicitly tell it to close.  Well, we set our trigger to manual, remember?  That means there's nothing that's going to tell it to close!  That last handler bind's to $document's click event, and then checks if the user actually clicked on the popover.  If they didn't click on the popover, then it closes.  Pretty cool!
 
@@ -165,4 +165,4 @@ Angular allows you to access all of the attributes on the parent directive, so w
       });
 {% endhighlight %}
 
-There you go!  Now you can create confirmation buttons by simply adding the `confirm-button` attribute!  Check out the [demo](http://plnkr.co/edit/a7TTvWSXbWHY14PgR7Ew?p=preview) to see exactly how your HTML should look!
+There you go!  Now you can create confirmation buttons by simply adding the `confirm-button` attribute!  Check out the [demo](https://plnkr.co/edit/a7TTvWSXbWHY14PgR7Ew?p=preview) to see exactly how your HTML should look!

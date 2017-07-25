@@ -2,7 +2,7 @@ Metadata-Version: 1.0
 Name: Pygments
 Version: 1.5
 Summary: Pygments is a syntax highlighting package written in Python.
-Home-page: http://pygments.org/
+Home-page: https://pygments.org/
 Author: Georg Brandl
 Author-email: georg@python.org
 License: BSD License
@@ -26,7 +26,7 @@ Description:
             The `Pygments tip`_ is installable with ``easy_install Pygments==dev``.
         
             .. _Pygments tip:
-               http://bitbucket.org/birkenfeld/pygments-main/get/tip.zip#egg=Pygments-dev
+               https://bitbucket.org/birkenfeld/pygments-main/get/tip.zip#egg=Pygments-dev
         
             :copyright: Copyright 2006-2012 by the Pygments team, see AUTHORS.
             :license: BSD, see LICENSE for details.

@@ -11,7 +11,7 @@ tags:
 - Node.js
 - override
 ---
-Chances are that if you're reading this blog, you're probably doing something in Node.js, or at least javascript. Furthermore, chances are that if you are doing something in Node.js, you like to speak <a title="JSON" href="http://www.json.org/">JSON</a>.  JSON is the universal language for speaking between two systems that don't necessarily speak the same language.  Originally the standard for this sort of exchange was XML, but JSON is becoming the preferred format due to its support for more specific types such as arrays.  If you're not already using JSON internally, it's probably a good idea to start, as many of the big-name APIs are defaulting to JSON.<!--more-->
+Chances are that if you're reading this blog, you're probably doing something in Node.js, or at least javascript. Furthermore, chances are that if you are doing something in Node.js, you like to speak <a title="JSON" href="https://www.json.org/">JSON</a>.  JSON is the universal language for speaking between two systems that don't necessarily speak the same language.  Originally the standard for this sort of exchange was XML, but JSON is becoming the preferred format due to its support for more specific types such as arrays.  If you're not already using JSON internally, it's probably a good idea to start, as many of the big-name APIs are defaulting to JSON.<!--more-->
 
 Trying to keep to that standard, I find myself writing the same lines over and over to encode my objects in JSON before returning them (this is generally returning to an API call).  I wrote a quick little script to automatically detect if I'm trying to respond with an object.  Here goes:
 [code lang="lang-js"]//This probably goes somewhere else, but for testing purposes...
