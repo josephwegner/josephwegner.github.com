@@ -22,6 +22,10 @@ h2.section-header {
 	text-shadow: 0px -1px 1px rgba(0,0,0,0.6),0px 1px 1px #fff;
 }
 
+h2,h3,h4 {
+	font-weight: 600;
+}
+
 .col-md-12.full-width-column {
   padding: 0;
 }
@@ -90,8 +94,8 @@ div#rambling h3 {
 }
 
 div#post #body {
-	font-size: 21px;
-	line-height: 1.7em;
+	font-size: 18px;
+	line-height: 1.5em;
 }
 
 div#post #body #paragraph-text {
@@ -103,7 +107,7 @@ div#post #body #paragraph-text ol li {
 }
 
 div#post #body #paragraph-text p {
-  margin-bottom: 40px;
+  margin-bottom: 1.5em;
 }
 
 div#post #body #paragraph-text blockquote {
@@ -351,6 +355,12 @@ button.navbar-toggle {
 
 div.navbar-collapse {
 	border: none;
+}
+
+hr {
+	border-color: rgba(189,66,51,.4);
+	margin-left: 10%;
+	margin-right: 10%;
 }
 
 @media screen and (max-device-width: 699px) {
