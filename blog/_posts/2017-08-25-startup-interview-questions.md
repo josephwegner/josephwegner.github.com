@@ -6,8 +6,6 @@ meta:
  dsq_thread_id: "startupinterviewquestions"
 image: /images/blog_images/startup_questions.jpg
 ---
-_Image Credit [#WOCInTech](https://wocintechchat.com)_
-
 I've been talking with some peers recently about strategies for succeeding in a job hunt. There's a myriad of discussion points, but one of my favorite topics was which questions to ask in an interview. I am mostly interested in working for startups, and when evaluating a startup I think that **culture** and **financial progress** are the most important things to know about. There's tons of other topics, but startups are so turbulent that it seems that most other things don't have lasting truth.
 
 These are the questions that I came up with for a recent job search, and what my goals were in asking them. I used most (_not all_), and had pretty good success. They are definitely skewed towards a startup environment. They are also probably formatted a bit better for above entry-level roles, but I don't think any of them are dangerous to ask for entry level. You just might get different answers.
@@ -102,3 +100,5 @@ Burn rate is the only real metric that matter for a startup. Run way, cash on ha
 ---
 
 Like I said earlier, your best bet is to choose a few of these for each interview, and try to transition them into longer conversations. Not only will that give you more data to work with, conversations also give you more opportunity to show your (obviously stunning) personality, instead of just being a question machine.
+
+_Header Image Credit [#WOCInTech](https://wocintechchat.com)_
