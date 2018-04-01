@@ -54,7 +54,7 @@ h2,h3,h4 {
 	border-top: .75em solid transparent;
 	position: relative;
 	left: 50%;
-	top: .38em;
+	top: .32em;
 	transform: rotateZ(-45deg);
 	-webkit-transform: rotateZ(-45deg);
 	-moz-transform: rotateZ(-45deg);
