@@ -111,8 +111,8 @@ I've only been using [Dash](https://kapeli.com/dash) for about a week, but so fa
 ### Keen
 I've been using [Keen](https://keen.io) for a long time - this definitely isn't a new love. However, in the past year I've started using Keen a bit differently than I have in the past. The new way of using Keen for analytics has given me a new view on what Analytics means, and better visibility into the metrics I care about.
 
-- [Goodbye Google Analytics](https://wegnerdesign.com/blog/goodbye-google-analytics/)
-- [WegnerDesign Analytics Dashboard](https://wegnerdesign.com/dashboard/)
+- [Goodbye Google Analytics](https://joewegner.com/blog/goodbye-google-analytics/)
+- [WegnerDesign Analytics Dashboard](https://joewegner.com/dashboard/)
 - [Analytics in Chrome New Tab Page (Chrome Extension)](https://github.com/josephwegner/WegnerDesign-Chrome-Extension)
 
 ### Flux

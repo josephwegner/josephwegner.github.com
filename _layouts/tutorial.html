@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>{{ page.title }} | WegnerDesign</title>
+  <title>{{ page.title }} | Joe Wegner</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="/stylesheets/blog.css" />
@@ -17,8 +17,8 @@
     function go() {
       var tweetLink = document.getElementsByClassName("tweet")[0].getElementsByTagName("a")[0];
 
-      var url = encodeURIComponent("https://www.wegnerdesign.com{{ page.url }}");
-      var name = encodeURIComponent("{{ page.title }} via #WegnerDesign")
+      var url = encodeURIComponent("https://joewegner.com{{ page.url }}");
+      var name = encodeURIComponent("{{ page.title }} via @Joe_Wegner")
 
       tweetLink.href = "https://twitter.com/intent/tweet?url="+url+"&text="+name;
     }
@@ -35,7 +35,7 @@
   <meta property="og:title" content="{{ title }}" />
   <meta property="og:url" content="{{ url }}" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:site_name" content="WegnerDesign" />
+  <meta property="og:site_name" content="Joe Wegner" />
   <div class="go-to-top">
     <span class="glyphicon glyphicon-arrow-up"><span>
   </div>
@@ -109,8 +109,8 @@ If you see this, it would be awesome if you put this pixel on your own website (
 
 Don't talk about it - just let it sit there. I want to see how fast this thing spreads.
 
-If you want to see how it's spreading, check out https://pixel.wegnerdesign.com
+If you want to see how it's spreading, check out https://pixel.joewegner.com
   -->
-  <img src="https://pixel.wegnerdesign.com/pixel.gif" style="position: absolute; bottom: 0; right: 0;" />
+  <img src="https://pixel.joewegner.com/pixel.gif" style="position: absolute; bottom: 0; right: 0;" />
 </body>
 </html>

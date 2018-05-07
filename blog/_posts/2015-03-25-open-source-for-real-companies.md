@@ -73,7 +73,7 @@ Running your engineering as an open-source project vastly decreases the likeliho
 
 I know it sounds crazy, and I definitely can't make the argument that open-source is better for *every* business, but I do think open-source is both a viable and a beneficial option for a lot of companies. It's crazy, but maybe it's good crazy.
 
-If you're living the dream and doing open-source in a commerical sense, please [reach out to me](mailto:joe@wegnerdesign.com) - I'm becoming increasingly interested in the topic, and I'd love to hear your story. Same deal if you've got battle scars from this approach - I want to hear about it.
+If you're living the dream and doing open-source in a commerical sense, please [reach out to me](mailto:joe@joewegner.com) - I'm becoming increasingly interested in the topic, and I'd love to hear your story. Same deal if you've got battle scars from this approach - I want to hear about it.
 
 ### Examples
 

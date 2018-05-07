@@ -15,7 +15,7 @@ In my book, [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) is cla
 I've made the jump and figured out how to do RegExp, and have reaped many benefits from that bit of knowledge. Today I'm going to try and do the same with SVG.  SVG stands for Scalable Vector Graphics - essentially it is a XML-formatted document that describes a graphic.  The benefit to using SVG over other image formats is that it describes vector graphics - that means your images will scale crisply at any size.  Best of all, HTML5 brought along support for native SVG documents inside of a web page, so you can now treat SVG graphics like first-class DOM elements.
 
 ## The Task
-I learn best by finding something I need done, and just pounding away at it until it's done. For awhile now I've been wanting to change the [WegnerDesign](https://www.wegnerdesign.com) logo into SVG, so that will be the task I start with.
+I learn best by finding something I need done, and just pounding away at it until it's done. For awhile now I've been wanting to change the [WegnerDesign](https://joewegner.com) logo into SVG, so that will be the task I start with.
 
 ## Break It Down
 Since SVG is an XML document, you can think about it much like you do regular HTML markup.  The thing you're trying to create needs to be broken up into multiple pieces, which will be represented by separate elements in the markup. Just like learning any new language, beginners probably will want to break their image up into the most simple components possible.  It's possible this isn't the most efficient design, but it's probably the easiest to learn with.

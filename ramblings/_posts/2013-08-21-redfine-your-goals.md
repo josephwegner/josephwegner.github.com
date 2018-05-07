@@ -2,7 +2,7 @@
 title: Redefine Your Goals
 layout: rambling
 ---
-The last time I redesigned my website I wrote a blog post called [Portfolios: Design for your Goals](https://wegnerdesign.com/blog/portfolios-design-for-your-goals/).  The gist of that blog post was that it's important to keep your goals in mind when you're designing.  At the time, my goals were to create a wonderful reading experience for people that happened across my blog.
+The last time I redesigned my website I wrote a blog post called [Portfolios: Design for your Goals](https://joewegner.com/blog/portfolios-design-for-your-goals/).  The gist of that blog post was that it's important to keep your goals in mind when you're designing.  At the time, my goals were to create a wonderful reading experience for people that happened across my blog.
 
 I've redesigned my site again, and that original goal still applies, but there are some additional goals that I've had to design for.  The last design worked - WegnerDesign is starting to gain some traction, and I attribute that very much to a great reading experience.  As WegnerDesign has grown, I've been examing the types of posts that I write.  To be honest, many of them are written in an hour on the train; I read over them once, post them, and hope it goes well.  That's not a good formula for creating good content.  So I've added this additional goal: **Create wonderful content to be enjoyed in the wonderful reading experience**.
 
