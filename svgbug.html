@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<style type="text/css">
+			svg {
+				background: blue;
+			}
+
+			use {
+				height: 30px;
+				width: 30px;
+			}
+		</style>
+
+	</head>
+  <body>
+    <p>This shows a bit of an issue with adding `use` elements to the DOM dynamically.<p>
+    <p>There should be three rows of circles displayed here:</p>
+    <ul>
+      <li>A single yellow dot which is rendered in the initial layout.</li>
+      <li>A row of four green dots which are inserted via setting `innerHTML` of the container SVG</li>
+      <li>A row of four red dots that are inserted via `appendChild` on the container SVG</li>
+    </ul>
+    <p>
+    You'll notice the red dots do not draw - their Shadow DOM seems to be completely missing, even though the HTML match the green dots above them.</p>
+    <p>Note that you can stop the updating by commenting out the setInterval line</p>
+    <svg xmlns="http://www.w3.org/2000/svg"
+       version="1.1"
+       xmlns:xlink="http://www.w3.org/1999/xlink"
+       width="300"
+       height="200"
+       id="container">
+       
+       <use stroke="yellow" height="100" id="constant" xlink:href="https://joewegner.com/tilecons.svg#denied" style="transform: matrix(1, 0, 0, 1, 0, 0);"></use>
+    </svg>
+    <p id="counter">Updated 0 times</p>
+    </p>
+		<script type="text/javascript">
+			var updateCount = 0
+			setInterval(redraw, 1000);
+			redraw()
+
+			function redraw() {
+				document.querySelectorAll('use').forEach(function(node) {
+					if (node.id !== 'constant') {
+						node.remove()
+					 }
+				})
+				
+				var container = document.getElementById('container')
+				
+				for (var i=0; i<8; i++) {
+					var x = (i % 4) * 50
+					var y = Math.floor((i / 4) + 1) * 50
+					var transform = "matrix(1, 0, 0, 1, "+x+", "+y+")"
+					if (i < 4) {
+						container.innerHTML += '<use stroke="green" height="100" xlink:href="https://joewegner.com/tilecons.svg#denied" style="transform: '+transform+';"></use>'
+					} else {
+						var use = document.createElementNS('http://www.w3.org/2000/svg', 'use')
+						use.setAttribute('stroke', 'red')
+						use.setAttribute('xlink:href', 'https://joewegner.com/tilecons.svg#denied')
+            use.setAttribute('height', 100)
+						use.style.transform = transform
+						container.appendChild(use)
+					}
+				}
+				
+				updateCount++
+				document.getElementById('counter').innerText ="Updated "+updateCount+" times"
+			}
+		</script>
+  </body>
+</html>
