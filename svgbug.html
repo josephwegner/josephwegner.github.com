@@ -53,7 +53,7 @@
 					var transform = "matrix(1, 0, 0, 1, "+x+", "+y+")"
 					if (i < 4) {
 						container.innerHTML += '<use stroke="green" height="100" xlink:href="https://joewegner.com/tilecons.svg#denied" style="transform: '+transform+';"></use>'
-					} else (i < 8) {
+					} else if(i < 8) {
 						var use = document.createElementNS('http://www.w3.org/2000/svg', 'use')
 						use.setAttribute('stroke', 'red')
 						use.setAttribute('xlink:href', 'https://joewegner.com/tilecons.svg#denied')
