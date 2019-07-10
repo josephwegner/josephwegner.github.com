@@ -10,6 +10,8 @@ I've been talking with some peers recently about strategies for succeeding in a 
 
 These are the questions that I came up with for a recent job search, and what my goals were in asking them. I used most (_not all_), and had pretty good success. They are definitely skewed towards a startup environment. They are also probably formatted a bit better for above entry-level roles, but I don't think any of them are dangerous to ask for entry level. You just might get different answers.
 
+<!--more-->
+
 One last note: my _real_ goal in any job interview is to get a discussion going. I'm never going to have all the questions to tease out the truth about working at a company - having a human conversation is the only way to get to the heart of it. I don't recommend asking all of these questions in one interview; it's better to choose the ones that fit best, and let them turn into conversation. Take notes on everything you hear!
 
 ### How do you reward tenure?

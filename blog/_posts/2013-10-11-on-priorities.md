@@ -1,12 +1,14 @@
---- 
+---
 title: "On Priorities"
 layout: post
-meta: 
+meta:
   _edit_last: "1"
   dsq_thread_id: "onpriorities"
 image: /images/blog_images/onpriorities.jpg
 ---
 I've worked a few different jobs in my (so far) short working life.  Each one I considered fairly carefully, and made sure that by taking the job I was pursuing the things I prioritized most.  My first job I got when I was 18; I was freshly married, pretty broke, and eager to get started in the "real world".  I didn't know much at the time about working or money, but I did know that I suddenly had a wife to supply for, and that I *needed money*.  Money was my priority.  I was offered a job doing IT at a commercial printing company.  The pay was fine - way less than I make today, but way more than most 18-year-olds with no professional experience can expect to make.  Even with the low starting pay, I knew there was room for extreme salary growth, so I took the job.  Within a year I was making 60% more than my starting salary.
+
+<!--more-->
 
 I lasted about a year at that job, and I hated most days of it.  The commercial printing industry is brutal - I worked long hard hours, and most of that time was spent simply maintaining the status quo instead of making any real difference.  So I quit.  I decided I wanted to do something *important*.  If I was going to spend the majority of my waking hours working, I should be doing something that would fufill me.  I wanted people to know my name, and both *use* and *appreciate* what I was building.  I took a startup job.  The pay was a little less than my previous job, but I had an opportunity to gain equity.  Most importantly, though, I had the opportunity to build prestige.
 

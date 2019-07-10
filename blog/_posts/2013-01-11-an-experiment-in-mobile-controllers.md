@@ -1,9 +1,9 @@
---- 
+---
 published: true
 title: "An Experiment In Mobile Controllers"
 type: post
 layout: post
-meta: 
+meta:
   _edit_last: "1"
   dsq_thread_id: "anexperimentinmobilecontrollers"
 status: publish
@@ -12,6 +12,8 @@ tags: []
 ---
 
 I had jury duty the other day.  What that translates to is I had a whole day of [forced free time](https://twitter.com/Joe_Wegner/status/288812290910859265).  I had decided it would be a good idea to treat this time as a hackathon, and was inspired by a [Google+ demo](https://odem.chromeexperiments.com/8mEis2) that allowed you to browse using gestures from your mobile phone.  The actual Google+ demo was pretty unexciting - it was very choppy, and not really an increase in usability at all.  But, cool nonetheless.
+
+<!--more-->
 
 In all reality, using your mobile device as a controller for your desktop computer doesn't really have a place on the normal web - adding a new layer of abstraction isn't ever going to make things easier.  However, it does have an application in one place - gaming.  It's never been a secret that people prefer to control games with a controller rather than a mouse and keyboard.
 
@@ -36,7 +38,7 @@ I'll show you the code in a second, I just wanted to mention one thing.  You're 
 ### On the desktop
 {% highlight javascript %}
   var baseUrl = document.location.protocol + "//" + document.location.host
-      
+
   var allChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
   var ranLength = 50;
 
@@ -48,7 +50,7 @@ I'll show you the code in a second, I just wanted to mention one thing.  You're 
 
   $(document).ready(function() {
       $("#qr").qrcode(baseUrl + "/mobile/" + uniqueId);
-      
+
       var socket = io.connect(baseUrl);
 
       socket.emit('desktop-register', {id: uniqueId});
@@ -88,13 +90,13 @@ io.sockets.on('connection', function(socket) {
         regUsers[data.id] = deskSocket = socket;
     });
 
-    
+
     socket.on('mobile-register', function(data) {
         mobileSocket = socket;
 
         if(typeof(regUsers[data.id]) !== "undefined") {
             deskSocket = regUsers[data.id];
-            
+
             deskSocket.emit('mobile-on');
             mobileSocket.emit('start');
         }

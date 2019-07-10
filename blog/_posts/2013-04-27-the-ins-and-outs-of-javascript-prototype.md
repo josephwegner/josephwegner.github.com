@@ -1,9 +1,9 @@
---- 
+---
 published: true
 title: "Ins and Outs of Javascript Prototype"
 type: post
 layout: post
-meta: 
+meta:
   _edit_last: "1"
   dsq_thread_id: "insoutsjavascriptprototype"
 status: publish
@@ -12,6 +12,8 @@ tags: []
 ---
 
 Earlier this year I was in search of a new job, and was specifically looking for a frontend development position with a focus on javascript.  I'm pretty passionate about the javascript language, so every interview that popped up for a JS-heavy position I jumped on.  That ended up being like twenty interviews within a few weeks (Well done, Chicago).  Around interview #10 I started to take a note of some trends in the technical portion of the interviews.  More often than not I was being interview by a non-technical person who had either Google'd or been given a list of important javasript questions.  The three things that always came up were closures, hoisting, and prototype.
+
+<!--more-->
 
 Truthfully, I'm a little bit disappointed in that list.  Closures and hoisting are both important topics to understand, but those are the kinds of things that if you don't know, you'll quickly figure out as soon as one causes a bug.  Essential javascript knowledge, but not really a sign of a javascript "guru".
 
@@ -33,7 +35,7 @@ Prototype gives us some special abilities when creating child objects out of fun
 
 {% highlight javascript %}
 var Dog = function(name) {
-	this.name = name;	
+	this.name = name;
 };
 
 Dog.prototype.bark = function() {
@@ -61,7 +63,7 @@ var Dog = function(name) {
 	this.bark = function() {
 		alert("bark!");
 	};
-}	
+}
 
 var cody = new Dog("Cody");
 cody.bark(); //alerts "bark!"
@@ -93,7 +95,7 @@ var Monkey = function(name, color) {
 };
 
 //This creates a copy of Animal's prototype and puts it on Monkey's.
-//If you simply did an assignment of one prototype to the other, 
+//If you simply did an assignment of one prototype to the other,
 //it would be copied by reference.  Then any changes to Monkey.speak
 //would affect Animal.speak
 Monkey.prototype = Object.create(Animal.prototype);
@@ -191,4 +193,3 @@ curiousGeorge.speak(); //alerts Hoo Hoo, Hah Hah!
 
 var steveTheSloth = new Sloth("Steve"); //Throws error
 {% endhighlight %}
-

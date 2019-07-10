@@ -1,12 +1,14 @@
---- 
+---
 title: "I Hate Cryptography"
 layout: post
-meta: 
+meta:
  _edit_last: "1"
  dsq_thread_id: "ihatecryptography"
 image: /images/blog_images/waltz_release.jpg
 ---
 Cryptography is something that really interests me.  When I was working at [MySocialCloud](https://mysocialcloud.com/) I became somewhat of the go-to security guy - I don't have any formal training in security or crypto, but I do a lot of research because I find it very interesting. As I'm sure many of you can attest, our interests generally drive the things that we work on in our free time.  That means that much of my free time is spent working on security related projects, or at the very least I spend a lot of time thinking about the security of the things I'm building.
+
+<!--more-->
 
 Most recently my side project has been [Waltz](https://getwaltz.com).  Waltz is a modern account manager that uses [Clef](https://getclef.com) to log in (or out) from any site.  Obviously, we had to think a lot about security as we were building Waltz.  We're following all the best practices that I (and the rest of the team) can think of, and are still [adding things](https://github.com/waltzio/cy/issues/15) to make Waltz more secure.
 
@@ -39,4 +41,3 @@ This is what scares the heck out of me.  The guys at Telegram are way smarter th
 So I hate cryptography.  I'm incredibly interested in it, but every time I write it I sit in front of my laptop with a bit of fear lingering in the back of my head.  I *know* I'm messing things up, but I know that asking for help will nullify all of my work. How do I win?
 
 Crypto community, you're doing this wrong. We have options in these situations - we can either tear apart projects with bad crypto, or we can show them what's wrong and and help fix it. Every time we choose the former, we force the next guy to start from scratch and probably make the same mistakes. That sounds a whole lot like the opposite of innovation. We have a supremely intelligent enemy, and we can only overcome that by working together to do security correctly.
-

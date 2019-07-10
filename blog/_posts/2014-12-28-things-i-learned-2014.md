@@ -10,6 +10,8 @@ thanks: "Have you found any cool new tools in 2014? Drop me a note in the commen
 
 2014 has been an interesting year for me as a software engineer. Taking the job at [Belly](https://www.bellycard.com) has given me an opportunity to work in a way that I never have before. Unlike anywhere I've been, Belly puts a large focus on doing things the _right_ way - it's worth the extra time to write good code and write it efficiently. This has given me the opportunity to grow immensely in my skill as an engineer, but it has also given me the time to learn some new tools and introduce significant efficiencies into my day.
 
+<!--more-->
+
 The tools I've picked up have been incredibly helpful, and not only do I want to document them for future reference, but I think other programmers could benefit from some of these. I've decided to do a year-review, talking about what tools I picked up. This is the first year, but hopefully this will become a tradition!
 
 ## iTerm/zsh
@@ -68,7 +70,7 @@ Here's some of my favorite shortcuts that I've got in Vim right now:
 
 Shortly after starting my first "real" programming job, I took the plunge and got a Mac. I love macs now - I would never go back. However, the one big thing I always struggled with on the Mac, after coming from a Windows 7 machine, was managing my windows. Aero was a beautiful tool - it made it incredibly easy to make windows full screen, half screen (vertical or horizontal), etc. It was by far the best way I had ever seen for efficiently using screen real estate. OSX didn't have that, at least until I found Slate.
 
-Now, a word of warning, Slate is nowhere near as user-friendly as Aero. Slate uses a somewhat confusing `.slate` configuration file, and all of the window management uses hotkeys - no actual dragging of windows. However, if you define good hot keys for how you work, and take the time to build up the muscle memory, you'll love it. 
+Now, a word of warning, Slate is nowhere near as user-friendly as Aero. Slate uses a somewhat confusing `.slate` configuration file, and all of the window management uses hotkeys - no actual dragging of windows. However, if you define good hot keys for how you work, and take the time to build up the muscle memory, you'll love it.
 
 Along with the common shortcuts (fill screen 1/2, half screen left/right, shrink/enlarge step), I've defined a few hotkeys that simply bring an app to the focus. I've defined these for the three apps I flip through most commonly during the day - iTerm, Chrome, and Slack. `Ctrl+1` focuses iTerm, `Ctrl+2` focuses Chrome, and `Ctrl+3` focuses Slack. Here's the configuration block for doing that:
 

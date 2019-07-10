@@ -2,6 +2,8 @@ This is a draft. These ideas or not thought-out. I don't even know if I believe 
 
 I've recently accepted a job with Keen.io, which has had me thinking a lot about the hiring/interviewing process. The interview process sucks in pretty much all regards, and that's a _hard_ problem, but there's one part of obtaining a new job that I find unnecessarily stressful: salary negotiations. Pretty much for any job, but especially for engineers, it is commonly accepted that you're foolishly leaving money on the table if you're not negotiating your salary. Intial offers are given under the assumption that you negotiate. Common thinking says that the only reason you wouldn't negotiate your salary is because either you don't know you should, or you're too chicken to try.
 
+<!--more-->
+
 I'm writing this post with future employers (hopefully those don't exist for me. <3 you, Keen) in mind. This is often an awkward and aggressive conversation to have, and it'll be easier if I've got this in written form.
 
 Here's the deal: I'm not negotiating with you.

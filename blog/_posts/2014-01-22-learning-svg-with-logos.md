@@ -1,7 +1,7 @@
---- 
+---
 title: "Learning SVG With Logos"
 layout: tutorial
-meta: 
+meta:
  _edit_last: "1"
  dsq_thread_id: "learningsvgwithlogos"
 tutorialbg: "#05051f"
@@ -9,6 +9,8 @@ message: It seems that Google Chrome has some trouble looping SVG animations.  I
 ---
 
 In my book, [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) is classified as a mythical unicorn super technology.  SVG shares this category with other technologies like [RegExp](https://en.wikipedia.org/wiki/Regular_expression), [vim](https://www.vim.org/), and [OpenGL](https://en.wikipedia.org/wiki/OpenGL). The common traits between each of these technologies is that they are incredibly useful when used correctly, but incredibly difficult to use correctly.  All three pack some serious punch inside of a terribly confusing syntax.
+
+<!--more-->
 
 <div id="logo_example_target"></div>
 
@@ -410,7 +412,7 @@ And now we're done!  The code for the whole thing is super long, so I'm not goin
             viewbox="0 0 100 30" style="width: 80%;">
 
             <path d="M10,5 A20,10 0 0 0 40,5" style="stroke: #dd524b; stroke-width: 1; fill: #70d4dd;" />
-            <path d="M60,5 A20,10 0 1 0 90,5" style="stroke: #dd524b; stroke-width: 1; fill: #70d4dd" /> 
+            <path d="M60,5 A20,10 0 1 0 90,5" style="stroke: #dd524b; stroke-width: 1; fill: #70d4dd" />
       </svg>
 </div>
 
@@ -441,7 +443,7 @@ And now we're done!  The code for the whole thing is super long, so I'm not goin
                   <animate id="firstbreaktwo" attributeName="d" attributeType="XML"
                       from="M50,350 A70,85 0 1,0 290,350"
                       to="M70,330 A70,85 0 1,0 310,330"
-                      begin="firstbreakone.end+2s" dur="1s" 
+                      begin="firstbreakone.end+2s" dur="1s"
                       fill="freeze" />
           </path>
           <rect x="260" y="10" height="320" width="100"
@@ -562,4 +564,3 @@ And now we're done!  The code for the whole thing is super long, so I'm not goin
         </mask>
       </svg>
 </div>
-

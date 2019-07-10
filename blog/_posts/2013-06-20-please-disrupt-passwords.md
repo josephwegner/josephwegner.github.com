@@ -1,9 +1,9 @@
---- 
+---
 published: true
 title: "Please Disrupt Passwords"
 type: post
 layout: post
-meta: 
+meta:
   _edit_last: "1"
   dsq_thread_id: "pleasedisruptpasswords"
 status: post
@@ -12,6 +12,8 @@ image: /images/lock.jpg
 ---
 
 I came into contact the other day with a new startup called [GetClef](https://getclef.com).  The essential idea behind GetClef is that they allow you to login to sites by scanning a QR code with your phone.  No passwords - just a PIN on your phone and a (built-in) QR code scanner.  I had had a similar idea when I worked at MySocialCloud, so in my interest I got in contact with their CPO and talked a little bit about their tech.  My original assumption was that GetClef was ultimately a password manager that sent your passwords along after you auth'd with a QR Code. I was wrong - they're getting rid of passwords altogether.
+
+<!--more-->
 
 As soon as I realized this, I had to take a moment to sit back and realize the implications of that.  I spend [a lot of time](joewegner.com/blog/passwords-part-1-how-they-get-hacked) thinking about password security, and usually for me that means [strong random passwords](joewegner.com/blog/passwords-part-2-your-password-policy/).  It had never dawned on me that completely replacing passwords was a real possibility.
 

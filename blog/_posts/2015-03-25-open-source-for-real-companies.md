@@ -9,6 +9,8 @@ image: /images/blog_images/bazaar.jpg
 
 I'm reading [*The Cathedral and the Bazzar*](LINK HERE) right now, and just finished the section titled *Homesteading the Noosphere*. Eric Raymond talks at length in that essay about the economic model that drives open source. He compares the traditional exchange model that most private commercial companies use against what is called a "reputation-game gift" model.
 
+<!--more-->
+
 As a quick overview, the exchange model is what we all know and understand quite well - both employers and employees have scarce resources, money and time/skill respectively. An employer exchanges their money with an employed programmer, in return for them to spend their time and expertise producing quality software.
 
 The reputation-game gift model is wildly different - it operates under the assumption that money *is not* a scarce resource for the programmer. In this case, the programmer has either excess time or money, so they are not motivated by exchanging them - instead, argues Raymond, the programmer is motivated by reputation allocation. Raymond compares the open-source economic model to a similar model seen in remote tribal communities, where people will compete in their generocity - giving away massive amounts of their wealth in exchange for increased reputation among the tribe.

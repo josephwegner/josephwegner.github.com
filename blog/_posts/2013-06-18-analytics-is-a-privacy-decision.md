@@ -1,9 +1,9 @@
---- 
+---
 published: true
 title: "Analytics Platform is a Privacy Decision"
 type: post
 layout: post
-meta: 
+meta:
   _edit_last: "1"
   dsq_thread_id: "analyticsplatformisaprivacydecision"
 status: post
@@ -12,6 +12,8 @@ image: /images/population.jpg
 ---
 
 With [all of the PRISM news](https://twitter.com/Joe_Wegner/status/342841857723744256) flying around right now, I was putting some thought into how the average person might avoid having their entire lives digitally documented without their permission.  Turns out, it's pretty much impossible to both enjoy the internet and mantain your privacy.  The main problem - in my opinion - is web analytics.
+
+<!--more-->
 
 Web Analytics platforms have access to *everything*.  If your site is using Google Analytics (which, it [probably is](https://w3techs.com/technologies/overview/traffic_analysis/all)), then Google is tracking your user's path from site to site.  They know the sites they've been to recently, where the user is located, the sort of technology they're using.  Now that they're forcing all Google users to have a Google+ account, they also have a load of personal information to relate that data with.  It's not just Google Analytics, either - all the big players are storing this sort of information.
 

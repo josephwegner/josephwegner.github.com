@@ -1,9 +1,9 @@
---- 
+---
 published: true
 title: "How I Develop Websites"
 type: post
 layout: post
-meta: 
+meta:
   _edit_last: "1"
   dsq_thread_id: "howidevelopwebsites"
 status: published
@@ -12,6 +12,8 @@ tags: []
 ---
 
 I've been doing web development for quite awhile now.  Maybe not relatively to the rest of web developers, but relative to my lifetime, it's been a long time.  I've learned a lot in this time; languages, processes, servers, hosts, best practices, hacks, and a lot of ways to break things.  I learn new things because the old ways suck.  I started writing in vanilla PHP.  I didn't like that, so I started using CodeIgniter, and then Zend.  I still didn't like that, so I decided to give up on PHP and use node.js.  I love it.  All this learning has been for the goal of building the best web development process ever.  I think I'm getting close.
+
+<!--more-->
 
 <blockquote class="twitter-tweet"><p>I&#39;ve worked out a really solid process for building Node.js webapps with my <a href="https://twitter.com/search?q=%23SimpleAPI&amp;src=hash">#SimpleAPI</a> and <a href="https://twitter.com/search?q=%23AngularJS&amp;src=hash">#AngularJS</a>. Makes web dev awesome.</p>&mdash; Joe Wegner (@Joe_Wegner) <a href="https://twitter.com/Joe_Wegner/statuses/361976252069974016">July 29, 2013</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>

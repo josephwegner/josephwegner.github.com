@@ -1,12 +1,14 @@
---- 
+---
 title: "Waltz, the Modern Account Manager"
 layout: post
-meta: 
+meta:
  _edit_last: "1"
  dsq_thread_id: "waltzthemodernaccountmanager"
 image: /images/blog_images/waltz_release.jpg
 ---
 It's no secret that passwords bug me. I've [written](/blog/passwords-part-1-how-they-get-hacked) [about](/blog/passwords-part-2-your-password-policy) [them](/blog/passwords-part-3-social-sign-on-is-the-future) a number of times - mostly about why they're terrible and why you shouldn't use them. Generally my advice in the past has been to find a good password manager that can store randomly generated passwords, but today I have some new advice. I, along with an excellent group of developers, have built [Waltz](https://getwaltz.com).
+
+<!--more-->
 
 Waltz is a **modern account manager**. That may sound similar to other products you've heard of, like [LastPass](https://lastpass.com), [1Password](https://agilebits.com/onepassword), or [Wallet](https://www.acrylicapps.com/wallet), but let me be clear - it's way better. All of those old products provide a solution to the password problem. Unfortunately, passwords are just a symptom of an overall broken authentication system. Waltz has a broader scope, and tackles the authentication and account management situation head on.
 
@@ -35,4 +37,3 @@ I think that the web on Clef is a lot easier for users, and a heck of a lot more
 Before I close up this post, I want to point out that I can in no way take all the credit for building Waltz. When I first thought up the idea of Waltz, I reached out to Clef (mainly to secure their blessing) and was greeted with a huge amount of enthusiasm. [The guys at Clef](https://getclef.com/company) began talking up the idea to the people around them, and very quickly there was a team of people providing feedback, ideas, and development time to get Waltz finished. Clef even caught the vision enough to spend a significant amount of their time doing development and design work. Honestly, I'm not sure if I would have ever completed Waltz without all the help I've received - I pass on my sincere thanks and gratitude to everyone who has (and will!) contribute.
 
 As far as contributing goes, Waltz is 100% open source. There's already a number of contributors, but, like any open source project, we're always looking for more hands. Obviously there's a great need for developers and designers, but we've also made it very easy for people to contribute site configs. Most of the information for site configs can easily be found by an average user, and if you get stuck anywhere we'd be happy to help out. Here's an [example site config](https://github.com/waltzio/waltz/blob/develop/site_configs/github.json), if you're interested.
-

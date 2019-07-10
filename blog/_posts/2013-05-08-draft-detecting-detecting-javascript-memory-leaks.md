@@ -1,9 +1,9 @@
---- 
+---
 published: true
 title: "Detecting Javascript Memory Leaks"
 type: post
 layout: post
-meta: 
+meta:
   _edit_last: "1"
   dsq_thread_id: "detectingjavascriptmemoryleaks"
 status: publish
@@ -11,6 +11,8 @@ tags: []
 
 ---
 Every app I've built in the past has pretty much been unaware of memory management.  Computers these days are packed with memory, and even if you load a ton of AJAX requests, chances are the user will be refreshing or going to a new page before their memory runs out.  Recently, however, I've been working on a display piece for [Cultivate Studios](https://www.cultivatestudios.com), and there is a **ton** of data that moves in and out.  For this specific project, the high end is around 100 updates per minute, each of them requiring a DOM insert, smooth transitions to shuffle existing elements and display the new one, and smooth removal of stale items.  On top of all that, the page could be open - literally - for weeks.  For the first time, I've had to really worry about memory management in javascript.
+
+<!--more-->
 
 The down side is that there aren't really any great tools for monitoring javascript memory usage over long periods.  Yes, chrome has some [awesome features for watching memory usage](https://blog.chromium.org/2011/05/chrome-developer-tools-put-javascript.html), but they're really targeted for short timeframes.  The best option was to record usage on the dev tools Timeline, and watch the memory graph.  Unfortunately, that seems to gather an unnecessarily large amount of data, and running it for a long period of time is certain to crash your browser.
 

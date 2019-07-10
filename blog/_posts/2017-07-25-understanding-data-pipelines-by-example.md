@@ -9,6 +9,8 @@ image: /images/blog_images/understanding-data.jpg
 
 Data is a pretty hot thing. Some people even say [data is eating the world](https://www.recode.net/2015/1/7/11557562/no-data-is-eating-the-world). Unfortunately, "Big Data" sounds really intimidating - I've been an engineer at a data company for *years*, and all this time I've been too intimidated to actually learn how modern data pipelines work.
 
+<!--more-->
+
 Today that stops! I've taken a list (stolen from a [Stitch blog post](https://blog.stitchdata.com/the-data-infrastructure-meta-analysis-how-top-engineering-organizations-built-their-big-data-2e704f787670)) of big companies managing big data pipelines, and tried to understand all of the tools they are using. I've summarized everything here - hopefully this serves as a (really long) resource for all of us to get over our fears of "Big Data".
 
 # [Buffer](https://overflow.buffer.com/2014/10/31/buffers-new-data-architecture/)

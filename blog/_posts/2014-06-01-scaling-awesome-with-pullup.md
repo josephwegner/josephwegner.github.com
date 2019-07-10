@@ -10,6 +10,8 @@ thanks: "<a href='https://pullup.io'>Pullup</a> sounds cool? Check out some <a h
 
 As developers, we come up with a lot of awesome ideas. Or, rather, we come up with a lot of ideas that we think are awesome. It seems to be a pretty universal trait of developers, that we get caught up in the architecture, design, novelty, or difficulty of an idea and convince ourselves that that alone makes it awesome. We spend hours, days, weeks, and sometimes months building out these *"awesome"* ideas, and the deeper down the rabbit hole we get the more awesome our idea becomes.
 
+<!--more-->
+
 We're creative thinkers - inventors - and we're easily excited by our ideas. We get lost in the build phase, and are totally stumped when we show off what we built and get a less than stellar response. We create a reality distortion field when we build something. We get so involved in the process of building something that whatever we're building gains merit simply because we built it. We are proud of what we build, and that pride allows us to live in a happy little world where all of our ideas are awesome.
 
 The cool thing about this pride effect is that it scales. I've been a part of a couple different projects that, in retrospect, were awful ideas. However, each of those projects had a strong core following that all thought the project was totally awesome. The trick was that each of those people joined early enough that they ended up building some personal relationship with the founders. They provided key insight into how the project was built, and ended up feeling their own sense of ownership and pride in how the project evolved.

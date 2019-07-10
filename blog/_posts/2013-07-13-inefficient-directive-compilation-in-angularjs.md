@@ -1,9 +1,9 @@
---- 
+---
 published: true
 title: "Inefficient Directive Compilation in AngularJS"
 type: post
 layout: post
-meta: 
+meta:
   _edit_last: "1"
   dsq_thread_id: "inefficientdirectivecompilationinangularjs"
 status: post
@@ -12,6 +12,8 @@ tags: []
 ---
 
 *I wrote a little side project recently, called [CSS3 Man](https://www.css3man.com).  It's a fun experiment in CSS3.  You should check it out, it's fun and interactive, and will be sort of necessary to understand this blog post.*
+
+<!--more-->
 
 I've taken to [AngularJS](https://angularjs.org) recently for most of my little side projects.  It's super fast, simple, and every time I use it I feel like my apps give off this feel of "wow, that was really well done!"  Most of that vibe comes from the data-binding, but from the developer end my favorite part is definitely directives.  I wrote [a tutorial](https://joewegner.com/blog/angular-js-directive-tutorial-on-attribute-bootstrap-confirm-button/) awhile back on how to write an AngularJS directive, but now I want to write some words of caution on why they can be dangerious.
 
@@ -27,7 +29,7 @@ app.directive( 'superstyle', function( $compile ) {
 
       scope.$watch( 'selector', function () {
       	if(typeof(scope.key) === "string") {
-	        el = typeof(scope.selector) !== "undefined"  ? 
+	        el = typeof(scope.selector) !== "undefined"  ?
 	        	$compile( '<style> '+scope.selector+' { '+scope.styles+' } </style>' )( scope ) :
 	        	$compile( '<style>'+scope.styles+'</style>' )( scope )
 
@@ -44,7 +46,7 @@ app.directive( 'superstyle', function( $compile ) {
 	       		}
 	       	}
 
-	        el = typeof(scope.selector) !== "undefined"  ? 
+	        el = typeof(scope.selector) !== "undefined"  ?
 	        	$compile( '<style> '+scope.selector+' { '+scope.styles+' } </style>' )( scope ) :
 	        	$compile( '<style>'+scope.styles+'</style>' )( scope )
 
@@ -96,7 +98,7 @@ app.directive("human", function() {
 		restrict: 'E',
 		templateUrl: "/assets/templates/human.html",
 		scope: {
-			human: "=human", 
+			human: "=human",
 			click: "=ngClick"
 		},
 		link: function(scope, element, attrs) {

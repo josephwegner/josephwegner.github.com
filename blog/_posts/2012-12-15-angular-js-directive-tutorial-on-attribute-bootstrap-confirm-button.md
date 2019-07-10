@@ -1,9 +1,9 @@
---- 
+---
 published: true
 title: "Angular.js Directive Tutorial: On-Attribute Bootstrap Confirm Button"
 type: post
 layout: post
-meta: 
+meta:
   _edit_last: "1"
   dsq_thread_id: "975261631"
 status: publish
@@ -11,6 +11,8 @@ tags: []
 
 ---
 I haven't talked about it much on the blog yet, but let me tell you something - I _love_ [AngularJS](https://angularjs.org).  AngularJS is a client-side javascript framework that pretty much speeds up development by 500% by taking out **100%** of the DOM manipulation.  That's right - no more fighting with the DOM in your javascript.  Let AngularJS do it.  It's really awesome.
+
+<!--more-->
 
 One of my favorite things about AngularJS is something called [directives](https://docs.angularjs.org/guide/directive).  Directives are an awesome tool that essentially lets you create new HTML tags, or supercharge existing tags with attributes.  Have a special button that you like to use, but you hate typing all that HTML every time?  Directives will fix that.  Want to do a special sort of validation on all of your email inputs?  Directives can help with that.
 
@@ -58,26 +60,26 @@ var app = angular.module('TestApp', ['ui']).directive("confirmButton", function(
     restrict: 'A',
     link: function(scope, element, attrs) {
       var buttonId, html, message, nope, title, yep;
-      
+
       buttonId = Math.floor(Math.random() * 10000000000);
-      
+
       attrs.buttonId = buttonId;
-      
+
       html = "&lt;div id=\"button-" + buttonId + "\">\n  &lt;span class=\"confirmbutton-msg\">Are you sure?&lt;/span>&lt;br>\n  &lt;button class=\"confirmbutton-yes btn btn-danger\">Yes&lt;/button>\n	&lt;button class=\"confirmbutton-no btn\">No&lt;/button>\n&lt;/div>";
-      
+
       element.popover({
         content: html,
         html: true,
         trigger: "manual",
         title: "Confirm"
       });
-      
+
       element.bind('click', function(e) {
 
         var dontBubble = true;
-        
+
         e.stopPropagation();
-        
+
         element.popover('show');
 
       });
@@ -100,34 +102,34 @@ Now for the rest of the bindings, and we'll finally be done.
 element.bind('click', function(e) {
 
         var dontBubble = true;
-        
+
         e.stopPropagation();
-        
+
         element.popover('show');
-        
+
         var pop = $("#button-" + buttonId);
-        
+
         pop.closest(".popover").click(function(e) {
           if (dontBubble) {
             e.stopPropagation();
           }
         });
-        
+
         pop.find('.confirmbutton-yes').click(function(e) {
           dontBubble = false;
-          
+
           var func = $parse(attrs.confirmButton);
           func(scope);
         });
-        
+
         pop.find('.confirmbutton-no').click(function(e) {
           dontBubble = false;
-          
+
           $document.off('click.confirmbutton.' + buttonId);
-          
+
           element.popover('hide');
         });
-        
+
         $document.on('click.confirmbutton.' + buttonId, ":not(.popover, .popover *)", function() {
           $document.off('click.confirmbutton.' + buttonId);
           element.popover('hide');
@@ -154,9 +156,9 @@ Angular allows you to access all of the attributes on the parent directive, so w
       yep = attrs.yes || "Yes";
       nope = attrs.no || "No";
       title = attrs.title || "Confirm";
-      
+
       html = "&lt;div id=\"button-" + buttonId + "\">\n  &lt;span class=\"confirmbutton-msg\">" + message + "&lt;/span><br>\n  &lt;button class=\"confirmbutton-yes btn btn-danger\">" + yep + "&lt;/button>\n	&lt;button class=\"confirmbutton-no btn\">" + nope + "&lt;/button>\n&lt;/div>";
-      
+
       element.popover({
         content: html,
         html: true,

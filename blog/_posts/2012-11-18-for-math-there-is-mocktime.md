@@ -1,17 +1,19 @@
---- 
+---
 published: true
 title: For Math, There is MockTime
 type: post
 layout: post
-meta: 
+meta:
   _edit_last: "1"
   dsq_thread_id: "962212929"
 status: publish
-tags: 
+tags:
 - New Projects
 - Tools
 ---
 *Tl;Dr: I built an app that helps you do math. [Take a look](https://www.mocktime.com).*
+
+<!--more-->
 
 Every other Saturday morning I go out to breakfast with a group of guys from my church.  This week it was a small group - just me and two others.  Oddly enough, the three of us sitting at the table had a high aptitude for math.  I am a programmer, one of the guys is a math teacher, and the other is an accountant.  Our waitress was extremely diligent this morning about refilling our coffee - never letting our mugs get below half.  I noticed that one of my friends (the accountant) added a new creamer every time his coffee mug was refilled, even though it was only half empty.  I jokingly posed the question, wondering how many half-cup refills it would take for him to have more creamer than coffee in his mug.
 
