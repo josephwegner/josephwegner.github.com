@@ -5,7 +5,7 @@ layout: none
 <rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>Wegner Radio</title>
-    <link>https://joewegner.com/<link>
+    <link>https://joewegner.com/</link>
     <language>en-us</language>
     <itunes:subtitle>A radio, specifically, for the Wegner kiddos</itunes:subtitle>
     <itunes:author>Joe Wegner</itunes:author>
