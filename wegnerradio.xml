@@ -29,7 +29,7 @@ layout: none
           <itunes:summary>{{ cast.description }}</itunes:summary>
           <description>{{ cast.description }}</description>
           <link>https://joewegner.com</link>
-          <enclosure url="https://joewegner.com{{ cast.file }}" type="audio/mpeg" length="{{ cast.size }}"></enclosure>
+          <enclosure url="{{ cast.file }}" type="audio/mpeg" length="{{ cast.size }}"></enclosure>
           <pubDate>{{ cast.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
           <itunes:author>Joe Wegner</itunes:author>
           <itunes:duration>{{ cast.duration }}</itunes:duration>
