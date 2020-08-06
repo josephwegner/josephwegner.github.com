@@ -5,6 +5,7 @@ meta:
  _edit_last: "1"
  dsq_thread_id: "remoteworklikeyoureremote"
 image: /images/blog_images/remotework.jpg
+redirect_from: "/remote"
 ---
 
 A few weeks ago [Heroku](https://www.heroku.com) hosted a large on-site event for many of its employees - this is a fairly unique event for those of us with the proud title of Herokai. Heroku is a subsidiary of Salesforce; while Salesforce employees mostly work in physical offices, Heroku is unique in that ~65% of our employees work remotely. These on-sites happen at best a few times a year, and it's a special opportunity to meet folks in-person and enjoy each other's company.

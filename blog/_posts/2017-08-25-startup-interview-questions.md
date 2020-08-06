@@ -5,6 +5,7 @@ meta:
  _edit_last: "1"
  dsq_thread_id: "startupinterviewquestions"
 image: /images/blog_images/startup_questions.jpg
+redirect_from: "/questions"
 ---
 I've been talking with some peers recently about strategies for succeeding in a job hunt. There's a myriad of discussion points, but one of my favorite topics was which questions to ask in an interview. I am mostly interested in working for startups, and when evaluating a startup I think that **culture** and **financial progress** are the most important things to know about. There's tons of other topics, but startups are so turbulent that it seems that most other things don't have lasting truth.
 

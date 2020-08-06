@@ -5,6 +5,7 @@ meta:
  _edit_last: "1"
  dsq_thread_id: "opensourceforrealcompanies"
 image: /images/blog_images/bazaar.jpg
+redirect_from: "/oss"
 ---
 
 I'm reading [*The Cathedral and the Bazzar*](LINK HERE) right now, and just finished the section titled *Homesteading the Noosphere*. Eric Raymond talks at length in that essay about the economic model that drives open source. He compares the traditional exchange model that most private commercial companies use against what is called a "reputation-game gift" model.

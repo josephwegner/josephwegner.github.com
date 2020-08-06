@@ -6,6 +6,7 @@ meta:
  dsq_thread_id: "learningsvgwithlogos"
 tutorialbg: "#05051f"
 message: It seems that Google Chrome has some trouble looping SVG animations.  If you're interested in the examples, you may want to view this page in Firefox
+redirect_from: "learn-svg"
 ---
 
 In my book, [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) is classified as a mythical unicorn super technology.  SVG shares this category with other technologies like [RegExp](https://en.wikipedia.org/wiki/Regular_expression), [vim](https://www.vim.org/), and [OpenGL](https://en.wikipedia.org/wiki/OpenGL). The common traits between each of these technologies is that they are incredibly useful when used correctly, but incredibly difficult to use correctly.  All three pack some serious punch inside of a terribly confusing syntax.
