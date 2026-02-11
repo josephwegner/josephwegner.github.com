@@ -1,0 +1,46 @@
+---
+title: "new features in filedrop 0 2"
+date: 2011-04-08
+tags:
+  - "Beta"
+  - "business"
+  - "fileDrop"
+  - "images"
+  - "login"
+  - "preview"
+  - "Release"
+---
+I've already told you all about <a title="How To: Build a Tooltip Plugin in Jquery" href="https://joewegner.com/filedrop/how-to-build-a-tooltip-plugin-in-jquery/">one new feature in fileDrop</a>, but the exciting part is waiting for you in the beta.  Here's a hint : The business-end is up and running!  All of you beta users up to this point have only viewed <a title="File Drop" href="https://joewegner.com/file-drop/">fileDrop</a> from the client-side, meaning you could only view files uploaded within your group.  Now there is a business end - which is locked to the administrators group - and can view a list of all files uploaded by any group.  This is where the usefulness of fileDrop comes in - allowing a business to easily navigate to the files that their customers have uploaded.  I've left all previous accounts in fileDrop intact, but there are a few new things that you will need to know as you get back into beta testing.
+
+There are now five groups available for you to register in.   Four of them are regular user groups, and one of them is the admin group.  The four regular user groups have open registration (I'm not going to post the group code, because you can find it yourself using the admin login).  Here is the login information you will need:
+
+<strong>Admin User</strong>
+Username: betaAdmin
+Password: beta
+<strong>Beta Group Users</strong>
+Username: &lt;Your Old Username&gt;
+Passwowrd: &lt;Your Old Password&gt;
+<em>This group is open for registration</em>
+<strong>Client Group 1 User</strong>
+Username: Group1
+Password: test
+<em>This group is open for registration</em>
+<strong>Client Group 2 User</strong>
+Username: Group2
+Password: test
+<em>This group is open for registration</em>
+<strong>Client Group 3 User</strong>
+Username: Group3
+Password: test
+<em>This group is open for registration</em>
+
+Feel free to email me or put in a bug report whenever you have any issues/suggestions.  In this release there are a couple key features that need to be tested.
+<ul>
+	<li>Flow of business-end interface.  Specifically moving from Page to Page on the File List, and previewing/downloading files</li>
+	<li><del>Previewing of images.  This works with a large multitude of file types, ranging from .jpegs to .ai files.  If an image can be previewed, there will be a Preview button next to the Download button</del></li>
+<span style="color: #ff0000;">Image Previews are currently not working due to security provisions with my web host.</span>
+	<li>Security of both the Groups Admin page and the Business-End File List.</li>
+	<li>Uploading files with no flash support (see about:plugins in Chrome)</li>
+	<li>Style Quirks for older browsers</li>
+</ul>
+Again, thank you SO much for all of your help on fileDrop.  I look forward to releasing a full version to all of you by the end of April!  As always, you can access the beta <a title="File Drop" href="https://joewegner.com/file-drop/">here.</a>

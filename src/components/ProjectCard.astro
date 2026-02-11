@@ -1,0 +1,34 @@
+---
+interface Props {
+  title: string;
+  link?: string;
+  tags?: string[];
+}
+
+const { title, link, tags = [] } = Astro.props;
+---
+
+<article class="bg-surface-card rounded-2xl p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] border border-purple-accent/10 hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+  <h3 class="text-lg font-bold text-deep">
+    {link ? (
+      <a href={link} class="hover:text-coral transition-colors" target="_blank" rel="noopener noreferrer">
+        {title}
+        <span class="text-text-secondary text-sm font-normal ml-1" aria-hidden="true">&nearr;</span>
+      </a>
+    ) : (
+      title
+    )}
+  </h3>
+  <div class="mt-2 text-sm text-text-secondary [&>p]:m-0">
+    <slot />
+  </div>
+  {tags.length > 0 && (
+    <div class="mt-4 flex flex-wrap gap-2">
+      {tags.map((tag) => (
+        <span class="inline-block px-2.5 py-0.5 text-xs font-medium bg-lavender text-purple-accent rounded-full">
+          {tag}
+        </span>
+      ))}
+    </div>
+  )}
+</article>

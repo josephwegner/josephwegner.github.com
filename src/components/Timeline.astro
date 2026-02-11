@@ -1,0 +1,65 @@
+---
+import TimelineEntry from './TimelineEntry.astro';
+
+const entries = [
+  {
+    company: 'Heroku (Salesforce)',
+    role: 'Senior Engineering Manager',
+    period: 'Nov 2021 \u2013 Present',
+    color: '#e85d50',
+  },
+  {
+    company: 'GRAX',
+    role: 'Head of Technical Support',
+    period: 'Nov 2020 \u2013 Nov 2021',
+    color: '#7c5cbf',
+  },
+  {
+    company: 'Heroku (Salesforce)',
+    role: 'Technical Support Manager',
+    period: 'Sep 2017 \u2013 Nov 2020',
+    color: '#2cb67d',
+  },
+  {
+    company: 'Keen IO',
+    role: 'Software Engineer',
+    period: 'Apr 2015 \u2013 Sep 2017',
+    color: '#f4a261',
+  },
+  {
+    company: 'BellyCard',
+    role: 'Frontend Engineer',
+    period: 'Apr 2014 \u2013 Apr 2015',
+    color: '#7c5cbf',
+  },
+  {
+    company: 'Cultivate Studios',
+    role: 'Developer & SysAdmin',
+    period: 'Feb 2013 \u2013 Apr 2014',
+    color: '#e85d50',
+  },
+];
+---
+
+<section class="py-14 sm:py-18" aria-label="Career timeline">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-bold text-deep">Where I've been</h2>
+      <p class="mt-2 text-text-secondary">12 years of building things and leading people</p>
+    </div>
+    <div class="relative">
+      <div class="absolute left-[16px] md:left-1/2 top-0 bottom-0 w-0.5 bg-purple-accent/20" aria-hidden="true"></div>
+      <div class="space-y-6">
+        {entries.map((entry, i) => (
+          <TimelineEntry
+            company={entry.company}
+            role={entry.role}
+            period={entry.period}
+            color={entry.color}
+            side={i % 2 === 0 ? 'left' : 'right'}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

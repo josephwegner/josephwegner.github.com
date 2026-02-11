@@ -1,0 +1,54 @@
+---
+const pathname = Astro.url.pathname;
+---
+
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-coral focus:text-white focus:px-4 focus:py-2 focus:rounded">
+  Skip to content
+</a>
+<header class="bg-deep sticky top-0 z-40">
+  <nav class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16" aria-label="Main navigation">
+    <a href="/" class="flex items-center gap-2 text-white font-semibold text-lg tracking-tight hover:text-coral transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="24" height="24" aria-hidden="true">
+        <path d="M50,50 L50,330 A70,85 0 1,0 300,330 L300,50" style="stroke: #e85d50; stroke-opacity: .6; fill: transparent; stroke-width: 100;">
+          <animate id="nav-a1" attributeName="stroke" from="#e85d50" to="#f4a261" begin="13s; nav-f1.end+10s" dur="5s" fill="freeze" />
+          <animate id="nav-b1" attributeName="stroke" from="#f4a261" to="#2cb67d" begin="nav-a1.end+10s" dur="5s" fill="freeze" />
+          <animate id="nav-c1" attributeName="stroke" from="#2cb67d" to="#7c5cbf" begin="nav-b1.end+10s" dur="5s" fill="freeze" />
+          <animate id="nav-d1" attributeName="stroke" from="#7c5cbf" to="#ede8f5" begin="nav-c1.end+10s" dur="5s" fill="freeze" />
+          <animate id="nav-e1" attributeName="stroke" from="#ede8f5" to="#e85d50" begin="nav-d1.end+10s" dur="5s" fill="freeze" />
+          <animate id="nav-f1" attributeName="stroke" from="#e85d50" to="#f4a261" begin="nav-e1.end+10s" dur="5s" fill="freeze" />
+        </path>
+        <path d="M550,50 L550,330 A70,85 0 0,1 300,330" style="stroke: #e85d50; stroke-opacity: .6; fill: transparent; stroke-width: 100; mask: url(#nav-w-mask);">
+          <animate id="nav-a2" attributeName="stroke" from="#e85d50" to="#f4a261" begin="13s; nav-f2.end+10s" dur="5s" fill="freeze" />
+          <animate id="nav-b2" attributeName="stroke" from="#f4a261" to="#2cb67d" begin="nav-a2.end+10s" dur="5s" fill="freeze" />
+          <animate id="nav-c2" attributeName="stroke" from="#2cb67d" to="#7c5cbf" begin="nav-b2.end+10s" dur="5s" fill="freeze" />
+          <animate id="nav-d2" attributeName="stroke" from="#7c5cbf" to="#ede8f5" begin="nav-c2.end+10s" dur="5s" fill="freeze" />
+          <animate id="nav-e2" attributeName="stroke" from="#ede8f5" to="#e85d50" begin="nav-d2.end+10s" dur="5s" fill="freeze" />
+          <animate id="nav-f2" attributeName="stroke" from="#e85d50" to="#f4a261" begin="nav-e2.end+10s" dur="5s" fill="freeze" />
+        </path>
+        <path d="M300,50 L300,330 A70,85 0 0,1 50,330" style="stroke: #e85d50; stroke-opacity: .5; fill: transparent; stroke-width: 100;">
+          <animate id="nav-a3" attributeName="stroke" from="#e85d50" to="#f4a261" begin="10s; nav-f3.end+10s" dur="5s" fill="freeze" />
+          <animate id="nav-b3" attributeName="stroke" from="#f4a261" to="#2cb67d" begin="nav-a3.end+10s" dur="5s" fill="freeze" />
+          <animate id="nav-c3" attributeName="stroke" from="#2cb67d" to="#7c5cbf" begin="nav-b3.end+10s" dur="5s" fill="freeze" />
+          <animate id="nav-d3" attributeName="stroke" from="#7c5cbf" to="#ede8f5" begin="nav-c3.end+10s" dur="5s" fill="freeze" />
+          <animate id="nav-e3" attributeName="stroke" from="#ede8f5" to="#e85d50" begin="nav-d3.end+10s" dur="5s" fill="freeze" />
+          <animate id="nav-f3" attributeName="stroke" from="#e85d50" to="#f4a261" begin="nav-e3.end+10s" dur="5s" fill="freeze" />
+        </path>
+        <mask id="nav-w-mask" x="0" y="0" height="2" width="2">
+          <path d="M550,50 L550,330 A70,85 0 0,1 300,330" style="stroke: #ffffff; stroke-width: 100;" />
+          <path d="M50,50 L50,330 A70,85 0 1,0 300,330 L300,50" style="stroke: #000000; stroke-width: 100;" />
+        </mask>
+      </svg>
+      Joe Wegner
+    </a>
+    <input type="checkbox" id="nav-toggle" class="hidden peer" aria-hidden="true" />
+    <label for="nav-toggle" class="sm:hidden text-white cursor-pointer p-2" aria-label="Toggle navigation menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </label>
+    <ul class="hidden peer-checked:flex flex-col sm:flex sm:flex-row absolute sm:relative top-16 sm:top-auto left-0 sm:left-auto w-full sm:w-auto bg-deep sm:bg-transparent gap-0 sm:gap-2 items-center border-t border-white/10 sm:border-0">
+      <li><a href="/" class:list={["block px-4 py-2 text-sm font-medium rounded-full transition-colors", pathname === '/' ? 'text-coral bg-white/10' : 'text-white/80 hover:text-white hover:bg-white/10']}> Home </a></li>
+      <li><a href="/blog" class:list={["block px-4 py-2 text-sm font-medium rounded-full transition-colors", pathname.startsWith('/blog') ? 'text-coral bg-white/10' : 'text-white/80 hover:text-white hover:bg-white/10']}> Blog </a></li>
+    </ul>
+  </nav>
+</header>

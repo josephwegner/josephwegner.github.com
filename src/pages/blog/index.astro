@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = (await getCollection('blog'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Blog | Joe Wegner" description="Thoughts on engineering, leadership, startups, and the web.">
+  <section class="py-12 sm:py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl sm:text-4xl font-bold text-deep mb-8">Blog</h1>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {allPosts.map((post) => (
+          <BlogCard
+            title={post.data.title}
+            date={post.data.date}
+            slug={post.slug}
+            image={post.data.image}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

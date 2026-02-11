@@ -1,0 +1,77 @@
+---
+title: "always use real time"
+date: 2012-04-27
+tags:
+  - "Node.js"
+  - "Plugins"
+  - "real time"
+  - "Tools"
+---
+Many moons ago I used to cringe whenever the idea of having something "real time" was brought up.  While it's been somewhat possible for a long time, the methods have been very dirty and often required a lot of coding and bandwidth.  Usually what ended up happening is you would write some javascript to do an AJAX request to your server every few seconds to see if any new data had arrived (this is how Twitter does it).  This worked, but unfortunately it's a pretty bad practice and is only a faux-real time.  Well, it's the future now, and true real-time is not only possible, but I think you would be foolish to ignore it for how easy it is.
+
+
+
+As a bit of a disclaimer, I'm pretty crazy about Node.js.  Whether you think that's a justified insanity is up to you, but I certainly think it's worth at least looking in to.  Much of the world is trying to avoid Node.js - it's new, it's a little confusing, it's all javascript, and it requires a lot of work to move from something like a LAMP stack to a full Node.js server.  Here's the thing, though: I don't want you to leave LAMP.  Obviously there's a lot of benefits to getting away from Apache/PHP, but they're not requirements to use Node.js for real-time data.  The solution I'm presenting simply uses a lightweight Node.js server on the side that accepts HTTP requests and passes them on to the frontend.  Send your requests from PHP, python, cURL, or some other awful language, and you'll get exactly the same functionality.
+
+The backbone of this system is <a title="Socket.io" href="https://socket.io">socket.io</a>, which I consider to be the holy grail of Node.js in web development.  Socket.io is a system that utilizes <a title="Web Sockets" href="https://en.wikipedia.org/wiki/WebSocket">web sockets</a> to pass data back and forth between a server and a client in real time.  Because it's based on web sockets, it doesn't require a new connection to be made every time data needs to be sent - it keeps a connection open and just listens for whenever the other side starts talking.  The bright side to using Socket.io to handle your web sockets is that they've built in some wonderful<a title="Socket.IO Browser Support" href="https://socket.io/#browser-support"> graceful degradation</a> for older browsers that might not support web sockets.
+
+So here's how we start on the server.  Essentially we're just starting up a Socket.io server and an HTTP server.  When that HTTP server receives data it pinpoints the user to send it to, and then sends it via Socket.IO.
+
+[code lang="lang-js"]var http = require('http');
+var socketio = require('socket.io');
+var qs = require('querystring');
+
+var destinations = {}; //This will hold all of our registered clients
+
+var app = http.createServer(function(req, res) {
+    var postData = "";
+
+    req.on('data', function(chunk) {
+        postData += chunk; //Get the POST data
+    });
+
+    req.on('end', function() {
+        var POST = qs.parse(postData);
+
+        if(typeof(destinations[POST.destination]) !== "undefined") {
+            destinations[POST.destination].emit("push", {
+                data: POST.data //Send it!
+            });
+        }
+    });
+
+    res.end();
+}).listen(8080);  //Use a non-standard port so it doesn't override your Apache
+
+var io = socketio.listen(app); //Attach socket.io to port 8080
+
+io.sockets.on('connection', function(socket) {
+    socket.on('register', function(data) { //Client registers so we know where to send
+        destinations[data.id] = socket;
+    });
+});
+[/code]
+
+That's it!  Your Node.js server is ready to start passing data between your frontend and the backend.  All you need to do is include socket.io on the frontend and register with the server.
+
+[code lang="lang-html"]&lt;script type="text/javascript" src="https://www.mydomain.com:8080/socket.io/socket.io.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+var socket = io.connect("https://www.mydomain.com:8080");
+
+socket.on('push', function(data) {
+	//Do something with the data
+});
+
+socket.emit('register', {
+	id: 12345 //Use a unique ID here.  I'm using my session ID
+});
+
+&lt;/script&gt;[/code]
+
+You're good to go.  Now to pass data all you have to do is make an HTTP request to the server running Node.js on port 8080.  The request will need two POST parameters:
+<ul>
+	<li>destination -&gt; The ID of the user that should receive the data.  This should match the ID that you sent via Socket.io on the frontend (which is why I'm using the session ID)</li>
+	<li>data -&gt; The data to send to the user.  I generally encode this in JSON, but you can do whatever you want</li>
+</ul>
+<div>Enjoy!</div>
+&nbsp;

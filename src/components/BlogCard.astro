@@ -1,0 +1,44 @@
+---
+interface Props {
+  title: string;
+  date: Date;
+  slug: string;
+  excerpt?: string;
+  image?: string;
+  showDate?: boolean;
+}
+
+const { title, date, slug, excerpt, image, showDate = true } = Astro.props;
+const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+const gradients = [
+  'from-coral/20 via-amber/10 to-peach',
+  'from-purple-accent/20 via-lavender to-peach/50',
+  'from-teal/15 via-mint to-lavender/50',
+  'from-amber/20 via-peach to-coral/10',
+];
+const gradientIndex = title.length % gradients.length;
+---
+
+<article class="bg-surface-card rounded-2xl overflow-hidden shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] border border-purple-accent/10 hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+  {image ? (
+    <img src={image} alt="" class="w-full h-48 object-cover" loading="lazy" />
+  ) : (
+    <div class={`w-full h-48 bg-gradient-to-br ${gradients[gradientIndex]} flex items-center justify-center`} aria-hidden="true">
+      <span class="text-5xl font-bold text-deep/10">{title.charAt(0)}</span>
+    </div>
+  )}
+  <div class="p-6">
+    {showDate && (
+      <time datetime={date.toISOString()} class="text-sm text-text-secondary">{formattedDate}</time>
+    )}
+    <h3 class:list={["text-lg font-bold text-deep", showDate && "mt-2"]}>
+      <a href={`/blog/${slug}`} class="hover:text-coral transition-colors">
+        {title}
+      </a>
+    </h3>
+    {excerpt && (
+      <p class="mt-2 text-sm text-text-secondary line-clamp-3">{excerpt}</p>
+    )}
+  </div>
+</article>

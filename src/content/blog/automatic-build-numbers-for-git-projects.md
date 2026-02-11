@@ -1,0 +1,101 @@
+---
+title: "automatic build numbers for git projects"
+date: 2011-03-22
+tags:
+  - "bash"
+  - "build"
+  - "fileDrop"
+  - "git"
+  - "revision"
+  - "script"
+  - "shell"
+  - "Tools"
+  - "version"
+---
+I was given an issue report the other day about no build numbers in <a title="File Drop" href="https://joewegner.com/file-drop/">file drop</a>.  I originally thought that I would have to manually include this build number in a PHP footer file, my commit messages, and again remember it in my response to bug reports.  Simply put, I'm not that great at remembering numbers, so I decided to script the process.
+
+
+
+<strong>Format</strong>
+
+My first step was to figure out how to format my build numbers.  It's a common trend to include a major version and a minor version in your build numbers, but that doesn't portray enough information when I'm doing mutiple commits per day.  You can choose whatever format you like, but I finally decided on a format that would display the version, the date, and the number of revision for that day.  Specifically, the format was this
+<div class="code">major.minor.date.revision</div>
+So a build number for fileDrop today would have looked like
+<pre>0.1.0322.1</pre>
+<strong>Increment the Revision Number</strong>
+
+The first trouble I see is getting that revision number to increment with each commit, and reset to one at the beginning of the day.  The first script that I write will handle this problem.  I'm placing these files in the ./.git directory (You may need to enable 'View Hidden Files') of my project.
+<pre class="prettyprint">INCR_FILE="./.git/incr.git"
+#This should be the path to your increment file.  This should work for most configurations.
+NUM=$(cat $INCR_FILE)
+#This will grab the current revision number from our file incr.git&nbsp;
+
+if [ -z $(find -mtime -1 -path $INCR_FILE) ]; then
+#The find command above checks if our revision num file
+#has been modified in the past day
+
+echo 1 &gt; $INCR_FILE
+else
+echo $(($NUM + 1)) &gt; $INCR_FILE
+fi
+
+</pre>
+Create a file called incr.sh in your ./.git directory with the above code, and create a second file called incr.git .  Put a single character "1" into incr.git.  You can test the script with the following command
+<pre class="prettyprint">sh init.sh | cat init.git</pre>
+<strong>Format the Date</strong>
+
+The next task is going to be getting the date into a usable format.  By default the date command will output the date in UDT format.  Lucky for us, the date command has an optional argument for a custom output format.  Here are some useful codes for the date command
+
+&nbsp;
+
+&nbsp;
+<blockquote>%d - day of month
+
+%H - hour  (01-24)
+
+%I - hour (01-12)
+
+%j - day of year(001 - 366)
+
+%m - month
+
+%u - day of week(1 - 7)
+
+%U - week of year(00-53)
+
+%y - year (01-99)</blockquote>
+I need to get the two digit month and the two digit day of the month, so my code will look like this
+<pre class="prettyprint">date +"%m%d"</pre>
+<strong>Get the Full Build Number</strong>
+
+This seems like it should be pretty easy.  Hard code in your major and minor version, and put an echo at the end of your script, right?  Right.  Unless you ever need to access your build number without incrementing it.  This is actually a very probable situation - I'm going to need to update my footer file with that build number, and I don't want to create a whole new revision number just for that.  To stop our script from always incrementing we will throw in an optional parameter.  I'll also add a parameter for our major.minor build number, so we don't have to edit the script with every new version.
+<pre class="prettyprint">INCR_FILE="./.git/incr.git"
+#$1 is our first parameter.  We'll use this as our major.minor build number
+#$2 is our second parameter.  The script will test if this equals "increment"
+if [ "$2" = "increment" ]; then
+NUM=$(cat $PATH)&nbsp;
+
+if [ -z $(find -mtime -1 -name $INCR_FILE) ]; then
+echo 1 &gt; $INCR_FILE
+else
+echo $(($NUM + 1)) &gt; $INCR_FILE
+fi
+
+echo $1.$(date +"%m%d").$(cat $INCR_FILE)
+
+</pre>
+There we go!  Now if you type
+<div class="code">sh incr.sh 0.1</div>
+You should get your build number.  If you use the increment flag
+<div class="code">sh incr.sh 0.1 increment</div>
+You should get an incremented build number.
+
+<strong>Tie it All Together</strong>
+
+&nbsp;
+
+Your script is finished now.  The last step is to figure out how to use your new script to update your PHP files and your modify your git commits.  To make things easier, I've added an alias in my .bashrc file that looks like this - I added the sudo because my .git directories are locked
+<pre class="prettyprint">alias gitRevision='sudo sh .git/incr.sh'</pre>
+Now from your code directory you can run commands like these to update your build numbers
+<pre class="prettyprint">gitRevision 0.1 increment &gt; revision.txt
+git commit -a -m "My Commit Message $(gitRevision 0.1)"</pre>

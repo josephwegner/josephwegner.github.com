@@ -1,0 +1,43 @@
+---
+title: "Introducing node-session"
+date: 2011-06-17
+tags:
+  - "GitHub"
+  - "New Projects"
+  - "node-session"
+  - "Node.JS"
+  - "Node.js"
+  - "PHP"
+  - "porting"
+  - "sessions"
+  - "Tools"
+  - "tools"
+  - "Websites"
+---
+I'm sure that most of you know by now that I've been working on porting <a title="File Drop" href="https://joewegner.com/file-drop/">fileDrop</a> from PHP to Node.js.  I did this for a <a title="Why Node.JS? Security" href="https://joewegner.com/filedrop/why-node-js-security/">couple reasons</a>, but one of my more selfish reasons was for a good excuse to dive into Node.js and really learn it.  With that in mind, I promised myself that I would (or at least try) to write every bit of fileDrop myself.  I didn't want to use any modules that other people had written for me, that way I would get to know the ins and outs of many different facets of Node.js.  This encompassed quite a few things, including a web server, a MySQL interface,  an HTML parser, and tons more stuff that I haven't even gotten to.  A lovely side-effect of doing it this way is that I've written quite a few useful modules that I'm already starting to use in other projects.  I'm releasing the first of these modules today as it's own standalone project: node-session
+
+
+
+Node-session fills one of the most crucial gaps when transferring from PHP to Node.js.  In PHP you have the invaluable ability to store variables that are unique to a specific user's session.  This a critical tool - without it you would have to log in to every page you access, every time you access it.  Web sites would never be able to remember any information about you, essentially limiting them down to no-purpose pretty interfaces.  Node-session adds these features to Node.js in an extreamly easy-to-use way, and also with a very lightweight package.  Seriously - the entire <a title="node-session githb" href="https://github.com/josephwegner/node-session">git repository</a> is 3KB zipped.
+
+Using node-session is extremely simple - it's mimicked after how PHP does it, which requires very little interaction.  You can easily run node-session in your program like this:
+
+<pre class="prettyprint lang-js">
+
+var session = require('./node-session.js');
+
+//Start your http server however you like. Imagine the code below is inside of your server loop
+
+var yourSession = session.start(response, request); //response and request are the res/req variables passed from http.createServer()
+
+yourSession.testValue = "A session variable" //Create a session variable called testValue
+
+</pre>
+
+That's it!  One line of code to include the file, one line of code to initiate the user's session, and you're ready to go!  Simply add session variable with yourSession.YourVariableHere!
+
+Now, before you get too involved with node-session, I want to make one thing clear.  Node-session is not supposed to replace the features of any other Node.js web server.  There are <a title="Node.js Modules" href="https://github.com/joyent/node/wiki/modules">tons</a> of great Node.js modules out there, and many of them are web servers that kick the pants off anything I could write.  Node-session is intended for very simple use-cases, where a full web server module may be more than is necessary.  I would love to see node-session used in large production systems, but I encourage you to first dig into my source code to make sure you are comfortable with the feature set of node-session.
+
+&nbsp;
+
+You can download node-session from it's <a title="Node-session Github Repository" href="https://github.com/josephwegner/node-session">github repository</a>.

@@ -1,0 +1,152 @@
+---
+title: "how to build a tooltip plugin in jquery"
+date: 2011-04-07
+tags:
+  - "CSS"
+  - "fileDrop"
+  - "hover"
+  - "HTML"
+  - "infobox"
+  - "Javascript"
+  - "JQuery"
+  - "plugin"
+  - "Tools"
+  - "tools"
+  - "tooltip"
+---
+When i first started the job I'm currently at there was a man here who was similarly excited about building web apps as me.  In fact, he was my motivation to start learning PHP/JS, and we ended up working on a lot of projects together.  I quickly picked up web design techniques, and was blowing him away with how quickly I could design smooth-functioning interfaces.  He asked me what my trick was, and I told him about a framework that has changed my life - JQuery.  His response to my infatuation with JQuery was to say that I was "cheating".  He was convinced that by using JQuery's simple functions I was bypassing the heart of javascript, and thus not learning <em>real</em> programming.
+
+He was never able to persuade me, as you can see by all the jQuery in <a title="File Drop" href="https://joewegner.com/file-drop/">fileDrop</a>, but he did have a very valid point.  It's often very easy to jump over to the JQuery plugin gallery, pick out something that looks nice, and design your interface with just a few lines of code.  I don't condone that behavior in every situation - there certainly are huge merits to knowing how to get your hands dirty in actual javascript code.  I found myself facing this very predicament regarding tooltip-like info boxes on fileDrop.  I chose to follow the path of building it myself, in the name of self-edification.  The script is built utilizing a lot of JQuery, but at the same time I've written every line myself, and fully understand the ins and outs of it.  Now, in the name of writing your own code, here is a tutorial on building your own JQuery tooltip plugin.
+
+
+
+<strong>Define Your Goals</strong>
+
+My goal with this plugin was for it to be simple, reusable, and efficient.  I wanted to be able to load it up on any page, and not have to write tons of lines of code each time I wanted to make it work.  With this goal in mind, the first lines of code I wrote were these:
+
+<pre class="prettyprint">&lt;script type="text/javascript"&gt;
+     var myinfobox = new infoBox("infoBoxID");
+&lt;/script&gt;
+&lt;!--And later in my HTML--!&gt;
+&lt;div id="infoBoxID"&gt;Hello, Info Box!&lt;/div&gt;
+</pre>
+
+<strong>Create the Tooltip Icon</strong>
+
+While this code will change a little bit by the end of the plugin, it lays a pretty good groundwork for the requirements of the plugin.  What I want that infoBox object to do is convert the &lt;div&gt; into an &lt;img&gt;.  When the user hovers over that image, an info box should pop up, containing the text "Hello, Info Box!".  The first step of making that happen is pretty obvious - we need to change that &lt;div&gt; into an &lt;img&gt;.
+
+<pre class="prettyprint lang-js">
+function infoBox(id) {
+     select = "div#" + id;
+     html = $(select).html();//Get the data for the infobox
+
+     newHTML = "&lt;img src='images/info.png' id='" + id + "' /&gt;";//Build image
+     $(select).replaceWith(newHTML);
+
+     $.data(this.obj, "msg", html);//Set the data for the infoBox
+}
+</pre>
+
+There you have it.  Make sure you've got an image created for your tooltip icon, and place it in images/info.png (or wherever you want, and change the code accordingly).  If you include that js code in your file, your div should be changed to an image.  Unfortunately, so far it doesn't do anything beyond that.  You'll notice that if you hover over your tooltip icon, absolutely nothing happens.
+
+<strong>Show the Tooltip</strong>
+
+Now we get to the fun part - you can see in the above code that I grabbed the HTML content from the &lt;div&gt; and stored it in a variable called <em>html</em>.  I then used JQuery's data method to link the content as meta-data on the tooltip icon.  The entire point of this plugin is to take that content and drop it into a tooltip.  Before we can do that, however, we need to create a box for the tooltip.  I've created a separate function for creating the tooltip, because it doesn't need to happen every time we run the infoBox function.
+
+<pre class="prettyprint lang-js">
+if($("#infoBox").size()) //Checks if the infoBox is already created
+     genInfoBox();
+
+function genInfoBox() {
+     html = "&lt;div id='infoBox'&gt;&lt;/div&gt;";
+     $("body").prepend(html);
+}
+</pre>
+
+And I've got this CSS on that infoBox.  Feel free to change this to fit your website's theme better.  The important lines in here are the display:none, z-index:101, and position:absolute.
+
+<pre class="prettyprint">
+#infoBox {
+     text-align: center;
+     width: 200px;
+     background-color: #112233;
+     color: #FFFFFF;
+     border: 2px solid #445566;
+     padding-left: 5px;
+     position: absolute;
+     z-index: 101;
+     display: none;
+}
+
+</pre>
+
+All that's left now is to add some event handlers to hide, move, and show the infoBox at the appropriate times.  We will have a mouseenter and a mouseleave function, and that should handle everything we need.
+
+<pre class="prettyprint lang-js">
+//Code removed to keep this short.  Place this code after the genInfoBox(); block
+
+//I've created some object variables.  Right now, they're not really used for anything 
+//useful but they definitely could be.
+//One day, when this plugin gets extended (either by me or you)
+//we will appreciate that these are here.
+     this.id = id;
+     this.select = "img#" + this.id;//Create Object Variables
+     this.obj = $(this.select);
+     obj = this.obj;
+     
+     $(this.select).mouseenter(function() {
+
+          //Find where this specific tooltip icon is located.
+
+          pos = $(this).position();
+
+          tp = pos.top + 20;
+          left = pos.left;
+          newLeft = (left &lt; 200) ?  left  :  (left - 200);
+          //This stuff above tells the infoBox where to go in relation to the tooltip icon
+          //If  the icon is too far to the left on the screen
+          // it will show directly below the icon
+          //Otherwise, it will be offset so that the top-right corner touches the icon
+
+          $("#infoBox").hide();//Just in case it is still showing
+          $("#infoBox").html($.data(obj, "msg"));
+
+          $("#infoBox").css({//Place the box by the right infoBox
+               'top': tp,
+               'left': newLeft        });
+
+          $("#infoBox").show();//Show it    
+     });
+
+     $(this.select).mouseleave(function() {
+          $("#infoBox").hide();//Hide it
+     });
+
+</pre>
+
+<strong>Extend It</strong>
+
+I've commented pretty heavily in there, so most things should make sense.  If you got any questions about how/why things work, leave me a message in the comments.  There were a couple more minor features I wanted to add, both of which are just a few lines of code.  I wanted to be able to make the icon into a link, as well as be able to add classes to it as I desired.  Here's my code for that
+
+<pre class="prettyprint lang-js">
+//Your function declaration changes a little bit
+function infoBox(id, link, classes) {
+
+     //This code is hidden to keep things short
+
+     if(typeof link != "undefined") {//If a link was supplied, go there.
+          $(this.select).click(function() {
+               window.location = link;
+          });
+     }
+
+     if(typeof classes != undefined) {
+          for(var i in classes)
+               $(this.select).addClass(classes[i]);
+          }
+
+     //Some more code hidden to keep things short
+
+</pre>
+
+Let me know how you've extended your tooltip plugin, or what improvements you think could be made in the comments!

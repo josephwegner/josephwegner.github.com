@@ -1,0 +1,14 @@
+---
+interface Props {
+  fillColor?: string;
+  flip?: boolean;
+}
+
+const { fillColor = '#faf7f2', flip = false } = Astro.props;
+---
+
+<div class:list={["w-full overflow-hidden leading-[0]", flip && "rotate-180"]} aria-hidden="true">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-[60px] sm:h-[80px]">
+    <path d="M0,0 C300,100 900,0 1200,80 L1200,120 L0,120 Z" fill={fillColor} />
+  </svg>
+</div>

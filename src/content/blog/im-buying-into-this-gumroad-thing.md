@@ -1,0 +1,20 @@
+---
+title: "I'm buying into this Gumroad thing"
+date: 2012-02-26
+tags:
+  - "80char"
+  - "disrupt"
+  - "funding"
+  - "gumroad"
+  - "idea"
+  - "startup"
+  - "teensintech"
+  - "Websites"
+---
+Funny story.  About six months ago I was in the heavy stages of development for my startup/side project/time-killer, <a title="80char" href="https://80char.com" target="_blank">80char</a>.  I was coming to the realization that if I intended to release 80char anytime in the near future, I would have to have someone working beside me on the development.    I was pretty new to the startup community, but had recently heard of a young rockstar developer who had <a title="Turntable for iPhone" href="https://techcrunch.com/2011/09/07/turntable-fm-iphone-app/" target="_blank">built the turntable for iPhone app</a> - Sahil Lavingia.  I sent <a title="Sahil Lavingia Twitter" href="https://twitter.com/#!/shl" target="_blank">Sahil</a> an email talking up 80char and asking him to come be a part of the cool stuff I was doing.  He sent a polite, yet somewhat secretive, response saying he was trying to raise funding for one of his own projects, and wished me the best of luck.  Well, just a couple of weeks ago, Sahil's startup Gumroad got <a title="Gumroad gets funding" href="https://techcrunch.com/2012/02/08/gumroad-gets-1-1-million-from-chris-sacca-max-levchin-and-others-to-turn-any-link-into-a-payment-system/">$1.1 million in funding</a>.  Apparently I was out of my league.
+
+I've known about <a title="Gumroad" href="https://gumroad.com/">Gumroad</a> for quite some time now, and I've always dismissed it with the thought that "I don't have anything I can sell".   Gumroad was a product built for the creative type - graphic designers, poets, musicians.  Even the example product was an awesome icon that I could never dream of designing.  The more I think about it, though, the more I realize that that's simply not true.  Perhaps all of the examples that Gumroad provides are artsy fartsy, but why couldn't I have zipped up node-session, and sold it for $2?  I still could have open sourced it, but I could have used Gumroad as a donation platform (think free-as-in-beer, but free-as-in-coke because I'm not 21).
+
+That's the beautiful thing about the internet.  Chances are that if you're reading this blog, you're not one of those people that just consumes what the internet has to offer - you're a producer.  Whether you do <a title="Kevin Lipp - Graphic Designer" href="https://kevinlipp.com/" target="_blank">graphic design</a> or you churn out <a title="Ben Alman - Javascript Guru" href="https://benalman.com/" target="_blank">awesome javascript plugins</a>, you're producing something, and you mine as well make money from it.  It used to be that you had to jump through all kinds of hoops in order to sell anything online - Gumroad is disrupting that standard in a massive way.  You probably haven't thought of it yet, but now that the barrier to entry is simply an email address, what are you doing that you can sell?
+
+Now Sahil just needs to take me up on my idea to <a title="Gumroad and Square tweet" href="https://twitter.com/#!/Joe_Wegner/status/173499819824906240" target="_blank">integrate Gumroad and Square</a>, and then he can finally take over the world.  (Seriously, think about it!  Swipe your card, and get sent a link to download node-session!)

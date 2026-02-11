@@ -1,0 +1,8 @@
+---
+title: "fileDrop"
+link: https://github.com/josephwegner/fileDrop
+tags:
+  - "web"
+  - "tech"
+---
+fileDrop was built to ease the pain for businesses that require an easy method to move files back and forth. First and foremost, fileDrop's interface **just makes sense**.

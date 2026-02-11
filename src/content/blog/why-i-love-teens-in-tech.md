@@ -1,0 +1,22 @@
+---
+title: "Why I Love Teens in Tech"
+date: 2011-08-04
+tags:
+  - "startup"
+  - "teensintech"
+---
+For as long as I can remember I've been the "geekiest" person I knew in my age group.  I typed circles around people in grade school, hacked into the macs (we had <a title="mac G4" href="https://en.wikipedia.org/wiki/IMac_G4">these</a>) in middle school, and won every programming competition in high school.  I always felt like I was a step ahead of my peers - at least in technology - but resigned to the fact that that my skill was useless until I was "grown up."  I was a stupid teenager, I had to spend everyday in school, and I had no money.  So, I wasted those years when I had no obligations, and lost the opportunity to pursue what I'm good at with no distractions.
+
+A couple months ago I came across an organization that isn't OK with teenagers saying "I'm just a teenager".  <a href="https://www.teensintech.com">Teens in Tech</a> is a company founded by <a href="https://www.twitter.com/danielbru">Daniel Brusilovsky</a> to help teenagers get started as entrepreneurs.  Teens in Tech has hosted a <a href="https://teensintech.com/conference/">conference</a> the past couple years, and this year hosted an <a title="Teens in Tech Incubator" href="https://incubator.teensintech.com">incubator</a> consisting of six teenage-run startups.  I've gotten to know both the Teens in Tech team, as well as a couple of the incubator teams, and am very excited about the things that are happening.  I try to imagine the things that I could have done if there was a group like Teens in Tech encouraging me to grab my passions by the reigns, and not waste my teenage years.
+
+
+
+<em>Before we get too deep into this article, I want to point out that, while I am a developer for Teens in Tech, I volunteer my time to them, I was not asked to write this article, and I am genuinely excited about Teens in Tech and the Incubator.</em>
+
+With the Teens in Tech Conference just a day away (August 5th), things have really started to ramp up for the incubator teams.  Each of the six teams will be presenting a demo of their product to the entire conference, as well as to the media and some investors.  I've been following the teams activities via twitter and Google+, and am just amazed at the places they've been and the people they've met.  The teams have had a <a href="https://incubator.teensintech.com/mentors">list of mentors</a> too long for me to count, consisting of teenage entrepreneurs similar to themselves, as well as <a title="Robert Scoble Interviews Incubator Teams" href="https://www.youtube.com/watch?v=UUliW6PxCuw">leaders</a> in the tech industry.  Aside from the immense amount of knowledge offered to the team members, simply the opportunity to shake hands with the co-founders of <a title="Posterous" href="https://www.posterous.com">posterous</a> and <a title="DISQUS" href="https://www.disqus.com">DISQUS </a>is invaluable to a teenager just getting their feet wet in the startup culture.
+
+I've gotten to know a couple of the teams pretty well, and while these mentor sessions are critically important, I can say for certain that they're not what is going to make each of the teams successful.  The most valuable thing the teams have gained from this Incubator is their mindset.  When I was in high school I was convinced that I was severely limited by my age, but these teams have moved past that, and now focus on the goal rather than the hurdles.  As I've talked with the team leaders none of them have shown concern about <em>if</em> their company will take off, instead they talk about <em>when</em> their company will take off.  I struggle with that in my own <a title="80char" href="https://80char.com">startup</a>, and am very excited by the confidence and encouragement the Incubator has provided.
+
+I look forward to the day when this kind of thing isn't limited to Silicon Valley.  If you're a teenager out there that, similar to me, feels like they've got a boat load of talent but nowhere to put it, don't sit idle - Start something.  Shoot me an <a title="joe@joewegner.com" href="mailto:joe@joewegner.com">email</a>, or contact <a href="https://teensintech.com/#contact">Teens in Tech</a>; we would love to talk through getting you started in pursuing your passion and skills.
+
+Best of luck to each of the Incubator teams tomorrow!  You've all got great products, and I'm sure that you will be beyond successful!

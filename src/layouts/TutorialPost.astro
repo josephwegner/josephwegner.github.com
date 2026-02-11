@@ -1,0 +1,142 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  date: Date;
+  tutorialbg?: string;
+  message?: string;
+}
+
+const { title, date, tutorialbg = '#05051f', message } = Astro.props;
+const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout title={`${title} | Joe Wegner`} description={title}>
+  <article class="py-12 sm:py-16" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <header class="mb-8 max-w-3xl">
+        <h1 class="text-3xl sm:text-4xl font-bold text-deep" itemprop="name">{title}</h1>
+        <time datetime={date.toISOString()} class="block mt-3 text-text-secondary" itemprop="dateCreated">
+          {formattedDate}
+        </time>
+      </header>
+
+      {message && (
+        <div class="mb-8 max-w-3xl p-4 bg-amber/10 border border-amber/30 rounded-lg text-sm text-text-primary">
+          {message}
+        </div>
+      )}
+
+      <div class="tutorial-layout">
+        <div id="paragraph-text" class="prose prose-lg max-w-none" itemprop="text">
+          <slot />
+        </div>
+        <div class="tutorial-examples hidden md:block" style={`background-color: ${tutorialbg};`}>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <style>
+    .tutorial-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .tutorial-layout {
+        grid-template-columns: 55% 45%;
+      }
+    }
+
+    .tutorial-examples {
+      position: relative;
+      border-radius: 0.75rem;
+      box-shadow: inset 25px 0px 25px -25px rgba(0, 0, 0, 0.3);
+      min-height: 200px;
+    }
+
+    :global(.example-block) {
+      width: 100%;
+      text-align: center;
+    }
+
+    @media (max-width: 767px) {
+      :global(.example-block) {
+        background-color: #05051f;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        margin: 1rem 0;
+        color: white;
+      }
+    }
+  </style>
+
+  <script>
+    function positionExampleBlocks() {
+      const exampleContainer = document.querySelector('.tutorial-examples');
+      const paragraphContainer = document.getElementById('paragraph-text');
+
+      if (!exampleContainer || !paragraphContainer) return;
+
+      const isMobile = window.innerWidth < 768;
+      const exampleBlocks = document.querySelectorAll('.example-block');
+
+      if (isMobile) {
+        exampleBlocks.forEach((block) => {
+          const el = block as HTMLElement;
+          el.style.position = 'static';
+          el.style.display = 'block';
+
+          const targetId = el.dataset.targetAnchor;
+          if (targetId) {
+            const target = document.getElementById(targetId);
+            if (target) {
+              target.after(el);
+            }
+          }
+        });
+        return;
+      }
+
+      exampleContainer.setAttribute('style',
+        exampleContainer.getAttribute('style') + '; height: ' + paragraphContainer.offsetHeight + 'px;'
+      );
+
+      const containerOffset = paragraphContainer.getBoundingClientRect().top - exampleContainer.getBoundingClientRect().top;
+
+      exampleBlocks.forEach((block) => {
+        const el = block as HTMLElement;
+        el.style.display = 'none';
+        el.style.position = 'absolute';
+        el.style.top = '100%';
+        exampleContainer.appendChild(el);
+
+        el.style.display = 'block';
+        const realHeight = el.offsetHeight;
+        const targetId = el.dataset.targetAnchor;
+
+        if (targetId) {
+          const target = document.getElementById(targetId);
+          if (target) {
+            const targetRect = target.getBoundingClientRect();
+            const containerRect = paragraphContainer.getBoundingClientRect();
+            const position = targetRect.top - containerRect.top;
+            const targetHeight = target.offsetHeight;
+
+            el.style.position = 'absolute';
+            el.style.top = (position - (realHeight / 2) + containerOffset + targetHeight) + 'px';
+            el.style.left = '0';
+            el.style.margin = 'auto';
+          }
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', positionExampleBlocks);
+    window.addEventListener('resize', positionExampleBlocks);
+    setTimeout(positionExampleBlocks, 2000);
+  </script>
+</BaseLayout>

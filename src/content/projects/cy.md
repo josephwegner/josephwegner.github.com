@@ -1,0 +1,8 @@
+---
+title: "Cy"
+link: https://github.com/waltzio/cy
+tags:
+  - "node"
+  - "tech"
+---
+Cy is a secure encryption key generation system.  Using [Clef](https://getclef.com) for authentication and a simple API interface, Cy generates and stores secure cryptographic keys.

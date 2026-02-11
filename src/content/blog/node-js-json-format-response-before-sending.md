@@ -1,0 +1,38 @@
+---
+title: "node js json format response before sending"
+date: 2012-04-30
+tags:
+  - "Node.js"
+  - "override"
+---
+Chances are that if you're reading this blog, you're probably doing something in Node.js, or at least javascript. Furthermore, chances are that if you are doing something in Node.js, you like to speak <a title="JSON" href="https://www.json.org/">JSON</a>.  JSON is the universal language for speaking between two systems that don't necessarily speak the same language.  Originally the standard for this sort of exchange was XML, but JSON is becoming the preferred format due to its support for more specific types such as arrays.  If you're not already using JSON internally, it's probably a good idea to start, as many of the big-name APIs are defaulting to JSON.
+
+Trying to keep to that standard, I find myself writing the same lines over and over to encode my objects in JSON before returning them (this is generally returning to an API call).  I wrote a quick little script to automatically detect if I'm trying to respond with an object.  Here goes:
+[code lang="lang-js"]//This probably goes somewhere else, but for testing purposes...
+var http = require('http');
+
+//Scope this however is ideal for your environment
+var hold = http.ServerResponse.prototype.end;
+http.ServerResponse.prototype.end = function() {
+if(typeof(arguments[0]) === "object") {
+arguments[0] = JSON.stringify(arguments[0]);
+}
+
+hold.apply(this, arguments);
+};
+
+http.createServer(function(req, res) {
+//And build your objects however you like. No special format - just your data.
+var dat = {
+a: "This",
+b: "is",
+c: "some",
+d: "data!"
+};
+
+res.end(dat);
+}).listen(1234);[/code]
+
+Pretty simple little addition. As I mentioned in the code, you may want to scope the `hold` variable a little different, depending on your environment. Also - <strong>this is important</strong> - this will NOT work if you are using res.write(). This generally isn't the case if you are formatting in JSON, because it's hard to chunk an object, but if you are fancy like that you will need to make some modifications. It should be simple enough to override the res.write() function in a similar way as I did with res.end().
+
+Additionally, a system like this can be used for pretty much any pre-write hook.  It's not always a good idea to override the pre-defined functions in Node.js (it's hard to maintain), but occasionally that makes the most sense.  If you have different functionality you'd like to add, just replace the http.ServerResponse.prototype.end portion with whatever you need to do.

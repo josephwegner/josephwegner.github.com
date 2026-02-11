@@ -1,0 +1,8 @@
+---
+title: "Waltz"
+link: https://getwaltz.com
+tags:
+  - "chrome"
+  - "tech"
+---
+Waltz is a modern account manager for the web.  Simply by authenticating with [Clef](https://getclef.com), you can log in and log out from anywhere.

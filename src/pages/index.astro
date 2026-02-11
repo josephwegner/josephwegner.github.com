@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Timeline from '../components/Timeline.astro';
+import WaveDivider from '../components/WaveDivider.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+
+const featuredWriting = [
+  {
+    title: 'Remote Work Like You\'re Remote',
+    slug: 'remote-work-like-youre-remote',
+    blurb: 'Lessons from Heroku on making remote-first culture actually work, not just tolerating it.',
+  },
+  {
+    title: 'Startup Interview Questions',
+    slug: 'startup-interview-questions',
+    blurb: 'The questions I ask to figure out if a startup is worth joining -- culture, finances, and the stuff nobody tells you.',
+  },
+  {
+    title: 'Open Source for Real Companies',
+    slug: 'open-source-for-real-companies',
+    blurb: 'How open source economics actually work, and why companies should care beyond goodwill.',
+  },
+  {
+    title: 'Learning SVG with Logos',
+    slug: 'learning-svg-with-logos',
+    blurb: 'I taught myself SVG by recreating logos from scratch. Turns out it\'s not as scary as RegExp.',
+  },
+];
+
+const allProjects = await getCollection('projects');
+const codeProjects = await Promise.all(
+  allProjects.filter((p) => p.data.category === 'code').map(async (p) => {
+    const { Content } = await p.render();
+    return { data: p.data, Content };
+  })
+);
+const hobbyProjects = await Promise.all(
+  allProjects.filter((p) => p.data.category === 'hobby').map(async (p) => {
+    const { Content } = await p.render();
+    return { data: p.data, Content };
+  })
+);
+---
+
+<BaseLayout title="Joe Wegner — Engineering Leader, Maker, Dad">
+  <Hero />
+
+  <WaveDivider fillColor="#faf7f2" />
+
+  <Timeline />
+
+  <WaveDivider fillColor="#ffffff" />
+
+  <section class="py-16 sm:py-20 bg-white" aria-label="Featured writing">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-deep">Some things I wrote</h2>
+        <p class="mt-2 text-text-secondary">A few posts I'm particularly proud of</p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-6">
+        {featuredWriting.map((post) => (
+          <a href={`/blog/${post.slug}`} class="block bg-surface-card rounded-2xl p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] border border-purple-accent/10 hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+            <h3 class="text-lg font-bold text-deep hover:text-coral transition-colors">{post.title}</h3>
+            <p class="mt-2 text-sm text-text-secondary leading-relaxed">{post.blurb}</p>
+          </a>
+        ))}
+      </div>
+      <div class="mt-8 text-center">
+        <a href="/blog" class="text-coral font-medium hover:underline">View all posts &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <WaveDivider fillColor="#faf7f2" />
+
+  <section class="py-16 sm:py-20" aria-label="Open source and code projects">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-deep">Open Source & Code</h2>
+        <p class="mt-2 text-text-secondary">Things I've shipped</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {codeProjects.map(({ data, Content }) => (
+          <ProjectCard title={data.title} link={data.link} tags={data.tags}>
+            <Content />
+          </ProjectCard>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <WaveDivider fillColor="#ede8f5" />
+
+  <section class="relative py-16 sm:py-20 bg-lavender overflow-hidden" aria-label="Hobbies and making projects">
+    <div class="absolute top-12 left-[8%] w-40 h-40 rounded-full bg-peach/60 blur-2xl" aria-hidden="true"></div>
+    <div class="absolute bottom-16 right-[10%] w-52 h-52 rounded-full bg-mint/50 blur-2xl" aria-hidden="true"></div>
+    <div class="absolute top-1/2 left-[50%] w-32 h-32 rounded-full bg-coral/10 blur-2xl" aria-hidden="true"></div>
+    <div class="absolute top-24 right-[25%] w-20 h-20 rounded-full bg-amber/20 blur-xl" aria-hidden="true"></div>
+
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-deep">Hobbies & Making</h2>
+        <p class="mt-2 text-text-secondary">Things I've made for fun</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {hobbyProjects.map(({ data, Content }) => (
+          <ProjectCard title={data.title} link={data.link} tags={data.tags}>
+            <Content />
+          </ProjectCard>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -2,3 +2,6 @@ _site
 ./_drafts
 server
 *.DS_Store
+node_modules/
+dist/
+.astro/

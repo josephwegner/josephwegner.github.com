@@ -1,0 +1,19 @@
+---
+title: "Users and Files Reset on fileDrop"
+date: 2011-03-22
+tags:
+  - "fileDrop"
+  - "Security"
+---
+I uploaded a new build this morning and had to work out some kinks with the new file structure.  In the process I had to delete all current users and files.  Sorry for the inconvenience, but it should be simple enough to reregister.  Your group code should be beta, if it is not automatically set.
+
+
+
+On the topic of user registration, there have been some privacy concerns I would like to cover.
+<ul>
+	<li>None of the personal data provided in registration is currently being used by the system, aside from displaying metadata in the file list.  The data is collected with the assumptions that real-case business users will want to know some contact information of the people uploading files.</li>
+	<li>None of the personal data provided in registration <em>will</em> be used by myself or the system, aside from contacting you about fileDrop related issues.  Mainly, this will be used for notifications when files are successfully uploaded/downloaded.</li>
+	<li>fileDrop is in the early stages of development, and that has brought up the question of how secure user's passwords are.  I can assure you, I've put a good deal of thought and time into making sure your passwords can't be accessed by anyone - even myself.  I've put up pretty strict walls around the user database - which is actually why I had to wipe out all the old users - as well as salting and hashing each password.</li>
+	<li>Currently in the system there is no option for editing or deleting files or user info.  This is an upcoming feature, but until then I will make it my first priority to remove any files, personal information, or passwords upon request.  You can always contact me at joe@joewegner.com if you need to have something removed.</li>
+</ul>
+Hope this clears some things up.  If you have more concerns feel free to post them in the comments or contact me personally at joe@joewegner.com
