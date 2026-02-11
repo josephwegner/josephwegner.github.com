@@ -12,7 +12,7 @@ const { title, date, tutorialbg = '#05051f', message } = Astro.props;
 const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 
-<BaseLayout title={`${title} | Joe Wegner`} description={title}>
+<BaseLayout title={`${title} | Joe Wegner`} description={title} ogType="article" publishedDate={date}>
   <article class="py-12 sm:py-16" itemscope itemtype="https://schema.org/BlogPosting">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <header class="mb-8 max-w-3xl">

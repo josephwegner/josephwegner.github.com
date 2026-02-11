@@ -13,7 +13,7 @@ const { company, role, period, color, side } = Astro.props;
 <div class={`relative flex items-center gap-6 md:gap-10 ${side === 'right' ? 'md:flex-row-reverse' : ''}`}>
   <div class="hidden md:block md:w-1/2" aria-hidden="true"></div>
 
-  <div class="absolute left-[9px] md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full border-[3px] border-surface z-10 shrink-0" style={`background-color: ${color};`} aria-hidden="true"></div>
+  <div class="absolute left-[8px] md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full border-[3px] border-surface z-10 shrink-0" style={`background-color: ${color};`} aria-hidden="true"></div>
 
   <div class={`ml-10 md:ml-0 md:w-1/2 ${side === 'right' ? 'md:pr-10' : 'md:pl-10'}`}>
     <div class="bg-surface-card rounded-2xl px-5 py-4 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] border border-purple-accent/10">
