@@ -56,11 +56,18 @@ const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month:
       border-radius: 0.75rem;
       box-shadow: inset 25px 0px 25px -25px rgba(0, 0, 0, 0.3);
       min-height: 200px;
+      overflow: hidden;
     }
 
     :global(.example-block) {
       width: 100%;
       text-align: center;
+    }
+
+    :global(.example-block svg),
+    :global(.example-block img) {
+      margin-left: auto;
+      margin-right: auto;
     }
 
     @media (max-width: 767px) {
@@ -101,6 +108,15 @@ const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month:
         return;
       }
 
+      // Move all example blocks out of the paragraph first (hidden),
+      // so the paragraph height measurement is accurate.
+      exampleBlocks.forEach((block) => {
+        const el = block as HTMLElement;
+        el.style.display = 'none';
+        el.style.position = 'absolute';
+        exampleContainer.appendChild(el);
+      });
+
       exampleContainer.setAttribute('style',
         exampleContainer.getAttribute('style') + '; height: ' + paragraphContainer.offsetHeight + 'px;'
       );
@@ -109,11 +125,6 @@ const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month:
 
       exampleBlocks.forEach((block) => {
         const el = block as HTMLElement;
-        el.style.display = 'none';
-        el.style.position = 'absolute';
-        el.style.top = '100%';
-        exampleContainer.appendChild(el);
-
         el.style.display = 'block';
         const realHeight = el.offsetHeight;
         const targetId = el.dataset.targetAnchor;
@@ -126,10 +137,8 @@ const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month:
             const position = targetRect.top - containerRect.top;
             const targetHeight = target.offsetHeight;
 
-            el.style.position = 'absolute';
             el.style.top = (position - (realHeight / 2) + containerOffset + targetHeight) + 'px';
             el.style.left = '0';
-            el.style.margin = 'auto';
           }
         }
       });
