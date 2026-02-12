@@ -6,8 +6,9 @@ I've been doing web development for quite awhile now.  Maybe not relatively to t
 
 
 
-<blockquote class="twitter-tweet"><p>I&#39;ve worked out a really solid process for building Node.js webapps with my <a href="https://twitter.com/search?q=%23SimpleAPI&amp;src=hash">#SimpleAPI</a> and <a href="https://twitter.com/search?q=%23AngularJS&amp;src=hash">#AngularJS</a>. Makes web dev awesome.</p>&mdash; Joe Wegner (@Joe_Wegner) <a href="https://twitter.com/Joe_Wegner/statuses/361976252069974016">July 29, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+> I've worked out a really solid process for building Node.js webapps with my #SimpleAPI and #AngularJS. Makes web dev awesome.
+>
+> — Joe Wegner, July 29, 2013
 
 Now that I've figured out a process that really jives, I thought the rest of the world might be interested to hear about it.
 

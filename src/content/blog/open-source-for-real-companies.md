@@ -40,7 +40,7 @@ I've already explained, from personal experience, why the first point is in that
 
 There's a handful of businesses out there that work on things that are so massively scaled that it's almost impossible to compete with them. These are the kinds of companies that, whenever I hear about what they are working on, my reaction is to blurt out "My job is so easy." [SpaceX](https://www.spacex.com/) is the big obvious one that comes to mind. Even if SpaceX were to completely open up their source, document it with incredible detail, and personally hold the hand of any developer who was interested, it would still be nearly impossible to compete with them.
 
-<iframe src="https://vine.co/v/OjqeYWWpVWK/embed/simple" width="600" height="600" frameborder="0"></iframe><script src="https://platform.vine.co/static/scripts/embed.js"></script>
+*[The Vine video that was here showed SpaceX's Falcon 9 rocket crash-landing on a barge — the service shut down in 2017.]*
 
 That's a video of SpaceX crash landing a [$61.2M](https://www.spacex.com/about/capabilities) Falcon 9 rocket. They considered that a success, because it will help them get the landing correct [in the future](https://twitter.com/elonmusk/status/553855109114101760). There's not many companies out there that have the capital available to run $61.2M trial-and-error sort of tests. SpaceX's advantage is in its money, not its engineering.
 
